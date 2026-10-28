@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>www.luenchantee.ru — Lu Enchantée</title>
+<meta name="description" content="Lu Enchantée — галерея элитной бижутерии ручной работы. Парижская мастерская.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #fcfbfa;
+    --surface: #ffffff;
+    --ink: #1a1817;
+    --muted: #7e766c;
+    --gold: #c9a86a;
+    --gold-light: #e5d4b8;
+    --line: rgba(26,24,23,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .container { width: min(1400px, 92%); margin-inline: auto; }
+  section[id] { scroll-margin-top: 90px; }
+
+  /* --- HEADER --- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(252, 251, 250, 0.85);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    transition: all 0.4s ease;
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+    letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+  }
+  .logo-name em { font-style: italic; color: var(--gold); text-transform: none; }
+  .logo-domain { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: lowercase; color: var(--muted); margin-top: 2px; }
+  
+  nav ul { display: flex; gap: 40px; list-style: none; }
+  nav a {
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink); position: relative; font-weight: 400; transition: color 0.3s;
+  }
+  nav a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px;
+    background: var(--gold); transform: scaleX(0); transition: transform 0.3s ease;
+  }
+  nav a:hover::after { transform: scaleX(1); }
+  
+  .langs { display: flex; gap: 8px; }
+  .langs button {
+    background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); transition: color 0.3s;
+  }
+  .langs button.active { color: var(--ink); font-weight: 500; }
+  .langs button:hover { color: var(--gold); }
+
+  /* --- HERO --- */
+  .hero {
+    padding: 220px 0 140px; text-align: center; background: var(--bg);
+    position: relative;
+  }
+  .hero .eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 300; line-height: 0.95;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p {
+    max-width: 580px; margin: 0 auto; font-size: 1.05rem; color: var(--muted);
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem;
+  }
+
+  /* --- CATALOG --- */
+  .catalog-section { padding: 100px 0 120px; background: var(--surface); }
+  .section-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 60px; text-align: center; }
+  .section-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 16px; }
+  .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
+  
+  .filters {
+    display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; flex-wrap: wrap;
+  }
+  .filter {
+    background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+    position: relative; padding-bottom: 6px; transition: color 0.3s;
+  }
+  .filter::after {
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: var(--gold); transform: scaleX(0); transition: transform 0.3s;
+  }
+  .filter.active { color: var(--ink); }
+  .filter.active::after { transform: scaleX(1); }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 6vw 4vw;
+  }
+  .product { display: flex; flex-direction: column; cursor: pointer; group: product; }
+  
+  .product-media {
+    position: relative; aspect-ratio: 3/4; overflow: hidden;
+    background: #f0ebe1; border-radius: 2px;
+  }
+  .product-media img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  .product:hover .product-media img { transform: scale(1.06); }
+  
+  /* Кнопка "Подробнее" появляется при наведении */
+  .product-action {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(15px);
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+    color: var(--ink); padding: 12px 28px; border-radius: 999px;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    opacity: 0; transition: all 0.4s ease; border: 1px solid transparent; white-space: nowrap;
+  }
+  .product:hover .product-action {
+    opacity: 1; transform: translateX(-50%) translateY(0);
+  }
+  .product-action:hover { background: var(--ink); color: #fff; }
+
+  .product-info { padding-top: 24px; text-align: center; }
+  .product-cat {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .product-name { font-size: 1.6rem; font-weight: 400; margin-bottom: 6px; }
+  .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; font-weight: 300; }
+  .product-price { font-size: 1rem; letter-spacing: 0.05em; }
+
+  /* --- ABOUT --- */
+  .about-section { padding: 140px 0; background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img { aspect-ratio: 4/5; background: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop') center/cover; }
+  .about-text { padding-right: 40px; }
+  .about-text h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 24px; }
+  .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; font-weight: 300; }
+  .about-signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gold); margin-top: 30px; }
+
+  /* --- FOOTER --- */
+  footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--line); background: var(--surface); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
+  .footer-domain { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: lowercase; color: var(--gold); margin-bottom: 24px; }
+  .footer-copy { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--muted); }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img { aspect-ratio: 16/9; }
+    .about-text { padding-right: 0; }
+  }
+  @media (max-width: 768px) {
+    .header-inner { flex-direction: column; gap: 16px; padding: 16px 0; }
+    nav ul { gap: 20px; }
+    .hero { padding: 180px 0 100px; }
+    .grid { grid-template-columns: 1fr; gap: 50px; }
+    .filters { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+    <nav>
+      <ul>
+        <li><a href="#catalog" data-i18n="nav.catalog">Каталог</a></li>
+        <li><a href="#about" data-i18n="nav.about">О бренде</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="logo">
+      <span class="logo-name">Lu <em>Enchantée</em></span>
+      <span class="logo-domain">www.luenchantee.ru</span>
+    </a>
+    <div class="langs">
+      <button data-lang="ru">RU</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="fr">FR</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow" data-i18n="hero.eyebrow">Париж · с 2019 года</div>
+    <h1>Lu <em>Enchantée</em></h1>
+    <p data-i18n="hero.lead">Искусство быть незабываемой. Украшения, в которых драгоценная простота встречается с парижской нежностью.</p>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section" id="catalog">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="catalog.title">Коллекция</h2>
+      <p class="section-sub" data-i18n="catalog.sub">Каждое украшение создано вручную в нашей парижской мастерской. Выберите свое настроение.</p>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-filter="all" data-i18n="filter.all">Все</button>
+      <button class="filter" data-filter="rings" data-i18n="filter.rings">Кольца</button>
+      <button class="filter" data-filter="earrings" data-i18n="filter.earrings">Серьги</button>
+      <button class="filter" data-filter="necklaces" data-i18n="filter.necklaces">Колье</button>
+      <button class="filter" data-filter="bracelets" data-i18n="filter.bracelets">Браслеты</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container about-grid">
+    <div class="about-img"></div>
+    <div class="about-text">
+      <h2 data-i18n="about.title">Философия бренда</h2>
+      <p data-i18n="about.p1">Lu Enchantée — парижская мастерская элитной бижутерии. Мы создаём украшения, которые становятся частью личной истории: сдержанные днём и сияющие вечером.</p>
+      <p data-i18n="about.p2">Мы работаем с позолоченным серебром, натуральными камнями и жемчугом. Каждое изделие собирается вручную и проходит несколько этапов контроля качества.</p>
+      <div class="about-signature" data-i18n="about.signature">— Основательница Lu Enchantée</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Lu Enchantée</div>
+    <div class="footer-domain">www.luenchantee.ru</div>
+    <div class="footer-copy">© <span id="year"></span> · <span data-i18n="footer.rights">Все права защищены</span></div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   ДАННЫЕ КАТАЛОГА
+   ========================================================= */
+const products = [
+  {
+    id:'r1', category:'rings', price:'24 900 ₽',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop',
+    name:{ru:'Soleil', en:'Soleil', fr:'Soleil'},
+    material:{ru:'Позолоченное серебро · фианит', en:'Gold-plated silver · zirconia', fr:'Argent doré · zircone'}
+  },
+  {
+    id:'e1', category:'earrings', price:'18 500 ₽',
+    image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop',
+    name:{ru:'Étoile', en:'Étoile', fr:'Étoile'},
+    material:{ru:'Позолоченное серебро · топаз', en:'Gold-plated silver · topaz', fr:'Argent doré · topaze'}
+  },
+  {
+    id:'n1', category:'necklaces', price:'32 000 ₽',
+    image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop',
+    name:{ru:'Lune', en:'Lune', fr:'Lune'},
+    material:{ru:'Позолоченное серебро · речной жемчуг', en:'Gold-plated silver · freshwater pearl', fr:'Argent doré · perle d\'eau douce'}
+  },
+  {
+    id:'b1', category:'bracelets', price:'27 400 ₽',
+    image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop',
+    name:{ru:'Rivière', en:'Rivière', fr:'Rivière'},
+    material:{ru:'Позолоченное серебро · сапфиры', en:'Gold-plated silver · sapphires', fr:'Argent doré · saphirs'}
+  },
+  {
+    id:'r2', category:'rings', price:'21 700 ₽',
+    image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop',
+    name:{ru:'Nuit', en:'Nuit', fr:'Nuit'},
+    material:{ru:'Родированное серебро · чёрный оникс', en:'Rhodium-plated silver · black onyx', fr:'Argent rhodié · onyx noir'}
+  },
+  {
+    id:'e2', category:'earrings', price:'16 900 ₽',
+    image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop',
+    name:{ru:'Perle', en:'Perle', fr:'Perle'},
+    material:{ru:'Позолоченное серебро · жемчуг', en:'Gold-plated silver · pearl', fr:'Argent doré · perle'}
+  }
+];
+
+/* =========================================================
+   ПЕРЕВОДЫ
+   ========================================================= */
+const translations = {
+  ru: {
+    "meta.title": "www.luenchantee.ru — Lu Enchantée",
+    "nav.catalog":"Каталог", "nav.about":"О бренде",
+    "hero.eyebrow":"Париж · с 2019 года",
+    "hero.lead":"Искусство быть незабываемой. Украшения, в которых драгоценная простота встречается с парижской нежностью.",
+    "catalog.title":"Коллекция",
+    "catalog.sub":"Каждое украшение создано вручную в нашей парижской мастерской. Выберите свое настроение.",
+    "filter.all":"Все", "filter.rings":"Кольца", "filter.earrings":"Серьги", "filter.necklaces":"Колье", "filter.bracelets":"Браслеты",
+    "about.title":"Философия бренда",
+    "about.p1":"Lu Enchantée — парижская мастерская элитной бижутерии. Мы создаём украшения, которые становятся частью личной истории: сдержанные днём и сияющие вечером.",
+    "about.p2":"Мы работаем с позолоченным серебром, натуральными камнями и жемчугом. Каждое изделие собирается вручную и проходит несколько этапов контроля качества.",
+    "about.signature":"— Основательница Lu Enchantée",
+    "footer.rights":"Все права защищены",
+    "btn.details": "Подробнее"
+  },
+  en: {
+    "meta.title": "www.luenchantee.ru — Lu Enchantée",
+    "nav.catalog":"Collection", "nav.about":"About",
+    "hero.eyebrow":"Paris · since 2019",
+    "hero.lead":"The art of being unforgettable. Jewellery where precious simplicity meets Parisian softness.",
+    "catalog.title":"The Collection",
+    "catalog.sub":"Every piece is handcrafted in our Parisian atelier. Find your mood.",
+    "filter.all":"All", "filter.rings":"Rings", "filter.earrings":"Earrings", "filter.necklaces":"Necklaces", "filter.bracelets":"Bracelets",
+    "about.title":"Brand Philosophy",
+    "about.p1":"Lu Enchantée is a Parisian fine jewellery atelier. We create pieces that become part of a personal story — understated by day, radiant by night.",
+    "about.p2":"We work with gold-plated silver, natural stones and pearls. Every piece is assembled by hand and passes several quality checks.",
+    "about.signature":"— Founder of Lu Enchantée",
+    "footer.rights":"All rights reserved",
+    "btn.details": "View Details"
+  },
+  fr: {
+    "meta.title": "www.luenchantee.ru — Lu Enchantée",
+    "nav.catalog":"Collection", "nav.about":"La Maison",
+    "hero.eyebrow":"Paris · depuis 2019",
+    "hero.lead":"L'art d'être inoubliable. Des bijoux où la simplicité précieuse rencontre la douceur parisienne.",
+    "catalog.title":"La Collection",
+    "catalog.sub":"Chaque bijou est fait main dans notre atelier parisien. Trouvez votre humeur.",
+    "filter.all":"Tout", "filter.rings":"Bagues", "filter.earrings":"Boucles d'oreilles", "filter.necklaces":"Colliers", "filter.bracelets":"Bracelets",
+    "about.title":"Philosophie de la Maison",
+    "about.p1":"Lu Enchantée est un atelier parisien de bijoux fins. Nous créons des pièces qui font partie d'une histoire personnelle : discrètes le jour, éclatantes le soir.",
+    "about.p2":"Nous travaillons l'argent doré, les pierres naturelles et les perles. Chaque bijou est assemblé à la main et passe plusieurs contrôles qualité.",
+    "about.signature":"— Fondatrice de Lu Enchantée",
+    "footer.rights":"Tous droits réservés",
+    "btn.details": "Découvrir"
+  }
+};
+
+/* =========================================================
+   ЛОГИКА
+   ========================================================= */
+let currentLang = 'ru';
+let currentFilter = 'all';
+
+function renderProducts() {
+  const grid = document.getElementById('grid');
+  const list = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+  const t = translations[currentLang];
+
+  grid.innerHTML = list.map(p => {
+    const name = p.name[currentLang] || p.name.ru;
+    const material = p.material[currentLang] || p.material.ru;
+    const catLabel = t['filter.' + p.category] || p.category;
+    
+    return `
+      <article class="product">
+        <div class="product-media">
+          <img src="${p.image}" alt="${name}" loading="lazy">
+          <div class="product-action">${t['btn.details']}</div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">${catLabel}</div>
+          <h3 class="product-name">${name}</h3>
+          <p class="product-material">${material}</p>
+          <div class="product-price">${p.price}</div>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function setLang(lang) {
+  if (!translations[lang]) lang = 'ru';
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+  });
+
+  document.querySelectorAll('.langs button').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  document.title = translations[lang]['meta.title'];
+  renderProducts();
+  localStorage.setItem('lu-lang', lang);
+}
+
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter');
+  if (!btn) return;
+  currentFilter = btn.dataset.filter;
+  document.querySelectorAll('.filter').forEach(b => b.classList.toggle('active', b === btn));
+  renderProducts();
+});
+
+document.querySelectorAll('.langs button').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+const saved = localStorage.getItem('lu-lang');
+const browser = (navigator.language || 'ru').slice(0, 2);
+setLang(saved || (translations[browser] ? browser : 'ru'));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

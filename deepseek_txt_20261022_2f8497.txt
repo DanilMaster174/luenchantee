@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Основной домен (без www и с www — оба варианта)
+Host: https://www.luenchantee.ru
+
+# Карта сайта
+Sitemap: https://www.luenchantee.ru/sitemap.xml
