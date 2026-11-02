@@ -19,7 +19,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>www.luenchantee.ru — Lu Enchantée | Эксклюзивная бижутерия</title>
   
-  <!-- Иконка сайта -->
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFhMWMyMCIvPjx0ZXh0IHg9IjUwIiB5PSI3NSIgZm9udC1zaXplPSI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiNjOWE4NmEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkw8L3RleHQ+PC9zdmc+">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,29 +82,18 @@
 
     /* --- HERO SPLIT --- */
     .hero-split { display: flex; height: 80vh; min-height: 600px; margin-top: 110px; }
-    .hero-half { flex: 1; position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 60px; overflow: hidden; cursor: pointer; background-color: #111; }
-    
-    /* Фоны встроены в CSS (Base64) */
+    .hero-half { flex: 1; position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 60px; overflow: hidden; cursor: pointer; background-size: cover; background-position: center; transition: transform 1s ease; }
+    .hero-half:hover { transform: scale(1.02); }
+    .hero-half::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%); z-index: 1; }
+    .hero-title { position: relative; z-index: 2; color: #fff; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+
+    /* Встроенные фоны (Base64) */
     .bg-women {
-      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q=='); /* Заглушка, реальный код ниже */
-      background-size: cover;
-      background-position: center;
+      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q=='); 
     }
-    
-    .bg-women { background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop'); }
-    .bg-men { background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop'); }
-    
-    .hero-half::before {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background-size: cover; background-position: center;
-      transition: transform 1s ease;
+    .bg-men {
+      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==');
     }
-    .hero-half.bg-women::before { background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop'); }
-    .hero-half.bg-men::before { background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop'); }
-    
-    .hero-half:hover::before { transform: scale(1.05); }
-    .hero-half::after { content: ''; position: absolute; inset: 0; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%); }
-    .hero-title { position: relative; z-index: 3; color: #fff; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
 
     /* --- CATALOG --- */
     .section-padding { padding: 100px 0; }
@@ -244,7 +232,6 @@
       </nav>
 
       <div class="header-right">
-        <!-- Иконка корзины -->
         <div class="cart-icon" onclick="toggleCart()">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -401,7 +388,7 @@
 </div>
 
 <script>
-// Используем SVG-заглушки для карточек, чтобы они 100% загрузились
+// Безопасные заглушки для карточек (если интернет-фото не загрузятся)
 const createSVG = (text) => `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect width="600" height="600" fill="#e8e5df"/><text x="50%" y="50%" font-family="Georgia, serif" font-size="40" fill="#8a7f71" text-anchor="middle" dominant-baseline="middle">${text}</text></svg>`)}`;
 
 const products = [
@@ -414,7 +401,6 @@ const products = [
   { id:'m2', gender:'men', category:'rings', title:'Nuit', material:'Серебро · чёрный оникс', priceNum: 21700, price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=600&auto=format&fit=crop', desc: 'Строгое кольцо.' }
 ];
 
-// Заменяем пути на SVG заглушки для 100% отображения
 products.forEach(p => { p.fallback = createSVG(p.title); });
 
 let currentGender = 'women';
@@ -460,9 +446,7 @@ document.getElementById('catalog-nav').addEventListener('click', (e) => {
 
 function renderGrid() {
   const grid = document.getElementById('grid');
-  let filtered = products.filter(p => {
-    return p.gender === currentGender && (currentCategory === 'all' || p.category === currentCategory);
-  });
+  let filtered = products.filter(p => p.gender === currentGender && (currentCategory === 'all' || p.category === currentCategory));
 
   if (filtered.length === 0) {
     grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 40px 0;">В этой категории пока нет товаров.</p>`;
@@ -472,7 +456,6 @@ function renderGrid() {
   grid.innerHTML = filtered.map(p => `
     <article class="product-card">
       <div class="product-img" onclick="openModal('${p.id}')">
-        <!-- Используем onerror для подстраховки -->
         <img src="${p.image}" onerror="this.onerror=null;this.src='${p.fallback}'" alt="${p.title}" loading="lazy">
       </div>
       <div class="product-content">
@@ -499,38 +482,23 @@ function openModal(id) {
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal(modalId) {
-  document.getElementById(modalId).classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('product-modal').addEventListener('click', (e) => {
-  if (e.target === document.getElementById('product-modal')) closeModal('product-modal');
-});
-document.getElementById('cart-modal').addEventListener('click', (e) => {
-  if (e.target === document.getElementById('cart-modal')) closeModal('cart-modal');
-});
+function closeModal(modalId) { document.getElementById(modalId).classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('product-modal').addEventListener('click', (e) => { if (e.target === document.getElementById('product-modal')) closeModal('product-modal'); });
+document.getElementById('cart-modal').addEventListener('click', (e) => { if (e.target === document.getElementById('cart-modal')) closeModal('cart-modal'); });
 
 function addToCart(id) {
   const product = products.find(p => p.id === id);
   const existing = cart.find(item => item.id === id);
   if (existing) existing.quantity += 1;
   else cart.push({ ...product, quantity: 1 });
-  
   updateCartUI();
   const countEl = document.getElementById('cart-count');
   countEl.style.transform = 'scale(1.5)';
   setTimeout(() => countEl.style.transform = 'scale(1)', 300);
 }
 
-function addToCartFromModal() {
-  if (currentProductId) { addToCart(currentProductId); closeModal('product-modal'); }
-}
-
-function removeFromCart(id) {
-  cart = cart.filter(item => item.id !== id);
-  updateCartUI();
-}
+function addToCartFromModal() { if (currentProductId) { addToCart(currentProductId); closeModal('product-modal'); } }
+function removeFromCart(id) { cart = cart.filter(item => item.id !== id); updateCartUI(); }
 
 function updateCartUI() {
   document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
