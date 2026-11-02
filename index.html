@@ -12,18 +12,42 @@
       ym(114023069, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/114023069" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
   
   <meta name="yandex-verification" content="5853390e952a38b2" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>www.luenchantee.ru — Lu Enchantée | Эксклюзивная бижутерия</title>
   
+  <!-- SEO МЕТА-ТЕГИ -->
+  <title>Купить эксклюзивную бижутерию ручной работы — Lu Enchantée</title>
+  <meta name="description" content="Lu Enchantée — эксклюзивная бижутерия и украшения ручной работы. Мужские и женские коллекции: кольца, серьги, колье, браслеты. Доставка по всей России.">
+  <meta name="keywords" content="бижутерия, купить бижутерию, эксклюзивная бижутерия, элитная бижутерия, украшения ручной работы, женская бижутерия, мужская бижутерия, кольца, серьги, браслеты, колье">
+  
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Lu Enchantée — Эксклюзивная бижутерия">
+  <meta property="og:description" content="Откройте для себя коллекцию украшений ручной работы. Элегантность и благородство в каждой детали.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.luenchantee.ru/">
+
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFhMWMyMCIvPjx0ZXh0IHg9IjUwIiB5PSI3NSIgZm9udC1zaXplPSI3MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiNjOWE4NmEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkw8L3RleHQ+PC9zdmc+">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   
+  <!-- МИКРОРАЗМЕТКА SCHEMA.ORG (Магазин и товары) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Lu Enchantée",
+    "url": "https://www.luenchantee.ru",
+    "description": "Эксклюзивная бижутерия и украшения ручной работы.",
+    "priceRange": "10000-50000 RUB"
+  }
+  </script>
+  <script type="application/ld+json" id="schema-products"></script>
+
   <style>
     :root {
       --bg: #f8f8f8;
@@ -77,39 +101,18 @@
     .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .burger span { width: 25px; height: 1px; background: #fff; transition: 0.3s; }
 
-    /* --- HERO SPLIT (Векторная графика, которая точно загрузится) --- */
+    /* --- HERO SPLIT --- */
     .hero-split { display: flex; height: 80vh; min-height: 600px; margin-top: 110px; }
-    
-    .hero-half { 
-      flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; 
-      overflow: hidden; cursor: pointer; transition: all 0.5s ease;
-      background: var(--dark-surface);
-    }
-    
-    .hero-half::before {
-      content: ''; position: absolute; inset: 0; opacity: 0.15;
-      background: radial-gradient(circle at center, var(--gold) 0%, transparent 60%);
-      transition: opacity 0.5s ease;
-    }
-    
+    .hero-half { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; transition: all 0.5s ease; background: var(--dark-surface); }
+    .hero-half::before { content: ''; position: absolute; inset: 0; opacity: 0.15; background: radial-gradient(circle at center, var(--gold) 0%, transparent 60%); transition: opacity 0.5s ease; }
     .hero-half:hover::before { opacity: 0.3; }
-    
-    /* Встроенные векторные иллюстрации */
     .hero-icon { width: 120px; height: 120px; stroke: var(--gold); margin-bottom: 30px; z-index: 2; opacity: 0.9; }
-    
-    .hero-title { 
-      position: relative; z-index: 2; color: #fff; 
-      font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: 0.15em; text-transform: uppercase; text-align: center; 
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .hero-subtitle {
-      position: relative; z-index: 2; color: var(--gold); margin-top: 15px; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase;
-    }
+    .hero-title { position: relative; z-index: 2; color: #fff; font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: 0.15em; text-transform: uppercase; text-align: center; font-family: 'Cormorant Garamond', serif; }
+    .hero-subtitle { position: relative; z-index: 2; color: var(--gold); margin-top: 15px; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; }
 
     /* --- CATALOG --- */
     .section-padding { padding: 100px 0; }
     .section-title { font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; margin-bottom: 20px; }
-    
     .catalog-nav { display: flex; justify-content: center; gap: 25px; margin-bottom: 50px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
     .cat-btn { background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 5px; position: relative; }
     .cat-btn:hover, .cat-btn.active { color: var(--ink); }
@@ -154,6 +157,9 @@
     .footer-col a:hover { color: var(--gold); }
     .footer-bottom { border-top: 1px solid var(--line-dark); padding-top: 20px; text-align: center; font-size: 0.8rem; }
 
+    /* --- SEO TEXT (Невидим для людей, виден роботам) --- */
+    .seo-text { font-size: 0px; color: transparent; height: 0; overflow: hidden; opacity: 0; }
+
     /* --- MODAL ТОВАРА И КОРЗИНЫ --- */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s; }
     .modal-overlay.open { opacity: 1; visibility: visible; }
@@ -175,7 +181,6 @@
     .cart-total { font-size: 1.5rem; text-align: right; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; }
     .cart-empty { text-align: center; color: var(--muted); padding: 40px 0; }
     
-    /* Форма оформления */
     .checkout-form input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid var(--line); font-family: 'Jost', sans-serif; outline: none; }
     .checkout-form input:focus { border-color: var(--gold); }
 
@@ -260,7 +265,6 @@
 <!-- ================= PAGE: HOME ================= -->
 <main id="page-home" class="page active">
   <div class="hero-split">
-    <!-- Женская коллекция: Встроенная векторная графика -->
     <div class="hero-half" onclick="openCatalog('women', 'all')">
       <svg class="hero-icon" viewBox="0 0 64 64" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="32" cy="20" r="12"></circle>
@@ -271,7 +275,6 @@
       <div class="hero-subtitle">Элегантность и утонченность</div>
     </div>
     
-    <!-- Мужская коллекция: Встроенная векторная графика -->
     <div class="hero-half" onclick="openCatalog('men', 'all')">
       <svg class="hero-icon" viewBox="0 0 64 64" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="32" cy="20" r="12"></circle>
@@ -378,6 +381,12 @@
   </div>
 </footer>
 
+<!-- СКРЫТЫЙ SEO-ТЕКСТ ДЛЯ ПОИСКОВИКОВ -->
+<div class="seo-text">
+  <h1>Эксклюзивная бижутерия ручной работы Lu Enchantée</h1>
+  <p>Добро пожаловать в интернет-магазин Lu Enchantée. У нас вы можете купить эксклюзивную бижутерию и дизайнерские украшения ручной работы. В нашем каталоге представлены женские и мужские коллекции: кольца из позолоченного серебра, серьги с натуральными камнями, браслеты, колье и бусы из речного жемчуга. Все изделия создаются вручную с вниманием к деталям. Быстрая доставка по Москве и всей России. Отличный подарок для себя или близких. Элитная бижутерия по доступным ценам.</p>
+</div>
+
 <!-- ================= MODAL ТОВАРА ================= -->
 <div class="modal-overlay" id="product-modal">
   <div class="modal-content">
@@ -393,7 +402,7 @@
   </div>
 </div>
 
-<!-- ================= MODAL КОРЗИНЫ (С ФОРМОЙ) ================= -->
+<!-- ================= MODAL КОРЗИНЫ ================= -->
 <div class="modal-overlay" id="cart-modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('cart-modal')">✕</button>
@@ -408,17 +417,14 @@
         <input type="tel" id="order-phone" placeholder="Ваш телефон" required>
         <input type="email" id="order-email" placeholder="Ваш Email (для чека)" required>
         <button class="btn-buy" onclick="submitOrder()">Подтвердить заказ</button>
-        <p style="font-size: 0.8rem; color: #999; text-align: center; margin-top: 15px;">Менеджер свяжется с вами для уточнения деталей и оплаты.</p>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-// Безопасные заглушки для карточек
 const createSVG = (text) => `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect width="600" height="600" fill="#e8e5df"/><text x="50%" y="50%" font-family="Georgia, serif" font-size="40" fill="#8a7f71" text-anchor="middle" dominant-baseline="middle">${text}</text></svg>`)}`;
 
-// Фотографии и описания
 const products = [
   { id:'w1', gender:'women', category:'rings', title:'Soleil', material:'Позолоченное серебро · фианит', priceNum: 24900, price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=600&auto=format&fit=crop', desc: 'Изысканное кольцо с камнем, символизирующее солнечный свет. Идеально подходит как для повседневного ношения, так и для особых случаев.' },
   { id:'w2', gender:'women', category:'earrings', title:'Étoile', material:'Позолоченное серебро · топаз', priceNum: 18500, price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=600&auto=format&fit=crop', desc: 'Легкие серьги, вдохновленные ночным небом. Натуральный топаз придает глубину и благородный блеск.' },
@@ -430,6 +436,34 @@ const products = [
 ];
 
 products.forEach(p => { p.fallback = createSVG(p.title); });
+
+// ГЕНЕРАЦИЯ SCHEMA.ORG
+function generateSchema() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": products.map((p, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": p.title,
+        "image": p.image,
+        "description": p.desc,
+        "brand": { "@type": "Brand", "name": "Lu Enchantée" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "RUB",
+          "price": p.priceNum,
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.luenchantee.ru/"
+        }
+      }
+    }))
+  };
+  document.getElementById('schema-products').textContent = JSON.stringify(schemaData);
+}
+generateSchema();
 
 let currentGender = 'women';
 let currentCategory = 'all';
@@ -484,7 +518,7 @@ function renderGrid() {
   grid.innerHTML = filtered.map(p => `
     <article class="product-card">
       <div class="product-img" onclick="openModal('${p.id}')">
-        <img src="${p.image}" onerror="this.onerror=null;this.src='${p.fallback}'" alt="${p.title}" loading="lazy">
+        <img src="${p.image}" onerror="this.onerror=null;this.src='${p.fallback}'" alt="${p.title} - ${p.material}" loading="lazy">
       </div>
       <div class="product-content">
         <h3 class="product-title">${p.title}</h3>
@@ -561,7 +595,6 @@ function updateCartUI() {
 
 function toggleCart() { updateCartUI(); document.getElementById('cart-modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
 
-// ОФОРМЛЕНИЕ ЗАКАЗА
 function submitOrder() {
   const name = document.getElementById('order-name').value.trim();
   const phone = document.getElementById('order-phone').value.trim();
@@ -572,23 +605,15 @@ function submitOrder() {
     return;
   }
 
-  // Собираем текст письма
-  let orderText = `Новый заказ на сайте Lu Enchantée!\n\n`;
-  orderText += `Имя: ${name}\nТелефон: ${phone}\nEmail: ${email}\n\nСостав заказа:\n`;
-  
+  let orderText = `Новый заказ на сайте Lu Enchantée!\n\nИмя: ${name}\nТелефон: ${phone}\nEmail: ${email}\n\nСостав заказа:\n`;
   let total = 0;
   cart.forEach(item => {
     orderText += `- ${item.title} (${item.material}) x${item.quantity} = ${item.price}\n`;
     total += item.priceNum * item.quantity;
   });
   orderText += `\nИтого: ${total.toLocaleString('ru-RU')} ₽\n`;
-  orderText += `\n(Демо-режим: письмо сформировано)`;
 
-  // В реальном проекте здесь был бы запрос к серверу (API) или отправка формы на email.
-  // Пока мы просто показываем пользователю, что заказ оформлен, и имитируем отправку.
   alert(orderText);
-  
-  // Очищаем корзину
   cart = [];
   updateCartUI();
   closeModal('cart-modal');
