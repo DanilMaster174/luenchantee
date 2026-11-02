@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
           m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -12,23 +11,21 @@
       ym(114023069, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/114023069" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
   
   <meta name="yandex-verification" content="5853390e952a38b2" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>www.luenchantee.ru — Lu Enchantée</title>
-  <meta name="description" content="Lu Enchantée — элитная бижутерия ручной работы. Мужские и женские коллекции.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    :root{
+    :root {
       --bg: #f8f8f8;
       --surface: #ffffff;
-      --dark-bg: #1a1c20; /* Темный графит как на Phantom */
+      --dark-bg: #1a1c20;
       --dark-surface: #25282e;
       --ink: #1a1817;
       --muted: #7e766c;
@@ -39,32 +36,18 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Jost', sans-serif;
-      background-color: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
+    body { font-family: 'Jost', sans-serif; background-color: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     .container { width: min(1400px, 92%); margin-inline: auto; }
     
-    /* Утилиты для страниц */
     .page { display: none; animation: fadeIn 0.4s ease; }
     .page.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* --- HEADER (Темная шапка) --- */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--dark-bg);
-      color: #fff;
-      border-bottom: 1px solid var(--line-dark);
-    }
+    /* --- HEADER --- */
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--dark-bg); color: #fff; border-bottom: 1px solid var(--line-dark); }
     .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 0.75rem; color: #aaa; border-bottom: 1px solid var(--line-dark); }
     .top-bar a:hover { color: #fff; }
     .header-main { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
@@ -77,33 +60,34 @@
     nav a { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; cursor: pointer; padding: 10px 0; display: inline-block; transition: color 0.3s; }
     nav a:hover { color: var(--gold); }
     
-    /* Выпадающее меню */
     .dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--dark-surface); min-width: 150px; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     nav li:hover .dropdown { opacity: 1; visibility: visible; }
     .dropdown a { display: block; padding: 12px 20px; font-size: 0.75rem; text-align: center; border-bottom: 1px solid var(--line-dark); }
     .dropdown a:hover { background: rgba(255,255,255,0.05); }
 
     .header-right { display: flex; align-items: center; gap: 20px; }
-    .phone { font-weight: 500; letter-spacing: 0.05em; color: #fff; }
-    .phone:hover { color: var(--gold); }
     
-    /* Бургер для мобильных */
+    /* Иконка корзины */
+    .cart-icon { position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; }
+    .cart-icon svg { width: 24px; height: 24px; stroke: #fff; transition: stroke 0.3s; }
+    .cart-icon:hover svg { stroke: var(--gold); }
+    .cart-count { position: absolute; top: -5px; right: -8px; background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 600; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+
     .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .burger span { width: 25px; height: 1px; background: #fff; transition: 0.3s; }
 
-    /* --- HERO SPLIT (Как на Phantom) --- */
+    /* --- HERO SPLIT --- */
     .hero-split { display: flex; height: 80vh; min-height: 600px; margin-top: 110px; }
     .hero-half { flex: 1; position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 60px; overflow: hidden; cursor: pointer; }
     .hero-half img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
     .hero-half:hover img { transform: scale(1.05); }
-    .hero-half::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 50%); }
+    .hero-half::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%); }
     .hero-title { position: relative; z-index: 2; color: #fff; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
 
-    /* --- CATALOG GRID --- */
+    /* --- CATALOG --- */
     .section-padding { padding: 100px 0; }
     .section-title { font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; margin-bottom: 20px; }
     
-    /* Навигация каталога */
     .catalog-nav { display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
     .cat-btn { background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 5px; position: relative; }
     .cat-btn:hover, .cat-btn.active { color: var(--ink); }
@@ -113,7 +97,7 @@
     .product-card { background: var(--surface); padding-bottom: 20px; transition: 0.3s; border: 1px solid transparent; }
     .product-card:hover { border-color: var(--line); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
     .product-img { aspect-ratio: 1/1; background: #eee; position: relative; overflow: hidden; }
-    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; cursor: pointer; }
     .product-card:hover .product-img img { transform: scale(1.05); }
     .product-content { padding: 20px 15px 0; text-align: center; }
     .product-title { font-size: 1.3rem; margin-bottom: 5px; }
@@ -122,15 +106,14 @@
     .btn-buy { display: block; width: 100%; padding: 12px; background: var(--dark-bg); color: #fff; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; border: 1px solid var(--dark-bg); transition: 0.3s; cursor: pointer; }
     .btn-buy:hover { background: transparent; color: var(--dark-bg); }
 
-    /* --- INFO PAGES (О нас, Доставка, Отзывы, Контакты) --- */
+    /* --- INFO PAGES --- */
     .page-header { background: var(--dark-bg); padding: 160px 0 60px; text-align: center; color: #fff; margin-bottom: 60px; }
     .page-header h1 { font-size: 3.5rem; color: var(--gold); }
-    
     .content-box { background: var(--surface); padding: 60px; max-width: 900px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
     .content-box h2 { font-size: 2rem; margin-bottom: 20px; margin-top: 40px; }
     .content-box h2:first-child { margin-top: 0; }
-    .content-box p { color: var(--muted); margin-bottom: 15px; font-size: 1.05rem; }
-    .content-box ul { margin-left: 20px; margin-bottom: 20px; color: var(--muted); font-size: 1.05rem; }
+    .content-box p, .content-box ul { color: var(--muted); margin-bottom: 15px; font-size: 1.05rem; }
+    .content-box ul { margin-left: 20px; }
     .content-box li { margin-bottom: 10px; }
     
     .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -153,17 +136,28 @@
     .footer-col a:hover { color: var(--gold); }
     .footer-bottom { border-top: 1px solid var(--line-dark); padding-top: 20px; text-align: center; font-size: 0.8rem; }
 
-    /* --- MODAL --- */
+    /* --- MODAL ТОВАРА --- */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s; }
     .modal-overlay.open { opacity: 1; visibility: visible; }
     .modal-content { background: #fff; width: 100%; max-width: 800px; display: grid; grid-template-columns: 1fr 1fr; position: relative; }
-    .modal-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    .modal-close { position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; z-index: 10; }
     .modal-img { width: 100%; height: 100%; object-fit: cover; }
     .modal-info { padding: 40px; }
     .modal-info h3 { font-size: 2rem; margin-bottom: 10px; }
     .modal-info .price { font-size: 1.5rem; margin-bottom: 20px; }
     
-    /* --- RESPONSIVE --- */
+    /* --- КОРЗИНА --- */
+    #cart-modal .modal-content { grid-template-columns: 1fr; max-width: 600px; max-height: 90vh; overflow-y: auto; }
+    .cart-items { margin-bottom: 30px; }
+    .cart-item { display: flex; gap: 20px; border-bottom: 1px solid var(--line); padding: 15px 0; align-items: center; }
+    .cart-item img { width: 80px; height: 80px; object-fit: cover; }
+    .cart-item-info { flex: 1; }
+    .cart-item-title { font-weight: 500; font-size: 1.1rem; }
+    .cart-item-price { color: var(--muted); font-size: 0.9rem; }
+    .cart-item-remove { background: none; border: none; cursor: pointer; color: #cc0000; font-size: 1.2rem; }
+    .cart-total { font-size: 1.5rem; text-align: right; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; }
+    .cart-empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
     @media (max-width: 1024px) {
       .grid { grid-template-columns: repeat(3, 1fr); }
       .hero-split { flex-direction: column; height: auto; }
@@ -176,7 +170,6 @@
       nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark-surface); padding: 20px; gap: 15px; border-top: 1px solid var(--line-dark); }
       nav ul.show { display: flex; }
       .burger { display: flex; }
-      .phone { display: none; }
       .grid { grid-template-columns: 1fr; }
       .catalog-nav { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 15px; }
       .cat-btn { white-space: nowrap; }
@@ -194,7 +187,6 @@
     <div class="top-bar">
       <span>Элитная бижутерия ручной работы</span>
       <div style="display:flex; gap:15px;">
-        <a href="tel:+79015995999">+7 901 599 5999</a>
         <a href="mailto:DanilMaster174@yandex.ru">DanilMaster174@yandex.ru</a>
       </div>
     </div>
@@ -205,7 +197,7 @@
         <ul id="nav-menu">
           <li><a onclick="navigateTo('home')">Главная</a></li>
           <li>
-            <a onclick="navigateTo('catalog')">Женские</a>
+            <a onclick="openCatalog('women', 'all')">Женские</a>
             <div class="dropdown">
               <a onclick="openCatalog('women', 'rings')">Кольца</a>
               <a onclick="openCatalog('women', 'earrings')">Серьги</a>
@@ -214,7 +206,7 @@
             </div>
           </li>
           <li>
-            <a onclick="navigateTo('catalog')">Мужские</a>
+            <a onclick="openCatalog('men', 'all')">Мужские</a>
             <div class="dropdown">
               <a onclick="openCatalog('men', 'rings')">Кольца</a>
               <a onclick="openCatalog('men', 'bracelets')">Браслеты</a>
@@ -229,7 +221,16 @@
       </nav>
 
       <div class="header-right">
-        <a href="tel:+79015995999" class="phone">+7 901 599 5999</a>
+        <!-- Иконка корзины -->
+        <div class="cart-icon" onclick="toggleCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+        
         <div class="burger" onclick="document.getElementById('nav-menu').classList.toggle('show')">
           <span></span><span></span><span></span>
         </div>
@@ -242,11 +243,13 @@
 <main id="page-home" class="page active">
   <div class="hero-split">
     <div class="hero-half" onclick="openCatalog('women', 'all')">
-      <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop" alt="Женская коллекция">
+      <!-- Новая надежная ссылка на фото женщины с украшениями -->
+      <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1200&auto=format&fit=crop" alt="Женская коллекция">
       <div class="hero-title">Каталог женских украшений</div>
     </div>
     <div class="hero-half" onclick="openCatalog('men', 'all')">
-      <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=1200&auto=format&fit=crop" alt="Мужская коллекция">
+      <!-- Новая надежная ссылка на фото мужчины с украшениями -->
+      <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1200&auto=format&fit=crop" alt="Мужская коллекция">
       <div class="hero-title">Каталог мужских украшений</div>
     </div>
   </div>
@@ -271,106 +274,63 @@
 
 <!-- ================= PAGE: ABOUT ================= -->
 <main id="page-about" class="page">
-  <div class="page-header">
-    <div class="container"><h1>О бренде</h1></div>
-  </div>
+  <div class="page-header"><div class="container"><h1>О бренде</h1></div></div>
   <div class="container" style="margin-bottom: 100px;">
     <div class="content-box">
       <h2>История Lu Enchantée</h2>
       <p>Бренд Lu Enchantée родился из страсти к деталям и любви к парижской эстетике. Наша мастерская создает украшения, которые выходят за рамки трендов. Мы верим, что настоящая роскошь — это не громкие логотипы, а безупречное качество, тактильное удовольствие и уникальный дизайн.</p>
-      
       <h2>Наше ремесло</h2>
-      <p>Мы работаем исключительно с благородными материалами: позолоченным серебром 925 пробы, натуральными камнями и отборным жемчугом. Каждое изделие проходит ручную сборку и несколько этапов контроля качества. Мы создаем как изысканные женские украшения, так и строгие мужские аксессуары.</p>
-      
-      <h2>Философия</h2>
-      <p>Украшение — это личный амулет, который подчеркивает индивидуальность своего владельца. Сдержанные днем и сияющие вечером, наши изделия созданы для того, чтобы быть с вами на протяжении многих лет, становясь частью вашей личной истории.</p>
+      <p>Мы работаем исключительно с благородными материалами: позолоченным серебром 925 пробы, натуральными камнями и отборным жемчугом. Каждое изделие проходит ручную сборку и несколько этапов контроля качества.</p>
     </div>
   </div>
 </main>
 
 <!-- ================= PAGE: DELIVERY ================= -->
 <main id="page-delivery" class="page">
-  <div class="page-header">
-    <div class="container"><h1>Доставка и оплата</h1></div>
-  </div>
+  <div class="page-header"><div class="container"><h1>Доставка и оплата</h1></div></div>
   <div class="container" style="margin-bottom: 100px;">
     <div class="content-box">
-      <h2>Способы доставки</h2>
+      <h2>Доставка</h2>
       <ul>
-        <li><strong>Курьерская доставка по Москве:</strong> 500 ₽. При заказе от 15 000 ₽ — бесплатно. Доставка осуществляется на следующий день.</li>
-        <li><strong>Доставка по России (СДЭК или Почта России):</strong> от 400 ₽. Сроки зависят от региона (обычно 2-5 дней).</li>
-        <li><strong>Самовывоз:</strong> Бесплатно. По предварительной договоренности по адресу нашей мастерской.</li>
+        <li><strong>По Москве:</strong> Курьером — 500 ₽ (бесплатно от 15 000 ₽). На следующий день.</li>
+        <li><strong>По России:</strong> СДЭК или Почта России — от 400 ₽ (2-5 дней).</li>
       </ul>
-
-      <h2>Способы оплаты</h2>
+      <h2>Оплата</h2>
       <ul>
-        <li><strong>Банковской картой онлайн:</strong> Visa, MasterCard, МИР (безопасный шлюз).</li>
-        <li><strong>Перевод по СБП:</strong> По QR-коду при подтверждении заказа менеджером.</li>
-        <li><strong>Наличными при получении:</strong> Только для курьерской доставки по Москве.</li>
+        <li>Банковской картой онлайн.</li>
+        <li>Перевод по СБП.</li>
+        <li>При получении (для Москвы).</li>
       </ul>
-
-      <h2>Упаковка</h2>
-      <p>Каждое украшение Lu Enchantée поставляется в фирменной коробочке с логотипом, внутри — бархатный мешочек для хранения. Мы также бесплатно упаковываем изделия в подарочную бумагу по вашему запросу.</p>
     </div>
   </div>
 </main>
 
 <!-- ================= PAGE: REVIEWS ================= -->
 <main id="page-reviews" class="page">
-  <div class="page-header">
-    <div class="container"><h1>Отзывы клиентов</h1></div>
-  </div>
+  <div class="page-header"><div class="container"><h1>Отзывы клиентов</h1></div></div>
   <div class="container" style="margin-bottom: 100px;">
     <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Заказывала кольцо Soleil в подарок подруге. Качество просто потрясающее! Камень играет на свету, позолота выглядит очень благородно. Сервис на высшем уровне, помогли с выбором."</p>
-        <div class="review-author">Екатерина, Москва</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Купил мужской браслет Rivière. Смотрится стильно и массивно, но при этом не мешает. Упаковка дорогая, всё продумано. Буду заказывать еще."</p>
-        <div class="review-author">Дмитрий, Санкт-Петербург</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Очень нежные серьги Étoile. Ношу не снимая уже месяц, ни капли не потемнели. Спасибо за быструю доставку и внимательное отношение!"</p>
-        <div class="review-author">Анна, Казань</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Брал колье Lune в подарок жене. Это просто восторг! Жемчуг идеально ровный. Отдельное спасибо за то, что помогли упаковать в красивую подарочную коробку."</p>
-        <div class="review-author">Максим, Екатеринбург</div>
-      </div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Заказывала кольцо Soleil. Качество потрясающее! Камень играет на свету. Сервис на высшем уровне."</p><div class="review-author">Екатерина, Москва</div></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Купил мужской браслет Rivière. Смотрится стильно, упаковка дорогая, всё продумано."</p><div class="review-author">Дмитрий, СПб</div></div>
     </div>
   </div>
 </main>
 
 <!-- ================= PAGE: CONTACTS ================= -->
 <main id="page-contacts" class="page">
-  <div class="page-header">
-    <div class="container"><h1>Связаться с нами</h1></div>
-  </div>
+  <div class="page-header"><div class="container"><h1>Связаться с нами</h1></div></div>
   <div class="container" style="margin-bottom: 100px;">
     <div class="content-box" style="text-align: center; max-width: 600px;">
-      <p style="margin-bottom: 40px; font-size: 1.1rem;">Мы всегда рады помочь вам с выбором, ответить на вопросы о материалах или обсудить индивидуальный заказ.</p>
-      
-      <div class="contact-info-block">
-        <h3>Телефон и WhatsApp</h3>
-        <a href="tel:+79015995999">+7 901 599 5999</a>
-      </div>
-
+      <p style="margin-bottom: 40px; font-size: 1.1rem;">Мы всегда рады помочь вам с выбором или обсудить индивидуальный заказ.</p>
       <div class="contact-info-block">
         <h3>Электронная почта</h3>
         <a href="mailto:DanilMaster174@yandex.ru">DanilMaster174@yandex.ru</a>
       </div>
-
       <div class="contact-info-block">
         <h3>График работы</h3>
         <p>Ежедневно с 10:00 до 20:00 (МСК)</p>
       </div>
-      
-      <button class="btn-buy" style="max-width: 300px; margin: 40px auto 0;" onclick="alert('Наш менеджер свяжется с вами в ближайшее время!')">Заказать звонок</button>
+      <button class="btn-buy" style="max-width: 300px; margin: 40px auto 0;" onclick="alert('Наш менеджер свяжется с вами по почте в ближайшее время!')">Написать нам</button>
     </div>
   </div>
 </main>
@@ -403,160 +363,56 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      Сделано с любовью к деталям.
-    </div>
+    <div class="footer-bottom">Сделано с любовью к деталям.</div>
   </div>
 </footer>
 
-<!-- MODAL WINDOW -->
+<!-- ================= MODAL ТОВАРА ================= -->
 <div class="modal-overlay" id="product-modal">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close" onclick="closeModal('product-modal')">✕</button>
     <img src="" alt="" class="modal-img" id="modal-img">
     <div class="modal-info">
       <div style="color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;" id="modal-cat"></div>
       <h3 id="modal-title"></h3>
       <div class="price" id="modal-price"></div>
       <p style="color: var(--muted); margin-bottom: 30px;" id="modal-desc"></p>
-      <button class="btn-buy" onclick="closeModal(); alert('Товар добавлен в корзину (демо-режим)')">Купить сейчас</button>
-      <p style="font-size: 0.8rem; color: #999; margin-top: 15px; text-align: center;">Оплата при получении или онлайн</p>
+      <button class="btn-buy" onclick="addToCartFromModal()">Добавить в корзину</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL КОРЗИНЫ ================= -->
+<div class="modal-overlay" id="cart-modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('cart-modal')">✕</button>
+    <div class="modal-info">
+      <h3 style="font-size: 2rem; margin-bottom: 30px; text-align: center;">Ваша корзина</h3>
+      <div class="cart-items" id="cart-items-container"></div>
+      <div class="cart-total" id="cart-total">Итого: 0 ₽</div>
+      <button class="btn-buy" onclick="checkout()">Оформить заказ</button>
     </div>
   </div>
 </div>
 
 <script>
-/* =========================================================
-   ДАННЫЕ КАТАЛОГА
-   ========================================================= */
+// ДАННЫЕ
 const products = [
-  // Женские
-  { id:'w1', gender:'women', category:'rings', title:'Soleil', material:'Позолоченное серебро · фианит', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', desc: 'Изысканное кольцо с камнем, символизирующее солнечный свет. Идеально подходит как для повседневного ношения, так и для особых случаев.' },
-  { id:'w2', gender:'women', category:'earrings', title:'Étoile', material:'Позолоченное серебро · топаз', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', desc: 'Легкие серьги, вдохновленные ночным небом. Топаз придает глубину и благородный блеск.' },
-  { id:'w3', gender:'women', category:'necklaces', title:'Lune', material:'Позолоченное серебро · речной жемчуг', price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', desc: 'Нежное колье с речным жемчугом. Элегантность, которая подчеркивает женственность и стиль.' },
-  { id:'w4', gender:'women', category:'bracelets', title:'Éclat', material:'Позолоченное серебро · горный хрусталь', price:'19 800 ₽', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=800&auto=format&fit=crop', desc: 'Тонкий браслет с горным хрусталем. Добавляет свежести и сияния любому образу.' },
-  { id:'w5', gender:'women', category:'rings', title:'Rosé', material:'Розовое золочение · цирконий', price:'21 500 ₽', image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop', desc: 'Нежное кольцо с розовым золотением. Прекрасный выбор для романтического вечера.' },
-  { id:'w6', gender:'women', category:'earrings', title:'Perle', material:'Позолоченное серебро · жемчуг', price:'16 900 ₽', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop', desc: 'Классические жемчужные серьги. Бессмертная классика, которая всегда в моде.' },
-  
-  // Мужские
-  { id:'m1', gender:'men', category:'bracelets', title:'Rivière', material:'Позолоченное серебро · сапфиры', price:'27 400 ₽', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop', desc: 'Массивный браслет с сапфирами для уверенных в себе мужчин. Символ силы и благородства.' },
-  { id:'m2', gender:'men', category:'rings', title:'Nuit', material:'Родированное серебро · чёрный оникс', price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=800&auto=format&fit=crop', desc: 'Строгое мужское кольцо с черным ониксом. Минималистичный дизайн для тех, кто ценит детали.' },
-  { id:'m3', gender:'men', category:'necklaces', title:'Chaîne', material:'Серебро 925 · родирование', price:'15 500 ₽', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=800&auto=format&fit=crop', desc: 'Классическая мужская цепь. Строгая, надежная и невероятно стильная.' },
-  { id:'m4', gender:'men', category:'bracelets', title:'Acier', material:'Медицинская сталь · позолота', price:'12 800 ₽', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=800&auto=format&fit=crop', desc: 'Брутальный браслет из стали с элементами позолоты. Для повседневного ношения.' }
+  { id:'w1', gender:'women', category:'rings', title:'Soleil', material:'Позолоченное серебро · фианит', priceNum: 24900, price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', desc: 'Изысканное кольцо с камнем, символизирующее солнечный свет.' },
+  { id:'w2', gender:'women', category:'earrings', title:'Étoile', material:'Позолоченное серебро · топаз', priceNum: 18500, price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', desc: 'Легкие серьги, вдохновленные ночным небом.' },
+  { id:'w3', gender:'women', category:'necklaces', title:'Lune', material:'Позолоченное серебро · речной жемчуг', priceNum: 32000, price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', desc: 'Нежное колье с речным жемчугом.' },
+  { id:'w4', gender:'women', category:'bracelets', title:'Éclat', material:'Позолоченное серебро · горный хрусталь', priceNum: 19800, price:'19 800 ₽', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=800&auto=format&fit=crop', desc: 'Тонкий браслет с горным хрусталем.' },
+  { id:'m1', gender:'men', category:'bracelets', title:'Rivière', material:'Позолоченное серебро · сапфиры', priceNum: 27400, price:'27 400 ₽', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop', desc: 'Массивный браслет с сапфирами.' },
+  { id:'m2', gender:'men', category:'rings', title:'Nuit', material:'Родированное серебро · чёрный оникс', priceNum: 21700, price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=800&auto=format&fit=crop', desc: 'Строгое мужское кольцо с черным ониксом.' }
 ];
 
 let currentGender = 'women';
 let currentCategory = 'all';
+let cart = [];
+let currentProductId = null;
 
-/* =========================================================
-   НАВИГАЦИЯ И РЕНДЕР
-   ========================================================= */
+// НАВИГАЦИЯ
 function navigateTo(pageId) {
-  // Скрываем все страницы
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  // Показываем нужную
   document.getElementById('page-' + pageId).classList.add('active');
-  // Скролл наверх
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Закрываем мобильное меню
-  document.getElementById('nav-menu').classList.remove('show');
-  
-  // Если перешли в каталог, но не через кнопку "Женские/Мужские", ставим дефолт
-  if (pageId === 'catalog' && !document.querySelector('.cat-btn.active')) {
-    openCatalog('women', 'all');
-  }
-}
-
-function openCatalog(gender, category) {
-  currentGender = gender;
-  currentCategory = category;
-  
-  // Устанавливаем активные кнопки
-  document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-  const activeBtn = document.querySelector(`.cat-btn[data-cat="${category}"]`);
-  if(activeBtn) activeBtn.classList.add('active');
-
-  // Меняем заголовок
-  const title = gender === 'women' ? 'Женская коллекция' : 'Мужская коллекция';
-  document.getElementById('catalog-title').textContent = title;
-
-  renderGrid();
-  navigateTo('catalog');
-}
-
-function renderGrid() {
-  const grid = document.getElementById('grid');
-  
-  let filtered = products.filter(p => {
-    const matchGender = p.gender === currentGender;
-    const matchCategory = currentCategory === 'all' || p.category === currentCategory;
-    return matchGender && matchCategory;
-  });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted); font-size: 1.2rem; padding: 40px 0;">В этой категории пока нет товаров.</p>`;
-    return;
-  }
-
-  grid.innerHTML = filtered.map(p => `
-    <article class="product-card">
-      <div class="product-img" onclick="openModal('${p.id}')">
-        <img src="${p.image}" alt="${p.title}" loading="lazy">
-      </div>
-      <div class="product-content">
-        <h3 class="product-title">${p.title}</h3>
-        <p class="product-material">${p.material}</p>
-        <p class="product-price">${p.price}</p>
-        <button class="btn-buy" onclick="openModal('${p.id}')">Купить</button>
-      </div>
-    </article>
-  `).join('');
-}
-
-// Обработка кликов по фильтрам категорий в каталоге
-document.getElementById('catalog-nav').addEventListener('click', (e) => {
-  if (e.target.classList.contains('cat-btn')) {
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    currentCategory = e.target.dataset.cat;
-    renderGrid();
-  }
-});
-
-/* =========================================================
-   МОДАЛЬНОЕ ОКНО
-   ========================================================= */
-function openModal(id) {
-  const p = products.find(item => item.id === id);
-  if (!p) return;
-  
-  document.getElementById('modal-img').src = p.image;
-  document.getElementById('modal-cat').textContent = p.gender === 'women' ? 'Женская коллекция' : 'Мужская коллекция';
-  document.getElementById('modal-title').textContent = p.title;
-  document.getElementById('modal-price').textContent = p.price;
-  document.getElementById('modal-desc').textContent = `${p.desc} (Материал: ${p.material}).`;
-  
-  document.getElementById('product-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('product-modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('product-modal').addEventListener('click', (e) => {
-  if (e.target === document.getElementById('product-modal')) {
-    closeModal();
-  }
-});
-
-/* =========================================================
-   ИНИЦИАЛИЗАЦИЯ
-   ========================================================= */
-document.getElementById('year').textContent = new Date().getFullYear();
-// При загрузке показываем главную
-navigateTo('home');
-</script>
-</body>
-</html>
+  window.scrollTo({ top:
