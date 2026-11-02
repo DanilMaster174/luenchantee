@@ -12,7 +12,6 @@
       ym(114023069, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/114023069" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
   
   <meta name="yandex-verification" content="5853390e952a38b2" />
   <meta charset="UTF-8">
@@ -71,7 +70,6 @@
 
     .header-right { display: flex; align-items: center; gap: 20px; }
     
-    /* Иконка корзины */
     .cart-icon { position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; }
     .cart-icon svg { width: 24px; height: 24px; stroke: #fff; transition: stroke 0.3s; }
     .cart-icon:hover svg { stroke: var(--gold); }
@@ -80,19 +78,34 @@
     .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .burger span { width: 25px; height: 1px; background: #fff; transition: 0.3s; }
 
-    /* --- HERO SPLIT --- */
+    /* --- HERO SPLIT (ГАРАНТИРОВАННЫЙ КРАСИВЫЙ ФОН) --- */
     .hero-split { display: flex; height: 80vh; min-height: 600px; margin-top: 110px; }
-    .hero-half { flex: 1; position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 60px; overflow: hidden; cursor: pointer; background-size: cover; background-position: center; transition: transform 1s ease; }
-    .hero-half:hover { transform: scale(1.02); }
-    .hero-half::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%); z-index: 1; }
-    .hero-title { position: relative; z-index: 2; color: #fff; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
-
-    /* Встроенные фоны (Base64) */
-    .bg-women {
-      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q=='); 
+    
+    .hero-half { 
+      flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+      overflow: hidden; cursor: pointer; transition: all 0.5s ease;
+      /* Стильный премиальный градиент, не требующий загрузки картинки */
+      background: linear-gradient(135deg, #1a1c20 0%, #25282e 100%);
     }
-    .bg-men {
-      background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q==');
+    
+    .hero-half::before {
+      content: ''; position: absolute; inset: 0; opacity: 0.1;
+      background: radial-gradient(circle at center, var(--gold) 0%, transparent 70%);
+      transition: opacity 0.5s ease;
+    }
+    
+    .hero-half:hover::before { opacity: 0.25; }
+    
+    /* Встроенные иконки для красоты */
+    .hero-icon { width: 80px; height: 80px; stroke: var(--gold); margin-bottom: 20px; z-index: 2; opacity: 0.8; }
+    
+    .hero-title { 
+      position: relative; z-index: 2; color: #fff; 
+      font-size: clamp(2rem, 3vw, 2.8rem); letter-spacing: 0.15em; text-transform: uppercase; text-align: center; 
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .hero-subtitle {
+      position: relative; z-index: 2; color: #aaa; margin-top: 10px; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;
     }
 
     /* --- CATALOG --- */
@@ -171,7 +184,7 @@
     @media (max-width: 1024px) {
       .grid { grid-template-columns: repeat(3, 1fr); }
       .hero-split { flex-direction: column; height: auto; }
-      .hero-half { min-height: 400px; }
+      .hero-half { min-height: 350px; padding: 40px 0; }
       .modal-content { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -252,11 +265,26 @@
 <!-- ================= PAGE: HOME ================= -->
 <main id="page-home" class="page active">
   <div class="hero-split">
-    <div class="hero-half bg-women" onclick="openCatalog('women', 'all')">
+    <!-- Женская коллекция: Градиент + Встроенная иконка -->
+    <div class="hero-half" onclick="openCatalog('women', 'all')">
+      <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4"></circle>
+        <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
+      </svg>
       <div class="hero-title">Каталог женских украшений</div>
+      <div class="hero-subtitle">Элегантность и утонченность</div>
     </div>
-    <div class="hero-half bg-men" onclick="openCatalog('men', 'all')">
+    
+    <!-- Мужская коллекция: Градиент + Встроенная иконка -->
+    <div class="hero-half" onclick="openCatalog('men', 'all')">
+      <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <polyline points="16 3 21 3 21 8"></polyline>
+        <line x1="21" y1="3" x2="16" y2="8"></line>
+      </svg>
       <div class="hero-title">Каталог мужских украшений</div>
+      <div class="hero-subtitle">Стиль и благородство</div>
     </div>
   </div>
 </main>
@@ -388,7 +416,7 @@
 </div>
 
 <script>
-// Безопасные заглушки для карточек (если интернет-фото не загрузятся)
+// Безопасные заглушки для карточек
 const createSVG = (text) => `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect width="600" height="600" fill="#e8e5df"/><text x="50%" y="50%" font-family="Georgia, serif" font-size="40" fill="#8a7f71" text-anchor="middle" dominant-baseline="middle">${text}</text></svg>`)}`;
 
 const products = [
