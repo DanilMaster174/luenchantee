@@ -123,8 +123,20 @@
     .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; }
     .about-signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gold); margin-top: 30px; }
 
+    /* --- BLOG SECTION --- */
+    .blog-section { padding: 100px 0; background: var(--surface); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .blog-card { cursor: pointer; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; transition: 0.4s; background: var(--bg); }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+    .blog-img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
+    .blog-content { padding: 24px; }
+    .blog-date { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .blog-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 10px; line-height: 1.2; }
+    .blog-excerpt { font-size: 0.85rem; color: var(--muted); margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-more { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; color: var(--ink); }
+
     /* --- SEO TEXT BLOCK --- */
-    .seo-text { background-color: var(--surface); padding: 60px 0; border-top: 1px solid var(--line); text-align: center; }
+    .seo-text { background-color: var(--bg); padding: 60px 0; border-top: 1px solid var(--line); text-align: center; }
     .seo-text h3 { font-size: 1.5rem; margin-bottom: 16px; }
     .seo-text p { font-size: 0.9rem; color: var(--muted); max-width: 900px; margin: 0 auto; }
     .seo-links { margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; font-size: 0.8rem; }
@@ -167,10 +179,10 @@
     .main-fab:hover { transform: scale(1.05); background: #b08d57; }
     .main-fab svg { width: 28px; height: 28px; fill: currentColor; }
 
-    /* --- МОДАЛЬНОЕ ОКНО ТОВАРА --- */
-    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px; }
+    /* --- МОДАЛЬНЫЕ ОКНА --- */
+    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px; overflow-y: auto; }
     .modal.active { opacity: 1; pointer-events: auto; }
-    .modal-content { background: var(--surface); width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 4px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; }
+    .modal-content { background: var(--surface); width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 4px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
     .modal.active .modal-content { transform: translateY(0); }
     .modal-img { aspect-ratio: 3/4; }
     .modal-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -182,21 +194,31 @@
     .modal-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.7; }
     .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; }
     .btn-order:hover { background: var(--gold); }
-    .modal-close { position: absolute; top: 15px; right: 15px; background: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .modal-close { position: absolute; top: 15px; right: 15px; background: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
+
+    /* Модалка для блога */
+    .modal-blog .modal-content { grid-template-columns: 1fr; max-width: 700px; }
+    .modal-blog .modal-info { padding: 50px; }
+    .modal-blog h3 { font-size: 2.5rem; margin-bottom: 20px; }
+    .modal-blog .blog-date { margin-bottom: 20px; display: block; }
+    .modal-blog p { margin-bottom: 15px; color: var(--ink); font-size: 1rem; line-height: 1.8; }
+    .modal-blog strong { font-weight: 500; color: var(--gold); }
 
     /* --- RESPONSIVE --- */
     @media (max-width: 1024px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
+      .grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-img { aspect-ratio: 16/9; }
       .modal-content { grid-template-columns: 1fr; max-width: 500px; }
       .modal-img { aspect-ratio: 4/3; }
       .modal-info { padding: 30px; }
+      .modal-blog .modal-info { padding: 30px; }
     }
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; gap: 16px; padding: 16px 0; }
+      nav ul { gap: 20px; }
       .hero { padding: 180px 0 100px; }
-      .grid { grid-template-columns: 1fr; gap: 50px; }
+      .grid, .blog-grid { grid-template-columns: 1fr; gap: 30px; }
       .floating-contact { bottom: 20px; right: 20px; }
     }
   </style>
@@ -208,6 +230,7 @@
     <nav>
       <ul>
         <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#blog">Журнал</a></li>
         <li><a href="#about">О бренде</a></li>
       </ul>
     </nav>
@@ -215,7 +238,7 @@
       <span class="logo-name">Lu <em>Enchantée</em></span>
       <span class="logo-domain">www.luenchantee.ru</span>
     </a>
-    <div style="width: 100px;"></div> <!-- Пустой блок для баланса -->
+    <div style="width: 150px;"></div> <!-- Пустой блок для баланса -->
   </div>
 </header>
 
@@ -243,6 +266,51 @@
     </div>
 
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- НОВЫЙ РАЗДЕЛ: ЖУРНАЛ / БЛОГ -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Журнал</h2>
+      <p class="section-sub">Секреты ухода за украшениями, чтобы они радовали вас долгие годы.</p>
+    </div>
+
+    <div class="blog-grid reveal">
+      <!-- Статья 1 -->
+      <article class="blog-card" onclick="openBlog('silver')">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop');"></div>
+        <div class="blog-content">
+          <div class="blog-date">Уход</div>
+          <h3 class="blog-title">Как ухаживать за позолоченным серебром</h3>
+          <p class="blog-excerpt">Позолота — это тонкое покрытие, которое требует бережного отношения. Узнайте, как сохранить блеск и не стереть золото.</p>
+          <div class="blog-more">Читать →</div>
+        </div>
+      </article>
+
+      <!-- Статья 2 -->
+      <article class="blog-card" onclick="openBlog('pearl')">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=600&auto=format&fit=crop');"></div>
+        <div class="blog-content">
+          <div class="blog-date">Уход</div>
+          <h3 class="blog-title">Правила ухода за натуральным жемчугом</h3>
+          <p class="blog-excerpt">Жемчуг боится парфюма и воды. Узнайте простые правила, которые сохранят его перламутровый блеск на десятилетия.</p>
+          <div class="blog-more">Читать →</div>
+        </div>
+      </article>
+
+      <!-- Статья 3 -->
+      <article class="blog-card" onclick="openBlog('stones')">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=600&auto=format&fit=crop');"></div>
+        <div class="blog-content">
+          <div class="blog-date">Уход</div>
+          <h3 class="blog-title">Как чистить украшения с натуральными камнями</h3>
+          <p class="blog-excerpt">Топазы, сапфиры и фианиты требуют особого подхода. Ультразвук подходит не для всех. Узнайте безопасные способы чистки.</p>
+          <div class="blog-more">Читать →</div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -284,16 +352,13 @@
 <!-- ПЛАВАЮЩАЯ КНОПКА СВЯЗИ -->
 <div class="floating-contact">
   <div class="contact-menu" id="contactMenu">
-    <!-- WhatsApp -->
     <a href="https://wa.me/79048101213" target="_blank" class="contact-btn wa" title="Написать в WhatsApp">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     </a>
-    <!-- Telegram -->
     <a href="https://t.me/+79048101213" target="_blank" class="contact-btn tg" title="Написать в Telegram">
       <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
   </div>
-  <!-- Главная кнопка -->
   <button class="main-fab" id="fabBtn" title="Связаться с нами">
     <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
   </button>
@@ -302,7 +367,7 @@
 <!-- МОДАЛЬНОЕ ОКНО ТОВАРА -->
 <div class="modal" id="productModal">
   <div class="modal-content">
-    <button class="modal-close" id="modalClose">✕</button>
+    <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('active')">✕</button>
     <div class="modal-img">
       <img id="modalImg" src="" alt="Украшение">
     </div>
@@ -317,10 +382,23 @@
   </div>
 </div>
 
+<!-- МОДАЛЬНОЕ ОКНО БЛОГА -->
+<div class="modal modal-blog" id="blogModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('blogModal').classList.remove('active')">✕</button>
+    <div class="modal-info">
+      <span class="blog-date" id="blogModalDate"></span>
+      <h3 id="blogModalTitle"></h3>
+      <div id="blogModalText"></div>
+    </div>
+  </div>
+</div>
+
 <script>
   /* НОМЕР ТЕЛЕФОНА */
   const myPhoneNumber = "79048101213"; 
 
+  /* ДАННЫЕ КАТАЛОГА */
   const products = [
     { id:'r1', category:'rings', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
     { id:'e1', category:'earrings', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
@@ -329,6 +407,44 @@
     { id:'r2', category:'rings', price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop', name:'Кольцо Nuit', material:'Родированное серебро · чёрный оникс' },
     { id:'e2', category:'earrings', price:'16 900 ₽', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop', name:'Серьги Perle', material:'Позолоченное серебро · жемчуг' }
   ];
+
+  /* ДАННЫЕ ДЛЯ БЛОГА */
+  const blogArticles = {
+    silver: {
+      title: "Как ухаживать за позолоченным серебром",
+      date: "Уход за украшениями",
+      text: `
+        <p>Позолоченное серебро — это благородный металл с тонким слоем золота. Чтобы украшение радовало вас долгие годы, соблюдайте несколько простых правил:</p>
+        <p><strong>1. Надевайте в последнюю очередь.</strong> Парфюм, лак для волос и косметика содержат химические вещества, которые разрушают позолоту. Наносите макияж и духи до того, как наденете украшение.</p>
+        <p><strong>2. Снимайте в первую очередь.</strong> Дома сразу снимайте кольца и серьги. Не мойте посуду, не занимайтесь спортом и не спите в украшениях.</p>
+        <p><strong>3. Избегайте контакта с водой.</strong> Хлор, морская соль и даже обычная вода из-под крана могут привести к потемнению. Снимайте украшения перед душем и походом в бассейн.</p>
+        <p><strong>4. Правильное хранение.</strong> Храните изделия в индивидуальных тканевых мешочках или шкатулке с мягкой подкладкой. Не бросайте их в одну кучу, чтобы избежать царапин.</p>
+        <p><strong>5. Чистка.</strong> Протирайте украшения мягкой сухой тканью (например, фланелью) после каждого ношения. Не используйте абразивные средства и зубную пасту.</p>
+      `
+    },
+    pearl: {
+      title: "Правила ухода за натуральным жемчугом",
+      date: "Уход за украшениями",
+      text: `
+        <p>Жемчуг — живой органический материал. Он требует к себе гораздо более бережного отношения, чем металлы и камни.</p>
+        <p><strong>1. Берегите от парфюма.</strong> Кислоты и спирты, содержащиеся в духах, разрушают перламутровый слой (нарушение блеска). Надевайте жемчужное колье только после того, как духи полностью высохли.</p>
+        <p><strong>2. Избегайте косметики.</strong> Кремы, тональные средства и лаки для волос оседают на жемчуге и делают его тусклым. Всегда очищайте лицо перед тем, как надеть серьги с жемчугом.</p>
+        <p><strong>3. Влажность и хранение.</strong> Жемчуг не любит сухости (он может потрескаться) и переувлажнения. Храните его в мягком тканевом мешочке, но не в герметичном пластиковом пакете. Не храните жемчуг рядом с металлическими украшениями — они могут его поцарапать.</p>
+        <p><strong>4. Чистка.</strong> Никогда не используйте ультразвуковые очистители или химические растворы. Протирайте жемчуг мягкой влажной тканью без мыла и сразу высушивайте.</p>
+      `
+    },
+    stones: {
+      title: "Как чистить украшения с натуральными камнями",
+      date: "Уход за украшениями",
+      text: `
+        <p>Натуральные камни (топаз, сапфир, аметист, фианит) обладают разной твердостью. Некоторые из них довольно хрупкие.</p>
+        <p><strong>1. Безопасная чистка.</strong> Самый универсальный способ — теплая мыльная вода. Добавьте каплю мягкого средства для мытья посуды в теплую воду, окуните украшение на 5 минут, аккуратно почистите мягкой зубной щеткой (только вокруг камня, не задевая крепление) и промокните насухо.</p>
+        <p><strong>2. Осторожно с пористыми камнями.</strong> Бирюза, жемчуг, коралл и опал — пористые камни. Они могут впитать мыло или грязь и изменить цвет. Их нельзя замачивать, только протирать влажной тканью.</p>
+        <p><strong>3. Ультразвук и пар.</strong> Ультразвуковые ванночки отлично очищают золото и бриллианты, но категорически запрещены для камней с трещинами и пористых структур. Если вы не уверены в природе камня, лучше не рискуйте и используйте ручную чистку.</p>
+        <p><strong>4. Проверка крепления.</strong> Чистя украшение, всегда проверяйте, надежно ли держатся камни в оправе. Если вы чувствуете шатание, не носите украшение, пока его не починит ювелир.</p>
+      `
+    }
+  };
 
   let currentFilter = 'all';
 
@@ -351,7 +467,6 @@
       </article>
     `).join('');
     
-    // Активация анимации для новых карточек
     setTimeout(() => {
       document.querySelectorAll('#grid .reveal').forEach(el => el.classList.add('active'));
     }, 50);
@@ -362,6 +477,7 @@
     return names[cat] || '';
   }
 
+  /* ЛОГИКА МОДАЛЬНОГО ОКНА ТОВАРА */
   function openModal(id) {
     const p = products.find(item => item.id === id);
     if(!p) return;
@@ -379,9 +495,19 @@
     document.getElementById('productModal').classList.add('active');
   }
 
-  document.getElementById('modalClose').onclick = () => document.getElementById('productModal').classList.remove('active');
-  document.getElementById('productModal').onclick = (e) => { if(e.target.id === 'productModal') document.getElementById('productModal').classList.remove('active'); };
+  /* ЛОГИКА МОДАЛЬНОГО ОКНА БЛОГА */
+  function openBlog(id) {
+    const article = blogArticles[id];
+    if(!article) return;
 
+    document.getElementById('blogModalDate').textContent = article.date;
+    document.getElementById('blogModalTitle').textContent = article.title;
+    document.getElementById('blogModalText').innerHTML = article.text;
+
+    document.getElementById('blogModal').classList.add('active');
+  }
+
+  /* ФИЛЬТРЫ */
   document.querySelector('.filters').addEventListener('click', e => {
     if(!e.target.classList.contains('filter')) return;
     document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
@@ -390,7 +516,7 @@
     renderProducts();
   });
 
-  /* Логика плавающей кнопки связи */
+  /* ПЛАВАЮЩАЯ КНОПКА */
   const fabBtn = document.getElementById('fabBtn');
   const contactMenu = document.getElementById('contactMenu');
 
@@ -398,14 +524,17 @@
     contactMenu.classList.toggle('active');
   });
 
-  // Закрытие меню при клике вне его
   document.addEventListener('click', (e) => {
     if (!fabBtn.contains(e.target) && !contactMenu.contains(e.target)) {
       contactMenu.classList.remove('active');
     }
+    /* Закрытие модалок по клику вне контента */
+    if(e.target.classList.contains('modal')) {
+      e.target.classList.remove('active');
+    }
   });
 
-  /* Инициализация анимаций при прокрутке */
+  /* АНИМАЦИИ ПРИ ПРОКРУТКЕ */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
