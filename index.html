@@ -19,6 +19,7 @@
     "addressLocality": "Москва",
     "addressCountry": "RU"
   },
+  "telephone": "+79048101213",
   "priceRange": "$$$"
 }
 </script>
@@ -263,15 +264,15 @@
       <div class="product-price" id="modalPrice"></div>
       <p class="modal-desc">Эксклюзивное украшение ручной работы от Lu Enchantée. Идеально подходит как для повседневного образа, так и для вечернего выхода. Поставляется в фирменной подарочной упаковке.</p>
       
-      <!-- ВАШ НОМЕР ТЕЛЕФОНА В WHATSAPP (Замените 79991234567 на свой) -->
+      <!-- ССЫЛКА НА WHATSAPP -->
       <a href="#" class="btn-order" id="orderBtn" target="_blank">Заказать в WhatsApp</a>
     </div>
   </div>
 </div>
 
 <script>
-/* ВАШ НОМЕР ТЕЛЕФОНА ДЛЯ ЗАКАЗОВ (в формате 79991234567, без плюсов и пробелов) */
-const myPhoneNumber = "79991234567"; 
+/* ВАШ НОМЕР ТЕЛЕФОНА ДЛЯ ЗАКАЗОВ (в формате 79048101213, без плюсов) */
+const myPhoneNumber = "79048101213"; 
 
 const products = [
   {
@@ -321,7 +322,6 @@ function renderProducts() {
   grid.innerHTML = list.map(p => `
     <article class="product" onclick="openModal('${p.id}')">
       <div class="product-media">
-        <!-- SEO: Alt тег с ключевыми словами -->
         <img src="${p.image}" alt="Купить ${p.name} в Москве - элитная бижутерия" loading="lazy">
         <div class="product-action">Подробнее</div>
       </div>
