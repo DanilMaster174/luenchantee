@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- МЕТА-ТЕГ ЯНДЕКСА (для подтверждения прав) -->
+  <meta name="yandex-verification" content="5853390e952a38b2" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lu Enchantée — Элитная бижутерия в Москве | Купить украшения ручной работы</title>
+  <link rel="canonical" href="https://luenchantee.ru/" />
+  <meta name="description" content="Элитная бижутерия Lu Enchantée. Купить эксклюзивные кольца, серьги, браслеты и колье ручной работы в Москве. Премиальные украшения из позолоченного серебра и натуральных камней. Шоурум: Щелковское шоссе, 75, 0 этаж.">
+
+  <!-- Микроразметка для поисковиков (Организация) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Lu Enchantée",
+    "url": "https://luenchantee.ru",
+    "description": "Элитная бижутерия и украшения ручной работы. Кольца, серьги, браслеты и колье.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Щелковское шоссе, 75, 0 этаж",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
+    "telephone": "+79048101213",
+    "email": "info@luenchantee.ru",
+    "openingHours": "Mo-Su 10:00-20:00",
+    "priceRange": "$$$"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fcfbfa;
+      --surface: #ffffff;
+      --ink: #1a1817;
+      --muted: #7e766c;
+      --gold: #c9a86a;
+      --gold-dark: #b08d57;
+      --line: rgba(26,24,23,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1400px, 92%); margin-inline: auto; }
+    section[id] { scroll-margin-top: 90px; }
+
+    /* --- АНИМАЦИИ ПОЯВЛЕНИЯ --- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* --- HEADER (блок вкладок сверху) --- */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(252, 251, 250, 0.92);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow 0.3s;
+    }
+    header.scrolled { box-shadow: 0 4px 24px rgba(26,24,23,0.06); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 20px; }
+    .logo { display: flex; flex-direction: column; align-items: center; text-align: center; order: 2; }
+    .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
+    .logo-name em { font-style: italic; color: var(--gold); text-transform: none; }
+    .logo-domain { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: lowercase; color: var(--muted); margin-top: 2px; }
+    .header-left { flex: 1; }
+    .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 16px; }
+
+    nav ul { display: flex; gap: 26px; list-style: none; flex-wrap: wrap; }
+    nav a { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; position: relative; transition: color 0.3s; }
+    nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--gold); transform: scaleX(0); transition: 0.3s; }
+    nav a:hover { color: var(--gold-dark); }
+    nav a:hover::after { transform: scaleX(1); }
+
+    .header-phone { font-size: 0.85rem; letter-spacing: 0.06em; white-space: nowrap; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+    .burger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+
+    .mobile-nav {
+      display: none; flex-direction: column; gap: 4px; padding: 10px 4% 20px;
+      border-top: 1px solid var(--line); background: var(--bg);
+    }
+    .mobile-nav.active { display: flex; }
+    .mobile-nav a { padding: 10px 0; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+
+    /* --- HERO с фоновым фото --- */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      padding: 200px 0 120px; text-align: center; overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1515562141207-74388fbfddf0?q=80&w=1920&auto=format&fit=crop') center/cover fixed;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(252,251,250,0.86) 0%, rgba(252,251,250,0.72) 45%, rgba(252,251,250,0.94) 100%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero .eyebrow { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(3.2rem, 10vw, 8rem); font-weight: 300; line-height: 0.95; margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero p { max-width: 580px; margin: 0 auto 36px; color: var(--ink); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; }
+    .hero-scroll { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); z-index: 1; animation: float 2.4s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translate(-50%,0); } 50% { transform: translate(-50%,8px); } }
+
+    /* --- КНОПКИ --- */
+    .btn { display: inline-block; padding: 16px 42px; border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; transition: 0.3s; cursor: pointer; border: none; }
+    .btn-dark { background: var(--ink); color: #fff; }
+    .btn-dark:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(176,141,87,0.35); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+    .btn-outline:hover { background: var(--ink); color: #fff; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* --- КАТАЛОГ --- */
+    .catalog-section { padding: 100px 0 120px; background: var(--surface); }
+    .section-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 60px; text-align: center; }
+    .section-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 16px; }
+    .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
+
+    .filters { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; flex-wrap: wrap; }
+    .filter { background: none; border: none; cursor: pointer; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); position: relative; padding-bottom: 6px; transition: 0.3s; font-family: inherit; }
+    .filter::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: 0.3s; }
+    .filter.active { color: var(--ink); }
+    .filter.active::after { transform: scaleX(1); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6vw 4vw; }
+    .product { display: flex; flex-direction: column; cursor: pointer; }
+
+    .product-media { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #f0ebe1; border-radius: 2px; }
+    .product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
+    .product:hover .product-media img { transform: scale(1.06); }
+
+    .product-action { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(15px); background: rgba(255,255,255,0.95); color: var(--ink); padding: 12px 28px; border-radius: 999px; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: 0.4s; cursor: pointer; white-space: nowrap; }
+    .product:hover .product-action { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .product-action:hover { background: var(--ink); color: #fff; }
+
+    .product-info { padding-top: 24px; text-align: center; }
+    .product-cat { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .product-name { font-size: 1.6rem; margin-bottom: 6px; }
+    .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; font-weight: 300; }
+    .product-price { font-size: 1rem; letter-spacing: 0.05em; }
+
+    /* --- О БРЕНДЕ --- */
+    .about-section { padding: 140px 0; background: var(--bg); position: relative; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img { aspect-ratio: 4/5; background: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop') center/cover; box-shadow: 24px 24px 0 rgba(201,168,106,0.18); }
+    .about-text h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 24px; }
+    .about-text p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; }
+    .about-signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gold); margin-top: 30px; }
+
+    /* --- ЖУРНАЛ --- */
+    .blog-section { padding: 100px 0; background: var(--surface); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .blog-card { cursor: pointer; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; transition: 0.4s; background: var(--bg); }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+    .blog-img { aspect-ratio: 16/9; background-size: cover; background-position: center; transition: 0.5s; }
+    .blog-card:hover .blog-img { transform: scale(1.03); }
+    .blog-content { padding: 24px; }
+    .blog-date { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .blog-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 10px; line-height: 1.2; }
+    .blog-excerpt { font-size: 0.85rem; color: var(--muted); margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-more { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; color: var(--ink); }
+
+    /* --- ОТЗЫВЫ --- */
+    .reviews-section { padding: 100px 0; background: var(--bg); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 50px; }
+    .review-card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+      padding: 30px; display: flex; flex-direction: column; gap: 14px;
+      transition: 0.3s;
+    }
+    .review-card:hover { box-shadow: 0 14px 34px rgba(26,24,23,0.07); transform: translateY(-3px); }
+    .review-stars { color: var(--gold); letter-spacing: 3px; font-size: 1rem; }
+    .review-text { color: var(--muted); font-size: 0.95rem; line-height: 1.7; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; flex: 1; }
+    .review-meta { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .review-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #e6d3ab); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; flex-shrink: 0; }
+    .review-name { font-size: 0.9rem; font-weight: 500; }
+    .review-date { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
+
+    .stars-input { display: flex; gap: 6px; justify-content: center; margin-bottom: 8px; }
+    .stars-input button { background: none; border: none; font-size: 1.7rem; color: #ddd3c2; cursor: pointer; transition: 0.2s; padding: 2px; }
+    .stars-input button.active, .stars-input button:hover { color: var(--gold); }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .form-field input, .form-field textarea {
+      font-family: inherit; font-size: 0.95rem; padding: 13px 16px;
+      border: 1px solid var(--line); border-radius: 4px; background: var(--bg);
+      transition: 0.3s; resize: vertical;
+    }
+    .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); background: #fff; }
+    .form-note { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 12px; }
+    .form-success { display: none; text-align: center; padding: 30px; }
+    .form-success .check { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #e6d3ab); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 16px; }
+    .form-success h4 { font-size: 1.6rem; margin-bottom: 8px; }
+
+    /* --- КОНТАКТЫ --- */
+    .contacts-section { padding: 100px 0 0; background: var(--surface); }
+    .contacts-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: stretch; padding-bottom: 100px; }
+    .contact-block { display: flex; gap: 18px; margin-bottom: 28px; align-items: flex-start; }
+    .contact-icon { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-dark); }
+    .contact-icon svg { width: 20px; height: 20px; fill: currentColor; }
+    .contact-block h4 { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-family: 'Jost', sans-serif; font-weight: 500; }
+    .contact-block a, .contact-block span { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; transition: color 0.3s; }
+    .contact-block a:hover { color: var(--gold-dark); }
+    .contact-socials { display: flex; gap: 12px; margin-top: 10px; }
+    .contact-socials a { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+    .contact-socials a:hover { transform: translateY(-3px) scale(1.05); }
+    .contact-socials svg { width: 24px; height: 24px; fill: #fff; }
+    .cs-wa { background: #25D366; }
+    .cs-tg { background: #0088cc; }
+    .cs-max { background: linear-gradient(135deg, #5b4bff, #8a63ff); }
+    .map-wrap { border-radius: 6px; overflow: hidden; box-shadow: 0 14px 40px rgba(26,24,23,0.1); min-height: 420px; }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; min-height: 420px; display: block; }
+
+    /* --- SEO TEXT --- */
+    .seo-text { background-color: var(--bg); padding: 60px 0; border-top: 1px solid var(--line); text-align: center; }
+    .seo-text h3 { font-size: 1.5rem; margin-bottom: 16px; }
+    .seo-text p { font-size: 0.9rem; color: var(--muted); max-width: 900px; margin: 0 auto; }
+    .seo-links { margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; font-size: 0.8rem; }
+    .seo-links a { border-bottom: 1px solid var(--gold); color: var(--ink); }
+
+    /* --- FOOTER --- */
+    footer { padding: 70px 0 40px; background: var(--ink); color: rgba(255,255,255,0.85); text-align: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
+    .footer-domain { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: lowercase; color: var(--gold); margin-bottom: 30px; }
+    .footer-nav { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .footer-nav a { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; transition: 0.3s; }
+    .footer-nav a:hover { opacity: 1; color: var(--gold); }
+    .footer-contacts { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; margin-bottom: 6px; }
+    .footer-contacts a:hover { color: var(--gold); }
+    .footer-address { font-size: 0.85rem; opacity: 0.7; margin-bottom: 30px; }
+    .footer-copy { font-size: 0.72rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; max-width: 600px; margin-inline: auto; }
+
+    /* --- ПЛАВАЮЩАЯ КНОПКА СВЯЗИ (оператор) --- */
+    .floating-contact { position: fixed; bottom: 30px; right: 30px; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .contact-menu { display: flex; flex-direction: column; gap: 10px; opacity: 0; pointer-events: none; transform: translateY(20px); transition: 0.3s; }
+    .contact-menu.active { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .contact-btn { position: relative; display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; transition: 0.3s; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.14); }
+    .contact-btn:hover { transform: scale(1.1); }
+    .contact-btn svg { width: 24px; height: 24px; fill: #fff; }
+    .contact-btn.wa { background: #25D366; }
+    .contact-btn.tg { background: #0088cc; }
+    .contact-btn.max { background: linear-gradient(135deg, #5b4bff, #8a63ff); }
+    .contact-label { position: absolute; right: 60px; top: 50%; transform: translateY(-50%); background: var(--ink); color: #fff; font-size: 0.68rem; letter-spacing: 0.1em; padding: 6px 12px; border-radius: 6px; white-space: nowrap; opacity: 0; transition: 0.3s; pointer-events: none; }
+    .contact-btn:hover .contact-label { opacity: 1; }
+
+    .main-fab { width: 60px; height: 60px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(201, 168, 106, 0.45); transition: 0.3s; color: #fff; }
+    .main-fab:hover { transform: scale(1.05) rotate(5deg); background: var(--gold-dark); }
+    .main-fab svg { width: 28px; height: 28px; fill: currentColor; transition: 0.3s; }
+    .main-fab.open svg { transform: rotate(180deg); }
+
+    /* --- МОДАЛЬНЫЕ ОКНА --- */
+    .modal { position: fixed; inset: 0; background: rgba(26,24,23,0.65); backdrop-filter: blur(4px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px; overflow-y: auto; }
+    .modal.active { opacity: 1; pointer-events: auto; }
+    .modal-content { background: var(--surface); width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
+    .modal.active .modal-content { transform: translateY(0); }
+    .modal-img { aspect-ratio: 3/4; }
+    .modal-img img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-info { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+    .modal-info .product-cat { font-size: 0.8rem; margin-bottom: 10px; }
+    .modal-info h3 { font-size: 2.4rem; margin-bottom: 10px; }
+    .modal-info .product-material { font-size: 1rem; margin-bottom: 20px; }
+    .modal-info .product-price { font-size: 1.5rem; margin-bottom: 30px; }
+    .modal-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.7; }
+    .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; }
+    .btn-order:hover { background: var(--gold-dark); }
+    .modal-close { position: absolute; top: 15px; right: 15px; background: #fff; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
+
+    .modal-review .modal-content { display: block; max-width: 560px; padding: 44px; }
+    .modal-review h3 { font-size: 2rem; margin-bottom: 8px; text-align: center; }
+    .modal-review .section-sub { text-align: center; margin-bottom: 28px; }
+
+    .modal-blog .modal-content { grid-template-columns: 1fr; max-width: 700px; }
+    .modal-blog h3 { font-size: 2.3rem; margin-bottom: 20px; }
+    .modal-blog .blog-date { margin-bottom: 20px; display: block; }
+    .modal-blog p { margin-bottom: 15px; color: var(--ink); font-size: 1rem; line-height: 1.8; }
+    .modal-blog strong { font-weight: 500; color: var(--gold-dark); }
+
+    /* --- КНОПКА НАВЕРХ --- */
+    .to-top { position: fixed; bottom: 30px; left: 30px; width: 48px; height: 48px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 998; font-size: 1.1rem; color: var(--ink); }
+    .to-top.visible { opacity: 1; pointer-events: auto; }
+    .to-top:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1024px) {
+      .grid, .blog-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img { aspect-ratio: 16/9; box-shadow: 14px 14px 0 rgba(201,168,106,0.18); }
+      .modal-content { grid-template-columns: 1fr; max-width: 500px; }
+      .modal-img { aspect-ratio: 4/3; }
+      .modal-info { padding: 30px; }
+      .modal-blog .modal-info { padding: 30px; }
+      .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { background-attachment: scroll; }
+    }
+    @media (max-width: 768px) {
+      nav, .header-phone, .header-left { display: none; }
+      .header-inner { justify-content: space-between; }
+      .burger { display: block; order: 1; }
+      .logo { order: 2; }
+      .header-right { order: 3; justify-content: flex-end; }
+      .mobile-nav { display: none; }
+      .mobile-nav.active { display: flex; }
+      .hero { padding: 160px 0 100px; }
+      .grid, .blog-grid, .reviews-grid { grid-template-columns: 1fr; gap: 30px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .floating-contact { bottom: 20px; right: 20px; }
+      .to-top { bottom: 20px; left: 20px; }
+      .contacts-grid { padding-bottom: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <nav>
+        <ul>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#blog">Журнал</a></li>
+          <li><a href="#about">О бренде</a></li>
+        </ul>
+      </nav>
+    </div>
+    <a href="#" class="logo">
+      <span class="logo-name">Lu <em>Enchantée</em></span>
+      <span class="logo-domain">www.luenchantee.ru</span>
+    </a>
+    <div class="header-right">
+      <nav>
+        <ul>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <a href="tel:+79048101213" class="header-phone">+7 (904) 810-12-13</a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#catalog">Каталог</a>
+    <a href="#blog">Журнал</a>
+    <a href="#about">О бренде</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="container">
+    <div class="eyebrow reveal active">Москва · с 2019 года</div>
+    <h1 class="reveal active">Lu <em>Enchantée</em></h1>
+    <p class="reveal active">Искусство быть незабываемой. Элитная бижутерия ручной работы.</p>
+    <div class="hero-btns reveal active">
+      <a href="#catalog" class="btn btn-dark">Смотреть каталог</a>
+      <a href="#contacts" class="btn btn-outline">Наш шоурум</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Листайте вниз ↓</div>
+</section>
+
+<section class="catalog-section" id="catalog">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Купить бижутерию</h2>
+      <p class="section-sub">Кольца, серьги, браслеты и колье премиум-класса. Каждое украшение создано вручную.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter active" data-filter="all">Все украшения</button>
+      <button class="filter" data-filter="rings">Кольца</button>
+      <button class="filter" data-filter="earrings">Серьги</button>
+      <button class="filter" data-filter="necklaces">Колье</button>
+      <button class="filter" data-filter="bracelets">Браслеты</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Журнал</h2>
+      <p class="section-sub">Секреты ухода за украшениями, чтобы они радовали вас долгие годы.</p>
+    </div>
+
+    <div class="blog-grid reveal">
+      <article class="blog-card" onclick="openBlog('silver')">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop');"></div>
+        <div class="blog-content">
+          <div class="blog-date">Уход</div>
+          <h3 class="blog-title">Как ухаживать за позолоченным серебром</h3>
+          <p class="blog-excerpt">Позолота — это тонкое покрытие, которое требует бережного отношения. Узнайте, как сохранить блеск и не стереть золото.</p>
+          <div class="blog-more">Читать →</div>
+        </div>
+      </article>
+
+      <article class="blog-card" onclick="openBlog('pearl')">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=600&auto=format&fit=crop');"></div>
+        <div class="blog-content">
+          <div class="blog-date">Уход</div>
+          <h3 class="blog-title">Правила ухода за натуральным жемчугом</h3>
+          <p class="blog-excerpt">Жемчуг боится парфюма и воды. Узнайте простые правила, которые сохранят его перламутровый блеск на десятилетия.</p>
+          <div class="blog-more">Читать →</div>
+        </div>
+      </article>
+
+      <article class="blog-card" onclick="openBlog('stones')">
+        <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=600&auto=format&fit=crop');"></div>
+        <div class="blog-content">
+          <div class="blog-date">Уход</div>
+          <h3 class="blog-title">Как чистить украшения с натуральными камнями</h3>
+          <p class="blog-excerpt">Топазы, сапфиры и фианиты требуют особого подхода. Ультразвук подходит не для всех. Узнайте безопасные способы чистки.</p>
+          <div class="blog-more">Читать →</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="container about-grid">
+    <div class="about-img reveal"></div>
+    <div class="about-text reveal">
+      <h2>Философия бренда</h2>
+      <p>Lu Enchantée — мастерская элитной бижутерии. Мы создаём украшения, которые становятся частью личной истории.</p>
+      <p>Мы работаем с позолоченным серебром, натуральными камнями и жемчугом. Доставка по Москве и всей России.</p>
+      <div class="about-signature">— Основательница Lu Enchantée</div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Отзывы</h2>
+      <p class="section-sub">Истории наших клиенток. Оставьте свой отзыв — он появится на сайте сразу после отправки.</p>
+    </div>
+
+    <div class="reviews-grid reveal" id="reviewsGrid"></div>
+
+    <div style="text-align: center;" class="reveal">
+      <button class="btn btn-dark" onclick="document.getElementById('reviewModal').classList.add('active')">Оставить отзыв</button>
+    </div>
+  </div>
+</section>
+
+<section class="contacts-section" id="contacts">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-sub">Приезжайте в наш шоурум, чтобы примерить украшения вживую, или напишите нам в мессенджер.</p>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="reveal">
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <h4>Адрес шоурума</h4>
+            <span>г. Москва, Щелковское шоссе, 75, 0 этаж</span>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <h4>Телефон (оператор)</h4>
+            <a href="tel:+79048101213">+7 (904) 810-12-13</a>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <h4>Почта для вопросов</h4>
+            <a href="mailto:info@luenchantee.ru">info@luenchantee.ru</a>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div>
+            <h4>Часы работы</h4>
+            <span>Ежедневно с 10:00 до 20:00</span>
+          </div>
+        </div>
+
+        <div class="contact-block" style="margin-bottom: 10px;">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          </div>
+          <div>
+            <h4>Написать оператору</h4>
+            <div class="contact-socials">
+              <!-- ЗАМЕНИТЕ ссылки на свои, если у вас_username в Telegram или ссылка профиля Max -->
+              <a href="https://t.me/+79048101213" target="_blank" rel="noopener" class="cs-tg" title="Telegram">
+                <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              </a>
+              <a href="https://wa.me/79048101213" target="_blank" rel="noopener" class="cs-wa" title="WhatsApp">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              </a>
+              <a href="https://max.ru" target="_blank" rel="noopener" class="cs-max" title="Max">
+                <svg viewBox="0 0 24 24"><path d="M4 5h3l5 7 5-7h3v14h-3v-9l-4.2 5.8h-1.6L7 10v9H4V5z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal">
+        <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%A9%D0%B5%D0%BB%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2075&z=16" allowfullscreen title="Шоурум Lu Enchantée на карте"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seo-text reveal">
+  <div class="container">
+    <h3>Элитная бижутерия Lu Enchantée в Москве</h3>
+    <p>
+      Ищете, где купить красивую бижутерию в Москве? Интернет-магазин Lu Enchantée предлагает эксклюзивные украшения ручной работы. В нашем каталоге вы найдете стильные кольца, изящные серьги, элегантные браслеты и колье. Мы используем только качественные материалы: позолоченное серебро, речной жемчуг и натуральные камни. Приезжайте в наш шоурум на Щелковском шоссе или закажите доставку.
+    </p>
+    <div class="seo-links">
+      <a href="#catalog">Купить кольца</a>
+      <a href="#catalog">Купить серьги</a>
+      <a href="#catalog">Купить браслеты</a>
+      <a href="#catalog">Купить колье</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">Lu Enchantée</div>
+    <div class="footer-domain">www.luenchantee.ru</div>
+    <div class="footer-nav">
+      <a href="#catalog">Каталог</a>
+      <a href="#blog">Журнал</a>
+      <a href="#about">О бренде</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+    <div class="footer-contacts">
+      <a href="tel:+79048101213">+7 (904) 810-12-13</a> · <a href="mailto:info@luenchantee.ru">info@luenchantee.ru</a>
+    </div>
+    <div class="footer-address">г. Москва, Щелковское шоссе, 75, 0 этаж · Ежедневно 10:00–20:00</div>
+    <div class="footer-copy">© <span id="year"></span> Lu Enchantée · Все права защищены</div>
+  </div>
+</footer>
+
+<!-- ПЛАВАЮЩАЯ КНОПКА ОПЕРАТОРА -->
+<div class="floating-contact">
+  <div class="contact-menu" id="contactMenu">
+    <a href="https://wa.me/79048101213" target="_blank" rel="noopener" class="contact-btn wa" title="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      <span class="contact-label">WhatsApp</span>
+    </a>
+    <a href="https://t.me/+79048101213" target="_blank" rel="noopener" class="contact-btn tg" title="Telegram">
+      <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <span class="contact-label">Telegram</span>
+    </a>
+    <a href="https://max.ru" target="_blank" rel="noopener" class="contact-btn max" title="Max">
+      <svg viewBox="0 0 24 24"><path d="M4 5h3l5 7 5-7h3v14h-3v-9l-4.2 5.8h-1.6L7 10v9H4V5z"/></svg>
+      <span class="contact-label">Max</span>
+    </a>
+  </div>
+  <button class="main-fab" id="fabBtn" title="Связаться с нами">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+  </button>
+</div>
+
+<!-- КНОПКА НАВЕРХ -->
+<button class="to-top" id="toTop" title="Наверх">↑</button>
+
+<!-- МОДАЛЬНОЕ ОКНО ТОВАРА -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('active')">✕</button>
+    <div class="modal-img">
+      <img id="modalImg" src="" alt="Украшение">
+    </div>
+    <div class="modal-info">
+      <div class="product-cat" id="modalCat"></div>
+      <h3 id="modalName"></h3>
+      <p class="product-material" id="modalMaterial"></p>
+      <div class="product-price" id="modalPrice"></div>
+      <p class="modal-desc">Эксклюзивное украшение ручной работы от Lu Enchantée. Идеально подходит как для повседневного образа, так и для вечернего выхода. Поставляется в фирменной подарочной упаковке.</p>
+      <a href="#" class="btn-order" id="orderBtn" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО ОСТАВИТЬ ОТЗЫВ -->
+<div class="modal modal-review" id="reviewModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('reviewModal').classList.remove('active')">✕</button>
+    <div id="reviewFormWrap">
+      <h3>Ваш отзыв</h3>
+      <p class="section-sub">Расскажите о своём опыте — нам важно каждое мнение.</p>
+      <form id="reviewForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="rvName">Ваше имя</label>
+            <input type="text" id="rvName" required maxlength="40" placeholder="Анна">
+          </div>
+          <div class="form-field">
+            <label>Оценка</label>
+            <div class="stars-input" id="starsInput">
+              <button type="button" data-v="1">★</button>
+              <button type="button" data-v="2">★</button>
+              <button type="button" data-v="3">★</button>
+              <button type="button" data-v="4">★</button>
+              <button type="button" data-v="5">★</button>
+            </div>
+          </div>
+          <div class="form-field full">
+            <label for="rvText">Отзыв</label>
+            <textarea id="rvText" rows="4" required maxlength="600" placeholder="Поделитесь впечатлениями о украшении и обслуживании..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark" style="width: 100%; margin-top: 18px;">Отправить отзыв</button>
+      </form>
+    </div>
+    <div class="form-success" id="reviewSuccess">
+      <div class="check">✓</div>
+      <h4>Спасибо за отзыв!</h4>
+      <p style="color: var(--muted); font-size: 0.9rem;">Он уже опубликован в блоке отзывов выше.</p>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО БЛОГА -->
+<div class="modal modal-blog" id="blogModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('blogModal').classList.remove('active')">✕</button>
+    <div class="modal-info">
+      <span class="blog-date" id="blogModalDate"></span>
+      <h3 id="blogModalTitle"></h3>
+      <div id="blogModalText"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ============================================ */
+  /* НАСТРОЙКИ — при необходимости поменяйте      */
+  /* ============================================ */
+  const myPhoneNumber = "79048101213"; // телефон оператора
+  const myEmail = "info@luenchantee.ru"; // почта для писем
+
+  /* ДАННЫЕ КАТАЛОГА */
+  const products = [
+    { id:'r1', category:'rings', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
+    { id:'e1', category:'earrings', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
+    { id:'n1', category:'necklaces', price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', name:'Колье Lune', material:'Позолоченное серебро · речной жемчуг' },
+    { id:'b1', category:'bracelets', price:'27 400 ₽', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop', name:'Браслет Rivière', material:'Позолоченное серебро · сапфиры' },
+    { id:'r2', category:'rings', price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop', name:'Кольцо Nuit', material:'Родированное серебро · чёрный оникс' },
+    { id:'e2', category:'earrings', price:'16 900 ₽', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop', name:'Серьги Perle', material:'Позолоченное серебро · жемчуг' }
+  ];
+
+  /* НАЧАЛЬНЫЕ ОТЗЫВЫ (пользовательские сохраняются в localStorage) */
+  const seedReviews = [
+    { name: 'Анна', rating: 5, date: '12.10.2025', text: 'Заказывала колье Lune в подарок маме — упаковка шикарная, камни играют на свету. Мама была на седьмом небе. Обслуживание на высшем уровне, отвечали в течение пары минут.' },
+    { name: 'Мария', rating: 5, date: '28.09.2025', text: 'Наконец-то бижутерия, которая не темнеет через месяц! Ношу серьги Étoile каждый день уже полгода — как новые. Теперь только ваш бренд.' },
+    { name: 'Екатерина', rating: 4, date: '03.09.2025', text: 'Приезжала в шоурум на Щелковском, примерила пять пар серёг. Очень уютное место, вживую украшения ещё красивее, чем на фото. Единственное — хотелось бы больше моделей браслетов.' }
+  ];
+
+  /* ДАННЫЕ ДЛЯ БЛОГА */
+  const blogArticles = {
+    silver: {
+      title: "Как ухаживать за позолоченным серебром",
+      date: "Уход за украшениями",
+      text: `
+        <p>Позолоченное серебро — это благородный металл с тонким слоем золота. Чтобы украшение радовало вас долгие годы, соблюдайте несколько простых правил:</p>
+        <p><strong>1. Надевайте в последнюю очередь.</strong> Парфюм, лак для волос и косметика содержат химические вещества, которые разрушают позолоту. Наносите макияж и духи до того, как наденете украшение.</p>
+        <p><strong>2. Снимайте в первую очередь.</strong> Дома сразу снимайте кольца и серьги. Не мойте посуду, не занимайтесь спортом и не спите в украшениях.</p>
+        <p><strong>3. Избегайте контакта с водой.</strong> Хлор, морская соль и даже обычная вода из-под крана могут привести к потемнению. Снимайте украшения перед душем и походом в бассейн.</p>
+        <p><strong>4. Правильное хранение.</strong> Храните изделия в индивидуальных тканевых мешочках или шкатулке с мягкой подкладкой. Не бросайте их в одну кучу, чтобы избежать царапин.</p>
+        <p><strong>5. Чистка.</strong> Протирайте украшения мягкой сухой тканью (например, фланелью) после каждого ношения. Не используйте абразивные средства и зубную пасту.</p>
+      `
+    },
+    pearl: {
+      title: "Правила ухода за натуральным жемчугом",
+      date: "Уход за украшениями",
+      text: `
+        <p>Жемчуг — живой органический материал. Он требует к себе гораздо более бережного отношения, чем металлы и камни.</p>
+        <p><strong>1. Берегите от парфюма.</strong> Кислоты и спирты, содержащиеся в духах, разрушают перламутровый слой. Надевайте жемчужное колье только после того, как духи полностью высохли.</p>
+        <p><strong>2. Избегайте косметики.</strong> Кремы, тональные средства и лаки для волос оседают на жемчуге и делают его тусклым. Всегда очищайте лицо перед тем, как надеть серьги с жемчугом.</p>
+        <p><strong>3. Влажность и хранение.</strong> Жемчуг не любит сухости (он может потрескаться) и переувлажнения. Храните его в мягком тканевом мешочке, но не в герметичном пластиковом пакете. Не храните жемчуг рядом с металлическими украшениями — они могут его поцарапать.</p>
+        <p><strong>4. Чистка.</strong> Никогда не используйте ультразвуковые очистители или химические растворы. Протирайте жемчуг мягкой влажной тканью без мыла и сразу высушивайте.</p>
+      `
+    },
+    stones: {
+      title: "Как чистить украшения с натуральными камнями",
+      date: "Уход за украшениями",
+      text: `
+        <p>Натуральные камни (топаз, сапфир, аметист, фианит) обладают разной твердостью. Некоторые из них довольно хрупкие.</p>
+        <p><strong>1. Безопасная чистка.</strong> Самый универсальный способ — теплая мыльная вода. Добавьте каплю мягкого средства для мытья посуды в теплую воду, окуните украшение на 5 минут, аккуратно почистите мягкой зубной щеткой (только вокруг камня, не задевая крепление) и промокните насухо.</p>
+        <p><strong>2. Осторожно с пористыми камнями.</strong> Бирюза, жемчуг, коралл и опал — пористые камни. Они могут впитать мыло или грязь и изменить цвет. Их нельзя замачивать, только протирать влажной тканью.</p>
+        <p><strong>3. Ультразвук и пар.</strong> Ультразвуковые ванночки отлично очищают золото и бриллианты, но категорически запрещены для камней с трещинами и пористых структур. Если вы не уверены в природе камня, лучше не рискуйте и используйте ручную чистку.</p>
+        <p><strong>4. Проверка крепления.</strong> Чистя украшение, всегда проверяйте, надежно ли держатся камни в оправе. Если вы чувствуете шатание, не носите украшение, пока его не починит ювелир.</p>
+      `
+    }
+  };
+
+  let currentFilter = 'all';
+
+  /* --- КАТАЛОГ --- */
+  function renderProducts() {
+    const grid = document.getElementById('grid');
+    const list = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+
+    grid.innerHTML = list.map(p => `
+      <article class="product reveal active">
+        <div class="product-media">
+          <img src="${p.image}" alt="Купить ${p.name} в Москве - элитная бижутерия" loading="lazy">
+          <div class="product-action">Подробнее</div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">${getCatName(p.category)}</div>
+          <h3 class="product-name">${p.name}</h3>
+          <p class="product-material">${p.material}</p>
+          <div class="product-price">${p.price}</div>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  function getCatName(cat) {
+    const names = { rings: 'Кольца', earrings: 'Серьги', necklaces: 'Колье', bracelets: 'Браслеты' };
+    return names[cat] || '';
+  }
+
+  /* --- МОДАЛКА ТОВАРА --- */
+  function openModal(id) {
+    const p = products.find(item => item.id === id);
+    if(!p) return;
+
+    document.getElementById('modalImg').src = p.image;
+    document.getElementById('modalCat').textContent = getCatName(p.category);
+    document.getElementById('modalName').textContent = p.name;
+    document.getElementById('modalMaterial').textContent = p.material;
+    document.getElementById('modalPrice').textContent = p.price;
+
+    const text = `Здравствуйте! Хочу заказать украшение: ${p.name} (${p.price}).`;
+    const encodedText = encodeURIComponent(text);
+    document.getElementById('orderBtn').href = `https://wa.me/${myPhoneNumber}?text=${encodedText}`;
+
+    document.getElementById('productModal').classList.add('active');
+  }
+
+  /* --- МОДАЛКА БЛОГА --- */
+  function openBlog(id) {
+    const article = blogArticles[id];
+    if(!article) return;
+
+    document.getElementById('blogModalDate').textContent = article.date;
+    document.getElementById('blogModalTitle').textContent = article.title;
+    document.getElementById('blogModalText').innerHTML = article.text;
+
+    document.getElementById('blogModal').classList.add('active');
+  }
+
+  /* --- ОТЗЫВЫ --- */
+  function loadReviews() {
+    let custom = [];
+    try { custom = JSON.parse(localStorage.getItem('lu_reviews') || '[]'); } catch(e) {}
+    return [...custom, ...seedReviews];
+  }
+
+  function starRow(n) {
+    return '★★★★★'.slice(0, n) + '<span style="color:#ddd3c2">' + '★★★★★'.slice(0, 5 - n) + '</span>';
+  }
+
+  function renderReviews() {
+    const wrap = document.getElementById('reviewsGrid');
+    wrap.innerHTML = loadReviews().map(r => `
+      <div class="review-card">
+        <div class="review-stars">${starRow(r.rating)}</div>
+        <p class="review-text">«${r.text}»</p>
+        <div class="review-meta">
+          <div class="review-avatar">${r.name.charAt(0).toUpperCase()}</div>
+          <div>
+            <div class="review-name">${r.name}</div>
+            <div class="review-date">${r.date}</div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  /* Форма отзыва: звёзды */
+  let chosenRating = 5;
+  const starsInput = document.getElementById('starsInput');
+  function paintStars(n) {
+    starsInput.querySelectorAll('button').forEach((b, i) => {
+      b.classList.toggle('active', i < n);
+    });
+  }
+  starsInput.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    chosenRating = +btn.dataset.v;
+    paintStars(chosenRating);
+  });
+  paintStars(chosenRating);
+
+  document.getElementById('reviewForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('rvName').value.trim();
+    const text = document.getElementById('rvText').value.trim();
+    if (!name || !text) return;
+
+    const now = new Date();
+    const date = now.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+    let custom = [];
+    try { custom = JSON.parse(localStorage.getItem('lu_reviews') || '[]'); } catch(err) {}
+    custom.unshift({ name: name, rating: chosenRating, date: date, text: text });
+    localStorage.setItem('lu_reviews', JSON.stringify(custom));
+
+    renderReviews();
+    document.getElementById('reviewFormWrap').style.display = 'none';
+    document.getElementById('reviewSuccess').style.display = 'block';
+
+    setTimeout(() => {
+      document.getElementById('reviewModal').classList.remove('active');
+      document.getElementById('reviewFormWrap').style.display = '';
+      document.getElementById('reviewSuccess').style.display = 'none';
+      document.getElementById('reviewForm').reset();
+      chosenRating = 5; paintStars(5);
+    }, 2500);
+  });
+
+  /* --- ФИЛЬТРЫ --- */
+  document.querySelector('.filters').addEventListener('click', e => {
+    if(!e.target.classList.contains('filter')) return;
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter = e.target.dataset.filter;
+    renderProducts();
+  });
+
+  /* --- ПЛАВАЮЩАЯ КНОПКА ОПЕРАТОРА --- */
+  const fabBtn = document.getElementById('fabBtn');
+  const contactMenu = document.getElementById('contactMenu');
+
+  fabBtn.addEventListener('click', () => {
+    contactMenu.classList.toggle('active');
+    fabBtn.classList.toggle('open');
+  });
+
+  /* --- МОБИЛЬНОЕ МЕНЮ --- */
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  burgerBtn.addEventListener('click', () => mobileNav.classList.toggle('active'));
+  mobileNav.addEventListener('click', e => {
+    if (e.target.tagName === 'A') mobileNav.classList.remove('active');
+  });
+
+  /* --- ЗАКРЫТИЕ МОДАЛОК И МЕНЮ ПО КЛИКУ МИМО --- */
+  document.addEventListener('click', (e) => {
+    if (!fabBtn.contains(e.target) && !contactMenu.contains(e.target)) {
+      contactMenu.classList.remove('active');
+      fabBtn.classList.remove('open');
+    }
+    if(e.target.classList.contains('modal')) {
+      e.target.classList.remove('active');
+    }
+  });
+
+  /* --- ЗАКРЫТИЕ ПО ESC --- */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
+      contactMenu.classList.remove('active');
+      fabBtn.classList.remove('open');
+      mobileNav.classList.remove('active');
+    }
+  });
+
+  /* --- HEADER: тень при прокрутке + кнопка наверх --- */
+  const header = document.getElementById('header');
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+    toTop.classList.toggle('visible', window.scrollY > 600);
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* --- АНИМАЦИИ ПРИ ПРОКРУТКЕ --- */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  renderProducts();
+  renderReviews();
+</script>
+</body>
+</html>
