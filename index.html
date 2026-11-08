@@ -15,12 +15,11 @@
   <!-- ЗНАЧОК НА ВКЛАДКЕ (FAVICON) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
 
-  <!-- МИКРОРАЗМЕТКА: ЮВЕЛИРНЫЙ МАГАЗИН -->
+  <!-- МИКРОРАЗМЕТКА -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["JewelryStore", "LocalBusiness"],
-    "@id": "https://luenchantee.ru/#store",
     "name": "Lu Enchantée",
     "url": "https://luenchantee.ru",
     "telephone": "+79048101213",
@@ -29,12 +28,6 @@
       "streetAddress": "Щелковское шоссе, 75, 0 этаж",
       "addressLocality": "Москва",
       "addressCountry": "RU"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "10:00",
-      "closes": "20:00"
     }
   }
   </script>
@@ -150,7 +143,7 @@
 
     .product-info { padding-top: 24px; text-align: center; }
     .product-cat { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-    .product-name { font-size: 1.5rem; margin-bottom: 6px; }
+    .product-name { font-size: 1.5rem; margin-bottom: 6px; line-height: 1.3; }
     .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; font-weight: 300; }
     .product-price { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; }
 
@@ -275,10 +268,15 @@
     .modal-img img { width: 100%; height: 100%; object-fit: cover; }
     .modal-info { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
     .modal-info .product-cat { font-size: 0.8rem; margin-bottom: 10px; }
-    .modal-info h3 { font-size: 2.4rem; margin-bottom: 10px; }
+    .modal-info h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
     .modal-info .product-material { font-size: 1rem; margin-bottom: 20px; color: var(--muted); }
-    .modal-info .product-price { font-size: 1.8rem; margin-bottom: 30px; font-weight: 500; }
-    .modal-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.7; }
+    .modal-info .product-price { font-size: 1.8rem; margin-bottom: 20px; font-weight: 500; }
+    .modal-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7; }
+    
+    /* Блок скидки */
+    .discount-block { background: #f7f3eb; border: 1px dashed var(--gold); padding: 15px; border-radius: 6px; margin-bottom: 25px; font-size: 0.85rem; color: var(--ink); text-align: center; }
+    .discount-block strong { color: var(--gold-dark); }
+
     .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; }
     .btn-order:hover { background: var(--gold-dark); }
     .modal-close { position: absolute; top: 15px; right: 15px; background: #fff; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
@@ -640,6 +638,12 @@
       <h3 id="modalName"></h3>
       <p class="product-material" id="modalMaterial"></p>
       <div class="product-price" id="modalPrice"></div>
+      
+      <!-- БЛОК СКИДКИ -->
+      <div class="discount-block">
+        Купите <strong>два браслета</strong> и получите <strong>скидку 10%</strong> на комплект (колье-трансформер)!
+      </div>
+
       <p class="modal-desc">Эксклюзивное украшение ручной работы от Lu Enchantée. Идеально подходит как для повседневного образа, так и для вечернего выхода. Поставляется в фирменной подарочной упаковке.</p>
       <a href="#" class="btn-order" id="orderBtn" target="_blank" rel="noopener">Заказать в WhatsApp</a>
     </div>
@@ -698,70 +702,34 @@
 </div>
 
 <script>
-  /* ============================================ */
-  /* НАСТРОЙКИ */
-  /* ============================================ */
   const myPhoneNumber = "79048101213";
   const myEmail = "info@luenchantee.ru";
 
-  /* ДАННЫЕ КАТАЛОГА */
+  /* ДАННЫЕ КАТАЛОГА (с добавленными браслетами) */
   const products = [
-    { id:'r1', category:'rings', price:'24 900 ₽', badge:'Хит', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
-    { id:'e1', category:'earrings', price:'18 500 ₽', badge:'Новинка', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
+    { id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', image: 'braslet1.jpg', name:'Браслет-трансформер "Изумрудный сад"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
+    { id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', image: 'braslet2.jpg', name:'Браслет-трансформер "Морской бриз"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
+    { id:'r1', category:'rings', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
+    { id:'e1', category:'earrings', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
     { id:'n1', category:'necklaces', price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', name:'Колье Lune', material:'Позолоченное серебро · речной жемчуг' },
-    { id:'b1', category:'bracelets', price:'27 400 ₽', badge:'Хит', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop', name:'Браслет Rivière', material:'Позолоченное серебро · сапфиры' },
     { id:'r2', category:'rings', price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop', name:'Кольцо Nuit', material:'Родированное серебро · чёрный оникс' },
     { id:'e2', category:'earrings', price:'16 900 ₽', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop', name:'Серьги Perle', material:'Позолоченное серебро · жемчуг' }
   ];
 
-  /* НАЧАЛЬНЫЕ ОТЗЫВЫ */
   const seedReviews = [
     { name: 'Анна', rating: 5, date: '12.10.2025', text: 'Заказывала колье Lune в подарок маме — упаковка шикарная, камни играют на свету. Мама была на седьмом небе. Обслуживание на высшем уровне, отвечали в течение пары минут.' },
     { name: 'Мария', rating: 5, date: '28.09.2025', text: 'Наконец-то бижутерия, которая не темнеет через месяц! Ношу серьги Étoile каждый день уже полгода — как новые. Теперь только ваш бренд.' },
     { name: 'Екатерина', rating: 4, date: '03.09.2025', text: 'Приезжала в шоурум на Щелковском, примерила пять пар серёг. Очень уютное место, вживую украшения ещё красивее, чем на фото. Единственное — хотелось бы больше моделей браслетов.' }
   ];
 
-  /* ДАННЫЕ ДЛЯ БЛОГА */
   const blogArticles = {
-    silver: {
-      title: "Как ухаживать за позолоченным серебром",
-      date: "Уход за украшениями",
-      text: `
-        <p>Позолоченное серебро — это благородный металл с тонким слоем золота. Чтобы украшение радовало вас долгие годы, соблюдайте несколько простых правил:</p>
-        <p><strong>1. Надевайте в последнюю очередь.</strong> Парфюм, лак для волос и косметика содержат химические вещества, которые разрушают позолоту. Наносите макияж и духи до того, как наденете украшение.</p>
-        <p><strong>2. Снимайте в первую очередь.</strong> Дома сразу снимайте кольца и серьги. Не мойте посуду, не занимайтесь спортом и не спите в украшениях.</p>
-        <p><strong>3. Избегайте контакта с водой.</strong> Хлор, морская соль и даже обычная вода из-под крана могут привести к потемнению. Снимайте украшения перед душем и походом в бассейн.</p>
-        <p><strong>4. Правильное хранение.</strong> Храните изделия в индивидуальных тканевых мешочках или шкатулке с мягкой подкладкой. Не бросайте их в одну кучу, чтобы избежать царапин.</p>
-        <p><strong>5. Чистка.</strong> Протирайте украшения мягкой сухой тканью (например, фланелью) после каждого ношения. Не используйте абразивные средства и зубную пасту.</p>
-      `
-    },
-    pearl: {
-      title: "Правила ухода за натуральным жемчугом",
-      date: "Уход за украшениями",
-      text: `
-        <p>Жемчуг — живой органический материал. Он требует к себе гораздо более бережного отношения, чем металлы и камни.</p>
-        <p><strong>1. Берегите от парфюма.</strong> Кислоты и спирты, содержащиеся в духах, разрушают перламутровый слой. Надевайте жемчужное колье только после того, как духи полностью высохли.</p>
-        <p><strong>2. Избегайте косметики.</strong> Кремы, тональные средства и лаки для волос оседают на жемчуге и делают его тусклым. Всегда очищайте лицо перед тем, как надеть серьги с жемчугом.</p>
-        <p><strong>3. Влажность и хранение.</strong> Жемчуг не любит сухости (он может потрескаться) и переувлажнения. Храните его в мягком тканевом мешочке, но не в герметичном пластиковом пакете. Не храните жемчуг рядом с металлическими украшениями — они могут его поцарапать.</p>
-        <p><strong>4. Чистка.</strong> Никогда не используйте ультразвуковые очистители или химические растворы. Протирайте жемчуг мягкой влажной тканью без мыла и сразу высушивайте.</p>
-      `
-    },
-    stones: {
-      title: "Как чистить украшения с натуральными камнями",
-      date: "Уход за украшениями",
-      text: `
-        <p>Натуральные камни (топаз, сапфир, аметист, фианит) обладают разной твердостью. Некоторые из них довольно хрупкие.</p>
-        <p><strong>1. Безопасная чистка.</strong> Самый универсальный способ — теплая мыльная вода. Добавьте каплю мягкого средства для мытья посуды в теплую воду, окуните украшение на 5 минут, аккуратно почистите мягкой зубной щеткой (только вокруг камня, не задевая крепление) и промокните насухо.</p>
-        <p><strong>2. Осторожно с пористыми камнями.</strong> Бирюза, жемчуг, коралл и опал — пористые камни. Они могут впитать мыло или грязь и изменить цвет. Их нельзя замачивать, только протирать влажной тканью.</p>
-        <p><strong>3. Ультразвук и пар.</strong> Ультразвуковые ванночки отлично очищают золото и бриллианты, но категорически запрещены для камней с трещинами и пористых структур. Если вы не уверены в природе камня, лучше не рискуйте и используйте ручную чистку.</p>
-        <p><strong>4. Проверка крепления.</strong> Чистя украшение, всегда проверяйте, надежно ли держатся камни в оправе. Если вы чувствуете шатание, не носите украшение, пока его не починит ювелир.</p>
-      `
-    }
+    silver: { title: "Как ухаживать за позолоченным серебром", date: "Уход за украшениями", text: `<p>Позолоченное серебро — это благородный металл с тонким слоем золота. Чтобы украшение радовало вас долгие годы, соблюдайте несколько простых правил:</p><p><strong>1. Надевайте в последнюю очередь.</strong> Парфюм, лак для волос и косметика содержат химические вещества, которые разрушают позолоту. Наносите макияж и духи до того, как наденете украшение.</p><p><strong>2. Снимайте в первую очередь.</strong> Дома сразу снимайте кольца и серьги. Не мойте посуду, не занимайтесь спортом и не спите в украшениях.</p><p><strong>3. Избегайте контакта с водой.</strong> Хлор, морская соль и даже обычная вода из-под крана могут привести к потемнению. Снимайте украшения перед душем и походом в бассейн.</p><p><strong>4. Правильное хранение.</strong> Храните изделия в индивидуальных тканевых мешочках или шкатулке с мягкой подкладкой. Не бросайте их в одну кучу, чтобы избежать царапин.</p><p><strong>5. Чистка.</strong> Протирайте украшения мягкой сухой тканью (например, фланелью) после каждого ношения. Не используйте абразивные средства и зубную пасту.</p>` },
+    pearl: { title: "Правила ухода за натуральным жемчугом", date: "Уход за украшениями", text: `<p>Жемчуг — живой органический материал. Он требует к себе гораздо более бережного отношения, чем металлы и камни.</p><p><strong>1. Берегите от парфюма.</strong> Кислоты и спирты, содержащиеся в духах, разрушают перламутровый слой. Надевайте жемчужное колье только после того, как духи полностью высохли.</p><p><strong>2. Избегайте косметики.</strong> Кремы, тональные средства и лаки для волос оседают на жемчуге и делают его тусклым. Всегда очищайте лицо перед тем, как надеть серьги с жемчугом.</p><p><strong>3. Влажность и хранение.</strong> Жемчуг не любит сухости (он может потрескаться) и переувлажнения. Храните его в мягком тканевом мешочке, но не в герметичном пластиковом пакете. Не храните жемчуг рядом с металлическими украшениями — они могут его поцарапать.</p><p><strong>4. Чистка.</strong> Никогда не используйте ультразвуковые очистители или химические растворы. Протирайте жемчуг мягкой влажной тканью без мыла и сразу высушивайте.</p>` },
+    stones: { title: "Как чистить украшения с натуральными камнями", date: "Уход за украшениями", text: `<p>Натуральные камни (топаз, сапфир, аметист, фианит) обладают разной твердостью. Некоторые из них довольно хрупкие.</p><p><strong>1. Безопасная чистка.</strong> Самый универсальный способ — теплая мыльная вода. Добавьте каплю мягкого средства для мытья посуды в теплую воду, окуните украшение на 5 минут, аккуратно почистите мягкой зубной щеткой (только вокруг камня, не задевая крепление) и промокните насухо.</p><p><strong>2. Осторожно с пористыми камнями.</strong> Бирюза, жемчуг, коралл и опал — пористые камни. Они могут впитать мыло или грязь и изменить цвет. Их нельзя замачивать, только протирать влажной тканью.</p><p><strong>3. Ультразвук и пар.</strong> Ультразвуковые ванночки отлично очищают золото и бриллианты, но категорически запрещены для камней с трещинами и пористых структур. Если вы не уверены в природе камня, лучше не рискуйте и используйте ручную чистку.</p><p><strong>4. Проверка крепления.</strong> Чистя украшение, всегда проверяйте, надежно ли держатся камни в оправе. Если вы чувствуете шатание, не носите украшение, пока его не починит ювелир.</p>` }
   };
 
   let currentFilter = 'all';
 
-  /* --- КАТАЛОГ --- */
   function renderProducts() {
     const grid = document.getElementById('grid');
     const list = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
@@ -770,7 +738,7 @@
       <article class="product reveal active" itemscope itemtype="https://schema.org/Product" onclick="openModal('${p.id}')">
         <div class="product-media">
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
-          <img src="${p.image}" alt="Купить ${p.name} в Москве — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image">
+          <img src="${p.image}" alt="Купить ${p.name} в Москве — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop'">
           <div class="product-action">Заказать</div>
         </div>
         <div class="product-info">
@@ -792,7 +760,6 @@
     return names[cat] || '';
   }
 
-  /* --- МОДАЛКА ТОВАРА --- */
   function openModal(id) {
     const p = products.find(item => item.id === id);
     if(!p) return;
@@ -810,19 +777,15 @@
     document.getElementById('productModal').classList.add('active');
   }
 
-  /* --- МОДАЛКА БЛОГА --- */
   function openBlog(id) {
     const article = blogArticles[id];
     if(!article) return;
-
     document.getElementById('blogModalDate').textContent = article.date;
     document.getElementById('blogModalTitle').textContent = article.title;
     document.getElementById('blogModalText').innerHTML = article.text;
-
     document.getElementById('blogModal').classList.add('active');
   }
 
-  /* --- ОТЗЫВЫ --- */
   function loadReviews() {
     let custom = [];
     try { custom = JSON.parse(localStorage.getItem('lu_reviews') || '[]'); } catch(e) {}
@@ -850,7 +813,6 @@
     `).join('');
   }
 
-  /* Форма отзыва: звёзды */
   let chosenRating = 5;
   const starsInput = document.getElementById('starsInput');
   function paintStars(n) {
@@ -893,7 +855,6 @@
     }, 2500);
   });
 
-  /* --- ФИЛЬТРЫ --- */
   document.querySelector('.filters').addEventListener('click', e => {
     if(!e.target.classList.contains('filter')) return;
     document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
@@ -902,7 +863,6 @@
     renderProducts();
   });
 
-  /* --- ПЛАВАЮЩАЯ КНОПКА ОПЕРАТОРА --- */
   const fabBtn = document.getElementById('fabBtn');
   const contactMenu = document.getElementById('contactMenu');
 
@@ -911,7 +871,6 @@
     fabBtn.classList.toggle('open');
   });
 
-  /* --- МОБИЛЬНОЕ МЕНЮ --- */
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileNav = document.getElementById('mobileNav');
   burgerBtn.addEventListener('click', () => mobileNav.classList.toggle('active'));
@@ -919,7 +878,6 @@
     if (e.target.tagName === 'A') mobileNav.classList.remove('active');
   });
 
-  /* --- ЗАКРЫТИЕ МОДАЛОК И МЕНЮ ПО КЛИКУ МИМО --- */
   document.addEventListener('click', (e) => {
     if (!fabBtn.contains(e.target) && !contactMenu.contains(e.target)) {
       contactMenu.classList.remove('active');
@@ -930,7 +888,6 @@
     }
   });
 
-  /* --- ЗАКРЫТИЕ ПО ESC --- */
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
@@ -940,7 +897,6 @@
     }
   });
 
-  /* --- HEADER: тень при прокрутке + кнопка наверх --- */
   const header = document.getElementById('header');
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {
@@ -949,7 +905,6 @@
   });
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  /* --- АНИМАЦИИ ПРИ ПРОКРУТКЕ --- */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
