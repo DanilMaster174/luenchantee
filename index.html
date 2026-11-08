@@ -10,7 +10,7 @@
   <!-- ОСНОВНЫЕ SEO-МЕТА -->
   <title>Бижутерия купить в Москве — элитная бижутерия Lu Enchantée (Luenchante, Luenchantee) | Кольца, браслеты, цепи, подвески</title>
   <link rel="canonical" href="https://luenchantee.ru/" />
-  <meta name="description" content="Элитная бижутерия Lu Enchantée (Luenchante, Luenchantee, Lu enchantee) в Москве. Купить бижутерию: кольца, браслеты, цепи, подвески, серьги, колье ручной работы. Позолоченное серебро, натуральные камни, жемчуг. Шоурум: Щелковское шоссе, 75. Доставка по Москве и России.">
+  <meta name="description" content="Элитная бижутерия Lu Enchantée (Luenchante, Luenchantee, Lu enchantee) в Москве. Купить бижутерию: кольца, браслеты, цепи, подвески, серьги, колье ручной работы. Безопасная оплата по СБП. Шоурум: Щелковское шоссе, 75. Доставка по Москве и России.">
   
   <!-- ЗНАЧОК НА ВКЛАДКЕ (FAVICON) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
@@ -155,6 +155,38 @@
     .delivery-icon { width: 44px; height: 44px; margin: 0 auto 20px; fill: var(--gold); }
     .delivery-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
     .delivery-card p { font-size: 0.9rem; color: var(--muted); }
+
+    /* Блок безопасной оплаты */
+    .secure-payment-block {
+      margin-top: 60px;
+      background: #fff;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 10px 30px rgba(201,168,106,0.1);
+    }
+    .secure-payment-block svg {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      fill: var(--gold);
+    }
+    .secure-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    .secure-text p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .secure-text strong {
+      color: var(--ink);
+    }
 
     /* --- ЖУРНАЛ --- */
     .blog-section { padding: 100px 0; background: var(--surface); }
@@ -307,6 +339,7 @@
       .modal-info { padding: 30px; }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero { background-attachment: scroll; }
+      .secure-payment-block { flex-direction: column; text-align: center; padding: 30px; }
     }
     @media (max-width: 768px) {
       nav, .header-phone, .header-left { display: none; }
@@ -417,7 +450,16 @@
       <div class="delivery-card">
         <svg class="delivery-icon" viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
         <h3>Удобная оплата</h3>
-        <p>Перевод по СБП (без комиссии), оплата картой при получении или безопасная ссылка на оплату.</p>
+        <p>Безопасный перевод по <strong>СБП (Система быстрых платежей)</strong>. Без ввода данных карты.</p>
+      </div>
+    </div>
+
+    <!-- БЛОК БЕЗОПАСНОЙ ОПЛАТЫ -->
+    <div class="secure-payment-block reveal">
+      <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+      <div class="secure-text">
+        <h3>Умная и безопасная оплата</h3>
+        <p>Мы заботимся о безопасности ваших данных. На сайте <strong>нет формы ввода банковских карт</strong>, поэтому мошенники не смогут украсть ваши реквизиты. Оплата происходит через ваш банк по номеру телефона нашего оператора или по безопасной ссылке в WhatsApp. Это так же безопасно, как перевести деньги другу через Сбербанк Онлайн.</p>
       </div>
     </div>
   </div>
@@ -516,7 +558,7 @@
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           </div>
           <div>
-            <h4>Телефон (оператор)</h4>
+            <h4>Телефон (оператор и СБП)</h4>
             <a href="tel:+79048101213">+7 (904) 810-12-13</a>
           </div>
         </div>
@@ -570,7 +612,7 @@
   <div class="container">
     <h3>Элитная бижутерия Lu Enchantée в Москве — купить бижутерию, кольца, браслеты, цепи и подвески</h3>
     <p>
-      Ищете, где <strong>купить бижутерию в Москве</strong>? Интернет-магазин и шоурум <strong>Lu Enchantée</strong> (также пишут <em>Luenchante</em>, <em>Luenchantee</em>, <em>Lu enchantee</em>, <em>Luen Chante</em>, <em>Люеншанте</em>) предлагает эксклюзивную <strong>элитную бижутерию ручной работы</strong>. В каталоге — стильные <strong>кольца</strong>, изящные <strong>браслеты</strong>, тонкие <strong>цепи</strong>, оригинальные <strong>подвески</strong>, серьги и колье. Мы используем позолоченное серебро, речной жемчуг и натуральные камни. <strong>Купить бижутерию в Москве</strong> можно в нашем шоуруме на Щелковском шоссе, 75 (0 этаж) или с доставкой по Москве и всей России.
+      Ищете, где <strong>купить бижутерию в Москве</strong>? Интернет-магазин и шоурум <strong>Lu Enchantée</strong> (также пишут <em>Luenchante</em>, <em>Luenchantee</em>, <em>Lu enchantee</em>, <em>Luen Chante</em>, <em>Люеншанте</em>) предлагает эксклюзивную <strong>элитную бижутерию ручной работы</strong>. В каталоге — стильные <strong>кольца</strong>, изящные <strong>браслеты</strong>, тонкие <strong>цепи</strong>, оригинальные <strong>подвески</strong>, серьги и колье. Мы используем позолоченное серебро, речной жемчуг и натуральные камни. <strong>Купить бижутерию в Москве</strong> можно в нашем шоуруме на Щелковском шоссе, 75 (0 этаж) или с доставкой по Москве и всей России. Принимаем безопасную оплату по СБП.
     </p>
     <div class="seo-links">
       <a href="#catalog">Купить кольца</a>
@@ -705,28 +747,11 @@
   const myPhoneNumber = "79048101213";
   const myEmail = "info@luenchantee.ru";
 
-  /* ============================================ */
-  /* ДАННЫЕ КАТАЛОГА (с правильными путями к фото) */
-  /* ============================================ */
+  /* ДАННЫЕ КАТАЛОГА */
   const products = [
-    { 
-      id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', 
-      image: 'images/brasslet1.jpg', 
-      name:'Браслет-трансформер "Изумрудный сад"', 
-      material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' 
-    },
-    { 
-      id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', 
-      image: 'images/brasslet2.jpg', 
-      name:'Браслет-трансформер "Морской бриз"', 
-      material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' 
-    },
-    { 
-      id:'n2', category:'necklaces', price:'11 980 ₽', badge:'Трансформер', 
-      image: 'images/kolye.jpg', 
-      name:'Колье-трансформер', 
-      material:'Комплект из двух браслетов. Натуральные камни · позолота.' 
-    },
+    { id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', image: 'images/brasslet1.jpg', name:'Браслет-трансформер "Изумрудный сад"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
+    { id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', image: 'images/brasslet2.jpg', name:'Браслет-трансформер "Морской бриз"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
+    { id:'n2', category:'necklaces', price:'11 980 ₽', badge:'Трансформер', image: 'images/kolye.jpg', name:'Колье-трансформер', material:'Комплект из двух браслетов. Натуральные камни · позолота.' },
     { id:'r1', category:'rings', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
     { id:'e1', category:'earrings', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
     { id:'n1', category:'necklaces', price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', name:'Колье Lune', material:'Позолоченное серебро · речной жемчуг' },
