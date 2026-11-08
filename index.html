@@ -639,8 +639,8 @@
       <p class="product-material" id="modalMaterial"></p>
       <div class="product-price" id="modalPrice"></div>
       
-      <!-- БЛОК СКИДКИ -->
-      <div class="discount-block">
+      <!-- БЛОК СКИДКИ (скрыт по умолчанию) -->
+      <div class="discount-block" id="discountBlock" style="display:none;">
         Купите <strong>два браслета</strong> и получите <strong>скидку 10%</strong> на комплект (колье-трансформер)!
       </div>
 
@@ -705,10 +705,28 @@
   const myPhoneNumber = "79048101213";
   const myEmail = "info@luenchantee.ru";
 
-  /* ДАННЫЕ КАТАЛОГА (с добавленными браслетами) */
+  /* ============================================ */
+  /* ДАННЫЕ КАТАЛОГА (с правильными путями к фото) */
+  /* ============================================ */
   const products = [
-    { id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', image: 'braslet1.jpg', name:'Браслет-трансформер "Изумрудный сад"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
-    { id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', image: 'braslet2.jpg', name:'Браслет-трансформер "Морской бриз"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
+    { 
+      id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', 
+      image: 'images/brasslet1.jpg', 
+      name:'Браслет-трансформер "Изумрудный сад"', 
+      material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' 
+    },
+    { 
+      id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', 
+      image: 'images/brasslet2.jpg', 
+      name:'Браслет-трансформер "Морской бриз"', 
+      material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' 
+    },
+    { 
+      id:'n2', category:'necklaces', price:'11 980 ₽', badge:'Трансформер', 
+      image: 'images/kolye.jpg', 
+      name:'Колье-трансформер', 
+      material:'Комплект из двух браслетов. Натуральные камни · позолота.' 
+    },
     { id:'r1', category:'rings', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
     { id:'e1', category:'earrings', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
     { id:'n1', category:'necklaces', price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', name:'Колье Lune', material:'Позолоченное серебро · речной жемчуг' },
@@ -769,6 +787,14 @@
     document.getElementById('modalName').textContent = p.name;
     document.getElementById('modalMaterial').textContent = p.material;
     document.getElementById('modalPrice').textContent = p.price;
+
+    // Показываем блок скидки только для браслетов и колье-трансформера
+    const discountBlock = document.getElementById('discountBlock');
+    if (p.category === 'bracelets' || p.id === 'n2') {
+      discountBlock.style.display = 'block';
+    } else {
+      discountBlock.style.display = 'none';
+    }
 
     const text = `Здравствуйте! Хочу заказать украшение: ${p.name} (${p.price}).`;
     const encodedText = encodeURIComponent(text);
