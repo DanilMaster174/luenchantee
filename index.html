@@ -7,15 +7,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ОСНОВНЫЕ SEO-МЕТА -->
-  <title>Бижутерия купить в Москве — элитная бижутерия Lu Enchantée (Luenchante, Luenchantee) | Кольца, браслеты, цепи, подвески</title>
+  <!-- ОСНОВНЫЕ SEO-МЕТА (Расширенные) -->
+  <title>Купить бижутерию в Москве — элитные украшения ручной работы Lu Enchantée | Натуральные камни, жемчуг</title>
   <link rel="canonical" href="https://luenchantee.ru/" />
-  <meta name="description" content="Элитная бижутерия Lu Enchantée (Luenchante, Luenchantee, Lu enchantee) в Москве. Купить бижутерию: кольца, браслеты, цепи, подвески, серьги, колье ручной работы. Безопасная оплата по СБП. Шоурум: Щелковское шоссе, 75. Доставка по Москве и России.">
+  <meta name="description" content="Элитная бижутерия Lu Enchantée в Москве. Купить эксклюзивные колье, цепи, кулоны, нарукавники и браслеты ручной работы. Натуральные камни, жемчуг, майорка. Безопасная оплата по СБП. Шоурум в ТЦ Щелковский.">
+  <meta name="keywords" content="купить бижутерию в Москве, элитная бижутерия, украшения ручной работы, колье из жемчуга, натуральные камни, бусы майорка, нарукавники, кулон из кварца, Lu Enchantée, браслеты ручной работы">
   
   <!-- ЗНАЧОК НА ВКЛАДКЕ (FAVICON) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
 
-  <!-- МИКРОРАЗМЕТКА -->
+  <!-- МИКРОРАЗМЕТКА ДЛЯ ПОИСКОВИКОВ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,11 +24,18 @@
     "name": "Lu Enchantée",
     "url": "https://luenchantee.ru",
     "telephone": "+79048101213",
+    "priceRange": "$$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Щелковское шоссе, 75, 0 этаж",
+      "streetAddress": "Щелковское шоссе, 75, ТЦ Щелковский, 0 этаж",
       "addressLocality": "Москва",
       "addressCountry": "RU"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "10:00",
+      "closes": "20:00"
     }
   }
   </script>
@@ -168,25 +176,10 @@
       gap: 30px;
       box-shadow: 0 10px 30px rgba(201,168,106,0.1);
     }
-    .secure-payment-block svg {
-      width: 80px;
-      height: 80px;
-      flex-shrink: 0;
-      fill: var(--gold);
-    }
-    .secure-text h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-    .secure-text p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .secure-text strong {
-      color: var(--ink);
-    }
+    .secure-payment-block svg { width: 80px; height: 80px; flex-shrink: 0; fill: var(--gold); }
+    .secure-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 10px; }
+    .secure-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+    .secure-text strong { color: var(--ink); }
 
     /* --- ЖУРНАЛ --- */
     .blog-section { padding: 100px 0; background: var(--surface); }
@@ -294,10 +287,17 @@
     /* --- МОДАЛЬНЫЕ ОКНА --- */
     .modal { position: fixed; inset: 0; background: rgba(26,24,23,0.65); backdrop-filter: blur(4px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px; overflow-y: auto; }
     .modal.active { opacity: 1; pointer-events: auto; }
-    .modal-content { background: var(--surface); width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
+    .modal-content { background: var(--surface); width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
     .modal.active .modal-content { transform: translateY(0); }
-    .modal-img { aspect-ratio: 3/4; }
-    .modal-img img { width: 100%; height: 100%; object-fit: cover; }
+    
+    /* Галерея */
+    .modal-gallery { display: flex; flex-direction: column; background: #f0ebe1; }
+    .modal-main-img { aspect-ratio: 3/4; width: 100%; object-fit: cover; }
+    .modal-thumbnails { display: flex; gap: 5px; padding: 10px; overflow-x: auto; }
+    .modal-thumbnails img { width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 4px; opacity: 0.6; transition: 0.3s; border: 2px solid transparent; }
+    .modal-thumbnails img:hover { opacity: 1; }
+    .modal-thumbnails img.active { opacity: 1; border-color: var(--gold); }
+
     .modal-info { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
     .modal-info .product-cat { font-size: 0.8rem; margin-bottom: 10px; }
     .modal-info h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
@@ -335,7 +335,7 @@
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-img { aspect-ratio: 16/9; box-shadow: 14px 14px 0 rgba(201,168,106,0.18); }
       .modal-content { grid-template-columns: 1fr; max-width: 500px; }
-      .modal-img { aspect-ratio: 4/3; }
+      .modal-main-img { aspect-ratio: 4/3; }
       .modal-info { padding: 30px; }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero { background-attachment: scroll; }
@@ -399,9 +399,9 @@
 
 <section class="hero" id="top">
   <div class="container">
-    <div class="eyebrow reveal active">Москва · с 2019 года</div>
+    <div class="eyebrow reveal active">Москва · ТЦ Щелковский</div>
     <h1 class="reveal active">Lu <em>Enchantée</em></h1>
-    <p class="reveal active">Искусство быть незабываемой. Элитная бижутерия ручной работы.</p>
+    <p class="reveal active">Элитная бижутерия и украшения ручной работы из натуральных камней.</p>
     <div class="hero-btns reveal active">
       <a href="#catalog" class="btn btn-dark">Смотреть каталог</a>
       <a href="#contacts" class="btn btn-outline">Наш шоурум</a>
@@ -412,16 +412,16 @@
 <section class="catalog-section" id="catalog">
   <div class="container">
     <div class="section-header reveal">
-      <h2 class="section-title">Бестселлеры</h2>
-      <p class="section-sub">Самые любимые украшения наших клиентов. Кольца, серьги, браслеты и колье премиум-класса.</p>
+      <h2 class="section-title">Купить бижутерию</h2>
+      <p class="section-sub">Самые любимые украшения наших клиентов. Колье, цепи, нарукавники и браслеты ручной работы.</p>
     </div>
 
+    <!-- ОБНОВЛЕННЫЕ ФИЛЬТРЫ -->
     <div class="filters reveal">
       <button class="filter active" data-filter="all">Все украшения</button>
-      <button class="filter" data-filter="rings">Кольца</button>
-      <button class="filter" data-filter="earrings">Серьги</button>
-      <button class="filter" data-filter="necklaces">Колье</button>
+      <button class="filter" data-filter="necklaces">Колье и цепи</button>
       <button class="filter" data-filter="bracelets">Браслеты</button>
+      <button class="filter" data-filter="accessories">Аксессуары</button>
     </div>
 
     <div class="grid" id="grid"></div>
@@ -549,7 +549,7 @@
           </div>
           <div>
             <h4>Адрес шоурума</h4>
-            <span>г. Москва, Щелковское шоссе, 75, 0 этаж</span>
+            <span>г. Москва, Щелковское шоссе, 75, ТЦ Щелковский, 0 этаж</span>
           </div>
         </div>
 
@@ -602,25 +602,26 @@
       </div>
 
       <div class="map-wrap reveal">
-        <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%A9%D0%B5%D0%BB%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2075&z=16" allowfullscreen title="Шоурум Lu Enchantée на карте"></iframe>
+        <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%A9%D0%B5%D0%BB%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2075%2C%20%D0%A2%D0%A6%20%D0%A9%D0%B5%D0%BB%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9&z=16" allowfullscreen title="Шоурум Lu Enchantée на карте"></iframe>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ОБНОВЛЕННЫЙ SEO-БЛОК -->
 <section class="seo-text reveal">
   <div class="container">
-    <h3>Элитная бижутерия Lu Enchantée в Москве — купить бижутерию, кольца, браслеты, цепи и подвески</h3>
+    <h3>Купить бижутерию и украшения ручной работы в Москве — Lu Enchantée</h3>
     <p>
-      Ищете, где <strong>купить бижутерию в Москве</strong>? Интернет-магазин и шоурум <strong>Lu Enchantée</strong> (также пишут <em>Luenchante</em>, <em>Luenchantee</em>, <em>Lu enchantee</em>, <em>Luen Chante</em>, <em>Люеншанте</em>) предлагает эксклюзивную <strong>элитную бижутерию ручной работы</strong>. В каталоге — стильные <strong>кольца</strong>, изящные <strong>браслеты</strong>, тонкие <strong>цепи</strong>, оригинальные <strong>подвески</strong>, серьги и колье. Мы используем позолоченное серебро, речной жемчуг и натуральные камни. <strong>Купить бижутерию в Москве</strong> можно в нашем шоуруме на Щелковском шоссе, 75 (0 этаж) или с доставкой по Москве и всей России. Принимаем безопасную оплату по СБП.
+      Интернет-магазин <strong>Lu Enchantée</strong> предлагает эксклюзивную <strong>элитную бижутерию ручной работы</strong>. У нас вы можете <strong>купить бижутерию в Москве</strong>: стильные колье и цепи, кулоны из натурального кварца, бусы из майорки, а также уникальные ажурные нарукавники. Мы используем позолоченное серебро, речной жемчуг и <strong>натуральные камни</strong>. Наш шоурум находится в <strong>ТЦ Щелковский</strong> (0 этаж). Доставка по Москве и всей России. Безопасная оплата по СБП.
     </p>
     <div class="seo-links">
-      <a href="#catalog">Купить кольца</a>
+      <a href="#catalog">Купить колье</a>
       <a href="#catalog">Купить браслеты</a>
       <a href="#catalog">Купить цепи</a>
-      <a href="#catalog">Купить подвески</a>
-      <a href="#catalog">Купить серьги</a>
-      <a href="#catalog">Купить колье</a>
+      <a href="#catalog">Купить кулоны</a>
+      <a href="#catalog">Купить нарукавники</a>
+      <a href="#catalog">Бусы из майорки</a>
       <a href="#contacts">Купить бижутерию в Москве</a>
     </div>
   </div>
@@ -643,7 +644,7 @@
     <div class="footer-contacts">
       <a href="tel:+79048101213">+7 (904) 810-12-13</a> · <a href="mailto:info@luenchantee.ru">info@luenchantee.ru</a>
     </div>
-    <div class="footer-address">г. Москва, Щелковское шоссе, 75, 0 этаж · Ежедневно 10:00–20:00</div>
+    <div class="footer-address">г. Москва, Щелковское шоссе, 75, ТЦ Щелковский, 0 этаж · Ежедневно 10:00–20:00</div>
     <div class="footer-copy">© <span id="year"></span> Lu Enchantée · Все права защищены</div>
   </div>
 </footer>
@@ -672,9 +673,13 @@
 <div class="modal" id="productModal">
   <div class="modal-content">
     <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('active')">✕</button>
-    <div class="modal-img">
-      <img id="modalImg" src="" alt="Украшение">
+    
+    <!-- ГАЛЕРЕЯ ТОВАРА -->
+    <div class="modal-gallery">
+      <img class="modal-main-img" id="modalMainImg" src="" alt="Украшение">
+      <div class="modal-thumbnails" id="modalThumbs"></div>
     </div>
+
     <div class="modal-info">
       <div class="product-cat" id="modalCat"></div>
       <h3 id="modalName"></h3>
@@ -682,11 +687,9 @@
       <div class="product-price" id="modalPrice"></div>
       
       <!-- БЛОК СКИДКИ (скрыт по умолчанию) -->
-      <div class="discount-block" id="discountBlock" style="display:none;">
-        Купите <strong>два браслета</strong> и получите <strong>скидку 10%</strong> на комплект (колье-трансформер)!
-      </div>
+      <div class="discount-block" id="discountBlock" style="display:none;"></div>
 
-      <p class="modal-desc">Эксклюзивное украшение ручной работы от Lu Enchantée. Идеально подходит как для повседневного образа, так и для вечернего выхода. Поставляется в фирменной подарочной упаковке.</p>
+      <p class="modal-desc" id="modalDesc"></p>
       <a href="#" class="btn-order" id="orderBtn" target="_blank" rel="noopener">Заказать в WhatsApp</a>
     </div>
   </div>
@@ -747,22 +750,138 @@
   const myPhoneNumber = "79048101213";
   const myEmail = "info@luenchantee.ru";
 
-  /* ДАННЫЕ КАТАЛОГА */
+  /* ДАННЫЕ КАТАЛОГА (Возвращены браслеты, убрано колье-трансформер) */
   const products = [
-    { id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', image: 'images/brasslet1.jpg', name:'Браслет-трансформер "Изумрудный сад"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
-    { id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', image: 'images/brasslet2.jpg', name:'Браслет-трансформер "Морской бриз"', material:'Натуральные камни · позолота. При соединении двух браслетов получается колье.' },
-    { id:'n2', category:'necklaces', price:'11 980 ₽', badge:'Трансформер', image: 'images/kolye.jpg', name:'Колье-трансформер', material:'Комплект из двух браслетов. Натуральные камни · позолота.' },
-    { id:'r1', category:'rings', price:'24 900 ₽', image: 'https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=800&auto=format&fit=crop', name:'Кольцо Soleil', material:'Позолоченное серебро · фианит' },
-    { id:'e1', category:'earrings', price:'18 500 ₽', image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop', name:'Серьги Étoile', material:'Позолоченное серебро · топаз' },
-    { id:'n1', category:'necklaces', price:'32 000 ₽', image: 'https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=800&auto=format&fit=crop', name:'Колье Lune', material:'Позолоченное серебро · речной жемчуг' },
-    { id:'r2', category:'rings', price:'21 700 ₽', image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop', name:'Кольцо Nuit', material:'Родированное серебро · чёрный оникс' },
-    { id:'e2', category:'earrings', price:'16 900 ₽', image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop', name:'Серьги Perle', material:'Позолоченное серебро · жемчуг' }
+    // --- БРАСЛЕТЫ-ТРАНСФОРМЕРЫ (ВОЗВРАЩЕНЫ) ---
+    { 
+      id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', 
+      images: ['images/brasslet1.jpg', 'images/brasslet2.jpg'], 
+      name:'Браслет-трансформер "Изумрудный сад"', 
+      material:'Натуральные камни · позолота',
+      description:'Трансформер. При соединении двух браслетов получается колье. Натуральные камни, позолота.',
+      discount: 'Купите <strong>два браслета</strong> и получите <strong>скидку 10%</strong> на комплект (колье-трансформер)!'
+    },
+    { 
+      id:'b2', category:'bracelets', price:'5 990 ₽', badge:'Новинка', 
+      images: ['images/brasslet2.jpg', 'images/brasslet1.jpg'], 
+      name:'Браслет-трансформер "Морской бриз"', 
+      material:'Натуральные камни · позолота',
+      description:'Трансформер. При соединении двух браслетов получается колье. Натуральные камни, позолота.',
+      discount: 'Купите <strong>два браслета</strong> и получите <strong>скидку 10%</strong> на комплект (колье-трансформер)!'
+    },
+
+    // --- ЦЕПИ (Kz) ---
+    { 
+      id:'kz1', category:'necklaces', price:'9 600 ₽', badge:'Стейтмент', 
+      images: ['images/Kz1.jpg', 'images/Kz2.jpg'], 
+      name:'Цепь "Кубинское плетение"', 
+      material:'Золотое покрытие',
+      description:'Комбинированная структура с классическими овальными звеньями и акцентной центральной частью. Яркое золотое покрытие. Длина 40-45 см.'
+    },
+    { 
+      id:'kz2', category:'necklaces', price:'9 600 ₽', badge:'', 
+      images: ['images/Kz2.jpg', 'images/Kz1.jpg'], 
+      name:'Цепь "Кубинское плетение"', 
+      material:'Золотое покрытие',
+      description:'Крупная панцирная эстетика в современном прочтении. Выразительный стейтмент-аксессуар. Длина 40-45 см.'
+    },
+
+    // --- ЖЕМЧУЖНЫЕ КОЛЬЕ (OK) ---
+    { 
+      id:'ok1', category:'necklaces', price:'4 400 ₽', badge:'Градиент', 
+      images: ['images/OK1.jpg', 'images/OK2.jpg', 'images/OK3.jpg', 'images/OK4.jpg'], 
+      name:'Жемчужное колье "Old Money"', 
+      material:'Акрил · молочный перламутр',
+      description:'Крупные жемчужные бусины с градиентом. Классический молочно-перламутровый оттенок. Легкий акрил. Длина 57 см.'
+    },
+    { 
+      id:'ok2', category:'necklaces', price:'4 400 ₽', badge:'', 
+      images: ['images/OK2.jpg', 'images/OK1.jpg'], 
+      name:'Жемчужное колье "Old Money"', 
+      material:'Акрил · молочный перламутр',
+      description:'Эффектное ожерелье из легкого акрила. Красиво ложится поверх водолазок и вечерних нарядов. Длина 57 см.'
+    },
+
+    // --- КУЛОНЫ С КВАРЦЕМ (Ky) ---
+    { 
+      id:'ky1', category:'necklaces', price:'6 290 ₽', badge:'Натуральный камень', 
+      images: ['images/Ky1.jpg', 'images/Ky2.jpg', 'images/Ky3.jpg', 'images/Ky4.jpg', 'images/Ky5.jpg'], 
+      name:'Кулон "Белый кварц"', 
+      material:'Натуральный кварц · цепочка снейк',
+      description:'Натуральный молочный кварц (срез-друза) на тонкой цепочке снейк. Эффект искрящегося блеска.'
+    },
+    // Комплект с нарукавником
+    { 
+      id:'ky-set', category:'necklaces', price:'9 596 ₽', badge:'Сет', 
+      images: ['images/Ky1.jpg', 'images/Ky3.jpg'], 
+      name:'Комплект: Кулон + Нарукавник', 
+      material:'Кулон + нарукавник',
+      description:'Кулон с белым кварцем (6 290 ₽) и нарукавник (5 000 ₽). Скидка 15% при покупке комплекта!',
+      discount: 'Выгода <strong>15%</strong> при покупке комплекта!'
+    },
+
+    // --- БРАСЛЕТЫ-ПРУЖИНЫ (B) ---
+    { 
+      id:'b3', category:'bracelets', price:'5 300 ₽', badge:'Тренд', 
+      images: ['images/B1.jpg', 'images/B2.jpg', 'images/B3.jpg', 'images/B4.jpg'], 
+      name:'Браслет-пружина "Природная гармония"', 
+      material:'Натуральные камни · мемори-проволока',
+      description:'Многослойный браслет из натуральных камней (кварц, нефрит, хрусталь, опалит и др.). Мемори-проволока.'
+    },
+    { 
+      id:'b4', category:'bracelets', price:'5 300 ₽', badge:'', 
+      images: ['images/B2.jpg', 'images/B1.jpg'], 
+      name:'Браслет-пружина "Природная гармония"', 
+      material:'Натуральные камни · мемори-проволока',
+      description:'Трехрядный браслет без застежки. Идеально садится на любое запястье, создает эффект многослойности.'
+    },
+
+    // --- НАРУКАВНИКИ (D) ---
+    { 
+      id:'d1', category:'accessories', price:'5 000 ₽', badge:'Ручная работа', 
+      images: ['images/D1.jpg', 'images/D2.jpg', 'images/D3.jpg', 'images/D4.jpg'], 
+      name:'Ажурный нарукавник "Винтаж"', 
+      material:'Ручное плетение · античное золото',
+      description:'Ручное плетение из тонких металлических нитей. Расклешенный волан, 3 пуговицы. Превращает наряд в вечерний.'
+    },
+    { 
+      id:'d2', category:'accessories', price:'5 000 ₽', badge:'', 
+      images: ['images/D4.jpg', 'images/D5.jpg', 'images/D6.jpg'], 
+      name:'Ажурный нарукавник "Винтаж"', 
+      material:'Ручное плетение · античное золото',
+      description:'Превращает повседневный наряд в вечерний. Легкая сетчатая структура, не утяжеляет руку.'
+    },
+
+    // --- НАРУКАВНИКИ (K) ---
+    { 
+      id:'k1', category:'accessories', price:'5 000 ₽', badge:'', 
+      images: ['images/K1.jpg', 'images/K2.jpg'], 
+      name:'Ажурный нарукавник "Серебряный шик"', 
+      material:'Ручное плетение · серебро',
+      description:'Плетение из серебристых металлических нитей. Плавный переход от облегающей части к волнистой оборке.'
+    },
+    { 
+      id:'k2', category:'accessories', price:'5 000 ₽', badge:'', 
+      images: ['images/K3.jpg', 'images/K4.jpg'], 
+      name:'Ажурный нарукавник "Серебряный шик"', 
+      material:'Ручное плетение · серебро',
+      description:'Изысканный дизайн с вертикальным рядом пуговиц. Надевается поверх блузы или платья.'
+    },
+
+    // --- БУСЫ ИЗ МАЙОРКИ (M) ---
+    { 
+      id:'m1', category:'necklaces', price:'8 990 ₽', badge:'Новинка', 
+      images: ['images/M1.jpg', 'images/M2.jpg', 'images/M3.jpg'], 
+      name:'Бусы "Майорка"', 
+      material:'Мелкая майорка · магнитный замок',
+      description:'Элегантные бусы из мелкой майорки. Надежный магнитный замок. Идеальный акцент для повседневного и вечернего образа.'
+    }
   ];
 
   const seedReviews = [
-    { name: 'Анна', rating: 5, date: '12.10.2025', text: 'Заказывала колье Lune в подарок маме — упаковка шикарная, камни играют на свету. Мама была на седьмом небе. Обслуживание на высшем уровне, отвечали в течение пары минут.' },
-    { name: 'Мария', rating: 5, date: '28.09.2025', text: 'Наконец-то бижутерия, которая не темнеет через месяц! Ношу серьги Étoile каждый день уже полгода — как новые. Теперь только ваш бренд.' },
-    { name: 'Екатерина', rating: 4, date: '03.09.2025', text: 'Приезжала в шоурум на Щелковском, примерила пять пар серёг. Очень уютное место, вживую украшения ещё красивее, чем на фото. Единственное — хотелось бы больше моделей браслетов.' }
+    { name: 'Анна', rating: 5, date: '12.10.2025', text: 'Заказывала колье в подарок маме — упаковка шикарная, камни играют на свету. Мама была на седьмом небе. Обслуживание на высшем уровне.' },
+    { name: 'Мария', rating: 5, date: '28.09.2025', text: 'Наконец-то бижутерия, которая не темнеет через месяц! Ношу каждый день уже полгода — как новые. Теперь только ваш бренд.' },
+    { name: 'Екатерина', rating: 4, date: '03.09.2025', text: 'Приезжала в шоурум в ТЦ Щелковский, примерила пять пар. Очень уютное место, вживую украшения ещё красивее, чем на фото.' }
   ];
 
   const blogArticles = {
@@ -781,7 +900,7 @@
       <article class="product reveal active" itemscope itemtype="https://schema.org/Product" onclick="openModal('${p.id}')">
         <div class="product-media">
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
-          <img src="${p.image}" alt="Купить ${p.name} в Москве — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop'">
+          <img src="${p.images[0]}" alt="Купить ${p.name} в Москве — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop'">
           <div class="product-action">Заказать</div>
         </div>
         <div class="product-info">
@@ -799,7 +918,7 @@
   }
 
   function getCatName(cat) {
-    const names = { rings: 'Кольца', earrings: 'Серьги', necklaces: 'Колье', bracelets: 'Браслеты' };
+    const names = { rings: 'Кольца', earrings: 'Серьги', necklaces: 'Колье и цепи', bracelets: 'Браслеты', accessories: 'Аксессуары' };
     return names[cat] || '';
   }
 
@@ -807,15 +926,22 @@
     const p = products.find(item => item.id === id);
     if(!p) return;
 
-    document.getElementById('modalImg').src = p.image;
+    document.getElementById('modalMainImg').src = p.images[0];
+    
+    const thumbsContainer = document.getElementById('modalThumbs');
+    thumbsContainer.innerHTML = p.images.map((img, index) => `
+      <img src="${img}" onclick="changeMainImage(this, '${img}')" class="${index === 0 ? 'active' : ''}" alt="Ракурс ${index + 1}">
+    `).join('');
+
     document.getElementById('modalCat').textContent = getCatName(p.category);
     document.getElementById('modalName').textContent = p.name;
     document.getElementById('modalMaterial').textContent = p.material;
     document.getElementById('modalPrice').textContent = p.price;
+    document.getElementById('modalDesc').textContent = p.description;
 
-    // Показываем блок скидки только для браслетов и колье-трансформера
     const discountBlock = document.getElementById('discountBlock');
-    if (p.category === 'bracelets' || p.id === 'n2') {
+    if (p.discount) {
+      discountBlock.innerHTML = p.discount;
       discountBlock.style.display = 'block';
     } else {
       discountBlock.style.display = 'none';
@@ -826,6 +952,12 @@
     document.getElementById('orderBtn').href = `https://wa.me/${myPhoneNumber}?text=${encodedText}`;
 
     document.getElementById('productModal').classList.add('active');
+  }
+
+  function changeMainImage(thumb, imgSrc) {
+    document.getElementById('modalMainImg').src = imgSrc;
+    document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
   }
 
   function openBlog(id) {
