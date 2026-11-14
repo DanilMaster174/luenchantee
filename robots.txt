@@ -1,4 +1,12 @@
+# --- ОСНОВНЫЕ ПРАВИЛА ДЛЯ ВСЕХ РОБОТОВ ---
 User-agent: *
-Disallow:
+Disallow: 
 
+# --- ДИРЕКТИВЫ ДЛЯ ЯНДЕКСА (защита от дублей) ---
+# Указываем роботу игнорировать рекламные метки (UTM) и параметры кликов (yclid),
+# чтобы он не создавал дубли страниц, когда люди переходят по ссылкам из соцсетей.
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&yclid&gclid /
+
+# --- КАРТА САЙТА ---
+# Указываем полный путь к файлу sitemap.xml
 Sitemap: https://luenchantee.ru/sitemap.xml
