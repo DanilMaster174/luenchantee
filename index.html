@@ -166,12 +166,26 @@
     .product { display: flex; flex-direction: column; cursor: pointer; position: relative; }
 
     .product-media { position: relative; aspect-ratio: 3/4; overflow: hidden; background: #f0ebe1; border-radius: 4px; }
-    .product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); }
-    .product:hover .product-media img { transform: scale(1.06); }
+    .product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .product:hover .product-media img { transform: scale(1.03); }
 
     .product-badge { position: absolute; top: 15px; left: 15px; background: var(--ink); color: #fff; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; z-index: 2; }
     
-    .product-action { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(15px); background: rgba(255,255,255,0.95); color: var(--ink); padding: 14px 32px; border-radius: 999px; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: 0.4s; cursor: pointer; width: 80%; text-align: center; font-weight: 500; }
+    /* Стрелочки для перелистывания на карточке */
+    .card-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.85); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--ink); z-index: 3;
+      opacity: 0; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product:hover .card-nav { opacity: 1; }
+    .card-nav:hover { background: var(--gold); color: #fff; }
+    .card-nav.prev { left: 10px; }
+    .card-nav.next { right: 10px; }
+
+    .product-action { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(15px); background: rgba(255,255,255,0.95); color: var(--ink); padding: 14px 32px; border-radius: 999px; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transition: 0.4s; cursor: pointer; width: 80%; text-align: center; font-weight: 500; z-index: 3; }
     .product:hover .product-action { opacity: 1; transform: translateX(-50%) translateY(0); }
     .product-action:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
 
@@ -834,13 +848,6 @@
       material:'Золотое покрытие',
       description:'Комбинированная структура с классическими овальными звеньями и акцентной центральной частью. Яркое золотое покрытие. Длина 40-45 см.'
     },
-    { 
-      id:'kz2', category:'necklaces', price:'9 600 ₽', badge:'', 
-      images: ['images/Kz2.jpg', 'images/Kz1.jpg'], 
-      name:'Цепь "Кубинское плетение"', 
-      material:'Золотое покрытие',
-      description:'Крупная панцирная эстетика в современном прочтении. Выразительный стейтмент-аксессуар. Длина 40-45 см.'
-    },
 
     // --- ЖЕМЧУЖНЫЕ КОЛЬЕ (OK) ---
     { 
@@ -849,13 +856,6 @@
       name:'Жемчужное колье "Old Money"', 
       material:'Акрил · молочный перламутр',
       description:'Крупные жемчужные бусины с градиентом. Классический молочно-перламутровый оттенок. Легкий акрил. Длина 57 см.'
-    },
-    { 
-      id:'ok2', category:'necklaces', price:'4 400 ₽', badge:'', 
-      images: ['images/OK2.jpg', 'images/OK1.jpg'], 
-      name:'Жемчужное колье "Old Money"', 
-      material:'Акрил · молочный перламутр',
-      description:'Эффектное ожерелье из легкого акрила. Красиво ложится поверх водолазок и вечерних нарядов. Длина 57 см.'
     },
 
     // --- КУЛОНЫ С КВАРЦЕМ (Ky) ---
@@ -866,15 +866,6 @@
       material:'Натуральный кварц · цепочка снейк',
       description:'Натуральный молочный кварц (срез-друза) на тонкой цепочке снейк. Эффект искрящегося блеска.'
     },
-    // Комплект с нарукавником
-    { 
-      id:'ky-set', category:'necklaces', price:'9 596 ₽', badge:'Сет', 
-      images: ['images/Ky1.jpg', 'images/Ky3.jpg'], 
-      name:'Комплект: Кулон + Нарукавник', 
-      material:'Кулон + нарукавник',
-      description:'Кулон с белым кварцем (6 290 ₽) и нарукавник (5 000 ₽). Скидка 15% при покупке комплекта!',
-      discount: 'Выгода <strong>15%</strong> при покупке комплекта!'
-    },
 
     // --- БРАСЛЕТЫ-ПРУЖИНЫ (B) ---
     { 
@@ -883,13 +874,6 @@
       name:'Браслет-пружина "Природная гармония"', 
       material:'Натуральные камни · мемори-проволока',
       description:'Многослойный браслет из натуральных камней (кварц, нефрит, хрусталь, опалит и др.). Мемори-проволока.'
-    },
-    { 
-      id:'b4', category:'bracelets', price:'5 300 ₽', badge:'', 
-      images: ['images/B2.jpg', 'images/B1.jpg'], 
-      name:'Браслет-пружина "Природная гармония"', 
-      material:'Натуральные камни · мемори-проволока',
-      description:'Трехрядный браслет без застежки. Идеально садится на любое запястье, создает эффект многослойности.'
     },
 
     // --- НАРУКАВНИКИ (D) ---
@@ -900,13 +884,6 @@
       material:'Ручное плетение · античное золото',
       description:'Ручное плетение из тонких металлических нитей. Расклешенный волан, 3 пуговицы. Превращает наряд в вечерний.'
     },
-    { 
-      id:'d2', category:'accessories', price:'5 000 ₽', badge:'', 
-      images: ['images/D4.jpg', 'images/D5.jpg', 'images/D6.jpg'], 
-      name:'Ажурный нарукавник "Винтаж"', 
-      material:'Ручное плетение · античное золото',
-      description:'Превращает повседневный наряд в вечерний. Легкая сетчатая структура, не утяжеляет руку.'
-    },
 
     // --- НАРУКАВНИКИ (K) ---
     { 
@@ -915,13 +892,6 @@
       name:'Ажурный нарукавник "Серебряный шик"', 
       material:'Ручное плетение · серебро',
       description:'Плетение из серебристых металлических нитей. Плавный переход от облегающей части к волнистой оборке.'
-    },
-    { 
-      id:'k2', category:'accessories', price:'5 000 ₽', badge:'', 
-      images: ['images/K3.jpg', 'images/K4.jpg'], 
-      name:'Ажурный нарукавник "Серебряный шик"', 
-      material:'Ручное плетение · серебро',
-      description:'Изысканный дизайн с вертикальным рядом пуговиц. Надевается поверх блузы или платья.'
     },
 
     // --- БУСЫ ИЗ МАЙОРКИ (M) ---
@@ -947,8 +917,8 @@
   };
 
   let currentFilter = 'all';
-  let currentProduct = null; // Текущий открытый товар
-  let cart = []; // Массив для корзины
+  let currentProduct = null;
+  let cart = [];
 
   // --- ЛОГИКА КОРЗИНЫ ---
   function updateCartUI() {
@@ -986,11 +956,9 @@
 
   function addToCart() {
     if (!currentProduct) return;
-    // Проверяем, есть ли уже товар (упрощенно, просто добавляем)
     cart.push(currentProduct);
     updateCartUI();
     
-    // Показываем уведомление
     const btn = document.getElementById('addToCartBtn');
     const originalText = btn.textContent;
     btn.textContent = 'Добавлено ✓';
@@ -1031,16 +999,25 @@
   });
 
 
-  // --- ОТРИСОВКА КАТАЛОГА ---
+  // --- ОТРИСОВКА КАТАЛОГА (Стрелочки для перелистывания) ---
   function renderProducts() {
     const grid = document.getElementById('grid');
     const list = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
 
-    grid.innerHTML = list.map(p => `
+    grid.innerHTML = list.map((p, index) => {
+      // Если фото больше 1, показываем стрелочки
+      const hasMultiple = p.images.length > 1;
+      const navArrows = hasMultiple ? `
+        <button class="card-nav prev" onclick="event.stopPropagation(); prevImg(${index})">‹</button>
+        <button class="card-nav next" onclick="event.stopPropagation(); nextImg(${index})">›</button>
+      ` : '';
+
+      return `
       <article class="product reveal active" itemscope itemtype="https://schema.org/Product" onclick="openModal('${p.id}')">
-        <div class="product-media">
+        <div class="product-media" id="media-${index}">
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
-          <img src="${p.images[0]}" alt="Купить ${p.name} в ТЦ Щелковский — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop'">
+          <img src="${p.images[0]}" id="img-${index}" alt="Купить ${p.name} в ТЦ Щелковский — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop'">
+          ${navArrows}
           <div class="product-action">Заказать</div>
         </div>
         <div class="product-info">
@@ -1054,7 +1031,30 @@
           </div>
         </div>
       </article>
-    `).join('');
+      `;
+    }).join('');
+    
+    // Сохраняем текущие индексы фото для каждой карточки
+    window.cardImageIndices = Array(list.length).fill(0);
+    window.currentDisplayList = list; // Сохраняем текущий отфильтрованный список
+  }
+
+  function prevImg(index) {
+    const list = window.currentDisplayList;
+    const p = list[index];
+    let currIdx = window.cardImageIndices[index];
+    currIdx = (currIdx - 1 + p.images.length) % p.images.length;
+    window.cardImageIndices[index] = currIdx;
+    document.getElementById(`img-${index}`).src = p.images[currIdx];
+  }
+
+  function nextImg(index) {
+    const list = window.currentDisplayList;
+    const p = list[index];
+    let currIdx = window.cardImageIndices[index];
+    currIdx = (currIdx + 1) % p.images.length;
+    window.cardImageIndices[index] = currIdx;
+    document.getElementById(`img-${index}`).src = p.images[currIdx];
   }
 
   function getCatName(cat) {
@@ -1066,7 +1066,7 @@
     const p = products.find(item => item.id === id);
     if(!p) return;
 
-    currentProduct = p; // Запоминаем товар для корзины
+    currentProduct = p;
 
     document.getElementById('modalMainImg').src = p.images[0];
     
@@ -1244,7 +1244,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   renderProducts();
   renderReviews();
-  updateCartUI(); // Инициализация корзины
+  updateCartUI();
 </script>
 </body>
 </html>
