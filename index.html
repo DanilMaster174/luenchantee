@@ -5,7 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Бижутерия в ТЦ Щелковский — купить украшения ручной работы в Москве | Lu Enchantée</title>
-  <link rel="canonical" href="https://luenchantee.ru/" />
+  
+  <!-- SEO: Канонический URL (будет меняться через JS) -->
+  <link rel="canonical" href="https://luenchantee.ru/" id="canonicalLink" />
+  
+  <!-- SEO: Микроразметка Schema.org (будет заполняться через JS) -->
+  <script type="application/ld+json" id="productSchema"></script>
+
   <meta name="description" content="Ищете, где купить хорошую бижутерию в Москве или Щелково? Шоурум Lu Enchantée в ТЦ Щелковский (0 этаж). Эксклюзивные украшения ручной работы.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
   
@@ -236,6 +242,11 @@
     .main-fab.open svg { transform: rotate(180deg); }
     .modal { position: fixed; inset: 0; background: rgba(26,24,23,0.65); backdrop-filter: blur(4px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px; overflow-y: auto; }
     .modal.active { opacity: 1; pointer-events: auto; }
+    
+    /* ИСПРАВЛЕНО: Стили для кнопки закрытия модалки */
+    .modal-close { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.9); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); color: var(--ink); }
+    .modal-close:hover { background: var(--gold); color: #fff; }
+
     .modal-content { background: var(--surface); width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
     .modal.active .modal-content { transform: translateY(0); }
     .modal-gallery { display: flex; flex-direction: column; background: #f7f3eb; align-items: center; justify-content: center; padding: 20px; overflow: hidden; position: relative; }
@@ -900,6 +911,38 @@
   }
   function getCatName(cat) { return { rings: 'Кольца', necklaces: 'Колье и цепи', bracelets: 'Браслеты', accessories: 'Аксессуары' }[cat] || ''; }
 
+  // === SEO: Обновление Canonical и Микроразметки ===
+  function updateSEOTags(product = null) {
+    const canonicalLink = document.getElementById('canonicalLink');
+    const schemaScript = document.getElementById('productSchema');
+    const baseUrl = window.location.origin;
+
+    if (product) {
+      canonicalLink.href = `${baseUrl}/?product=${product.id}`;
+      
+      const numericPrice = parseInt(product.price.replace(/\s|₽/g, ''));
+      const schemaData = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": product.name,
+        "image": product.images.map(img => `${baseUrl}/${img}`),
+        "description": product.description,
+        "offers": {
+          "@type": "Offer",
+          "url": `${baseUrl}/?product=${product.id}`,
+          "priceCurrency": "RUB",
+          "price": numericPrice,
+          "availability": "https://schema.org/InStock",
+          "seller": { "@type": "Organization", "name": "Lu Enchantée" }
+        }
+      };
+      schemaScript.textContent = JSON.stringify(schemaData);
+    } else {
+      canonicalLink.href = `${baseUrl}/`;
+      schemaScript.textContent = "";
+    }
+  }
+
   // === МОДАЛКА ТОВАРА ===
   let modalImageIndex = 0; let modalImagesArray = [];
   function updateModalImage() {
@@ -954,6 +997,8 @@
     }
 
     document.getElementById('productModal').classList.add('active');
+    updateSEOTags(p); 
+
     if (updateUrl) { history.pushState(null, null, `?product=${p.id}`); }
   }
 
@@ -965,6 +1010,7 @@
   function closeModal() {
     document.getElementById('productModal').classList.remove('active');
     history.pushState(null, null, window.location.pathname);
+    updateSEOTags(null); 
   }
 
   function changeMainImage(index) { modalImageIndex = index; updateModalImage(); }
@@ -1008,13 +1054,18 @@
 
   document.addEventListener('click', (e) => {
     if (!fabBtn.contains(e.target) && !contactMenu.contains(e.target)) { contactMenu.classList.remove('active'); fabBtn.classList.remove('open'); }
-    if(e.target.classList.contains('modal')) { e.target.classList.remove('active'); history.pushState(null, null, window.location.pathname); }
+    if(e.target.classList.contains('modal')) { 
+        e.target.classList.remove('active'); 
+        history.pushState(null, null, window.location.pathname);
+        updateSEOTags(null);
+    }
   });
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal.active').forEach(m => m.classList.remove('active'));
       contactMenu.classList.remove('active'); fabBtn.classList.remove('open'); mobileNav.classList.remove('active');
+      updateSEOTags(null);
     }
   });
 
@@ -1053,8 +1104,12 @@
   window.addEventListener('popstate', () => {
     const params = new URLSearchParams(window.location.search);
     const prod = params.get('product');
-    if (prod) openModal(prod, false);
-    else document.getElementById('productModal').classList.remove('active');
+    if (prod) {
+        openModal(prod, false);
+    } else {
+        document.getElementById('productModal').classList.remove('active');
+        updateSEOTags(null);
+    }
   });
 </script>
 </body>
