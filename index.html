@@ -118,22 +118,21 @@
 
     .header-phone { font-size: 0.85rem; letter-spacing: 0.06em; white-space: nowrap; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
     
-    /* Корзина в шапке */
-    .cart-btn {
-      position: relative;
-      background: none; border: none; cursor: pointer;
-      display: flex; align-items: center; gap: 8px;
-      font-family: 'Jost', sans-serif; font-size: 0.85rem;
-      margin-left: 20px;
+    /* Кнопки в шапке */
+    .header-actions { display: flex; align-items: center; gap: 15px; }
+    .icon-btn {
+      position: relative; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
       transition: transform 0.3s;
     }
-    .cart-btn:hover { transform: scale(1.05); }
-    .cart-btn svg { width: 24px; height: 24px; fill: var(--ink); transition: 0.3s; }
-    .cart-btn:hover svg { fill: var(--gold); }
-    .cart-count {
+    .icon-btn:hover { transform: scale(1.1); }
+    .icon-btn svg { width: 24px; height: 24px; fill: var(--ink); transition: 0.3s; }
+    .icon-btn:hover svg { fill: var(--gold); }
+    .icon-count {
+      position: absolute; top: -5px; right: -8px;
       background: var(--gold); color: #fff;
-      font-size: 0.65rem; font-weight: 600;
-      width: 18px; height: 18px; border-radius: 50%;
+      font-size: 0.6rem; font-weight: 600;
+      width: 16px; height: 16px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
     }
 
@@ -174,12 +173,29 @@
 
     /* --- КАТАЛОГ --- */
     .catalog-section { padding: 100px 0 120px; background: var(--bg); }
-    .section-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 60px; text-align: center; }
+    .section-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; text-align: center; }
     .section-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 16px; }
     .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 600px; }
 
-    .filters { display: flex; justify-content: center; gap: 32px; margin-bottom: 70px; flex-wrap: wrap; }
-    .filter { background: none; border: none; cursor: pointer; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); position: relative; padding-bottom: 6px; transition: 0.3s; font-family: inherit; }
+    /* Поиск и Фильтр по цене */
+    .search-filter-box {
+      display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;
+    }
+    .search-input {
+      padding: 12px 20px; border: 1px solid var(--line); border-radius: 999px;
+      font-family: 'Jost', sans-serif; font-size: 0.9rem; width: 300px; outline: none; background: var(--surface);
+    }
+    .search-input:focus { border-color: var(--gold); }
+    .price-inputs {
+      display: flex; align-items: center; gap: 10px; background: var(--surface);
+      border: 1px solid var(--line); border-radius: 999px; padding: 5px 20px;
+    }
+    .price-inputs input {
+      border: none; outline: none; width: 70px; font-family: 'Jost', sans-serif; font-size: 0.9rem; text-align: center;
+    }
+
+    .filters { display: flex; justify-content: center; gap: 20px; margin-bottom: 60px; flex-wrap: wrap; }
+    .filter { background: none; border: none; cursor: pointer; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); position: relative; padding-bottom: 6px; transition: 0.3s; font-family: inherit; }
     .filter::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: 0.3s; }
     .filter.active { color: var(--ink); }
     .filter.active::after { transform: scaleX(1); }
@@ -193,7 +209,18 @@
 
     .product-badge { position: absolute; top: 15px; left: 15px; background: var(--ink); color: #fff; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; z-index: 2; }
     
-    /* Стрелочки для перелистывания на карточке */
+    /* Сердечко на карточке */
+    .wishlist-btn {
+      position: absolute; top: 15px; right: 15px; z-index: 3;
+      background: rgba(255,255,255,0.9); border: none; border-radius: 50%;
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .wishlist-btn svg { width: 20px; height: 20px; fill: transparent; stroke: var(--ink); stroke-width: 2; transition: 0.3s; }
+    .wishlist-btn.active svg { fill: #d9534f; stroke: #d9534f; }
+    .wishlist-btn:hover { transform: scale(1.1); }
+
+    /* Стрелочки для перелистывания */
     .card-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 36px; height: 36px; border-radius: 50%;
@@ -217,10 +244,21 @@
     .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; font-weight: 300; }
     .product-price { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; }
 
+    /* --- FAQ --- */
+    .faq-section { padding: 100px 0; background: var(--surface); border-top: 1px solid var(--line); }
+    .faq-grid { max-width: 800px; margin: 0 auto; }
+    details { border-bottom: 1px solid var(--line); padding: 20px 0; cursor: pointer; }
+    details:first-child { border-top: 1px solid var(--line); }
+    summary { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.5rem; color: var(--gold); transition: 0.3s; }
+    details[open] summary::after { content: "−"; }
+    .faq-answer { padding-top: 15px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
     /* --- ДОСТАВКА И ОПЛАТА --- */
-    .delivery-section { padding: 100px 0; background: var(--surface); border-top: 1px solid var(--line); }
+    .delivery-section { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--line); }
     .delivery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
-    .delivery-card { background: var(--bg); padding: 50px 30px; border-radius: 4px; text-align: center; border: 1px solid var(--line); transition: 0.3s; }
+    .delivery-card { background: var(--surface); padding: 50px 30px; border-radius: 4px; text-align: center; border: 1px solid var(--line); transition: 0.3s; }
     .delivery-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-3px); }
     .delivery-icon { width: 44px; height: 44px; margin: 0 auto 20px; fill: var(--gold); }
     .delivery-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
@@ -228,14 +266,8 @@
 
     /* Блок безопасной оплаты */
     .secure-payment-block {
-      margin-top: 60px;
-      background: #fff;
-      border: 1px solid var(--gold);
-      border-radius: 8px;
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
+      margin-top: 60px; background: #fff; border: 1px solid var(--gold);
+      border-radius: 8px; padding: 40px; display: flex; align-items: center; gap: 30px;
       box-shadow: 0 10px 30px rgba(201,168,106,0.1);
     }
     .secure-payment-block svg { width: 80px; height: 80px; flex-shrink: 0; fill: var(--gold); }
@@ -244,9 +276,9 @@
     .secure-text strong { color: var(--ink); }
 
     /* --- ЖУРНАЛ --- */
-    .blog-section { padding: 100px 0; background: var(--bg); }
+    .blog-section { padding: 100px 0; background: var(--surface); }
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .blog-card { cursor: pointer; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; transition: 0.4s; background: var(--surface); }
+    .blog-card { cursor: pointer; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; transition: 0.4s; background: var(--bg); }
     .blog-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
     .blog-img { aspect-ratio: 16/9; background-size: cover; background-position: center; transition: 0.5s; }
     .blog-card:hover .blog-img { transform: scale(1.03); }
@@ -259,7 +291,7 @@
     .blog-card:hover .blog-more::after { transform: translateX(5px); color: var(--gold); }
 
     /* --- О БРЕНДЕ --- */
-    .about-section { padding: 140px 0; background: var(--surface); position: relative; }
+    .about-section { padding: 140px 0; background: var(--bg); position: relative; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .about-img { aspect-ratio: 4/5; background: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop') center/cover; box-shadow: 24px 24px 0 rgba(201,168,106,0.18); }
     .about-text h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 24px; }
@@ -267,9 +299,9 @@
     .about-signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gold); margin-top: 30px; }
 
     /* --- ОТЗЫВЫ --- */
-    .reviews-section { padding: 100px 0; background: var(--bg); }
+    .reviews-section { padding: 100px 0; background: var(--surface); }
     .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-bottom: 50px; }
-    .review-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 30px; display: flex; flex-direction: column; gap: 14px; transition: 0.3s; }
+    .review-card { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 30px; display: flex; flex-direction: column; gap: 14px; transition: 0.3s; }
     .review-card:hover { box-shadow: 0 14px 34px rgba(26,24,23,0.07); transform: translateY(-3px); }
     .review-stars { color: var(--gold); letter-spacing: 3px; font-size: 1rem; }
     .review-text { color: var(--muted); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; flex: 1; }
@@ -293,7 +325,7 @@
     .form-success .check { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #e6d3ab); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 16px; }
 
     /* --- КОНТАКТЫ --- */
-    .contacts-section { padding: 100px 0 0; background: var(--surface); }
+    .contacts-section { padding: 100px 0 0; background: var(--bg); }
     .contacts-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: stretch; padding-bottom: 100px; }
     .contact-block { display: flex; gap: 18px; margin-bottom: 28px; align-items: flex-start; }
     .contact-icon { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-dark); }
@@ -312,7 +344,7 @@
     .map-wrap iframe { width: 100%; height: 100%; border: none; min-height: 420px; display: block; }
 
     /* --- SEO TEXT --- */
-    .seo-text { background-color: var(--bg); padding: 60px 0; border-top: 1px solid var(--line); text-align: center; }
+    .seo-text { background-color: var(--surface); padding: 60px 0; border-top: 1px solid var(--line); text-align: center; }
     .seo-text h3 { font-size: 1.5rem; margin-bottom: 16px; }
     .seo-text p { font-size: 0.9rem; color: var(--muted); max-width: 900px; margin: 0 auto; }
     .seo-links { margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; font-size: 0.8rem; }
@@ -329,6 +361,11 @@
     .footer-contacts a { margin: 0 5px; transition: color 0.3s; }
     .footer-contacts a:hover { color: var(--gold); }
     .footer-address { font-size: 0.85rem; opacity: 0.7; margin-bottom: 30px; }
+    
+    .footer-legal { display: flex; gap: 20px; justify-content: center; font-size: 0.7rem; opacity: 0.6; margin-bottom: 20px; }
+    .footer-legal a { text-decoration: underline; cursor: pointer; }
+    .footer-legal a:hover { color: var(--gold); }
+    
     .footer-copy { font-size: 0.72rem; opacity: 0.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; max-width: 600px; margin-inline: auto; }
 
     /* --- ПЛАВАЮЩАЯ КНОПКА СВЯЗИ --- */
@@ -357,15 +394,16 @@
     .modal-content { background: var(--surface); width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
     .modal.active .modal-content { transform: translateY(0); }
     
-    /* Галерея */
-    .modal-gallery { display: flex; flex-direction: column; background: #f7f3eb; align-items: center; justify-content: center; padding: 20px; }
-    .modal-main-img { width: 100%; max-height: 600px; object-fit: contain; border-radius: 4px; }
-    .modal-thumbnails { display: flex; gap: 10px; padding: 15px 10px 0; overflow-x: auto; width: 100%; justify-content: center; }
+    /* Галерея с зумом */
+    .modal-gallery { display: flex; flex-direction: column; background: #f7f3eb; align-items: center; justify-content: center; padding: 20px; overflow: hidden; }
+    .modal-main-img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 4px; transition: transform 0.5s ease; cursor: crosshair; }
+    .modal-main-img:hover { transform: scale(1.5); }
+    .modal-thumbnails { display: flex; gap: 10px; padding: 15px 10px 0; overflow-x: auto; width: 100%; justify-content: center; z-index: 2; }
     .modal-thumbnails img { width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 4px; opacity: 0.6; transition: 0.3s; border: 2px solid transparent; }
     .modal-thumbnails img:hover { opacity: 1; }
     .modal-thumbnails img.active { opacity: 1; border-color: var(--gold); }
 
-    .modal-info { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+    .modal-info { padding: 40px 50px; display: flex; flex-direction: column; justify-content: center; max-height: 90vh; overflow-y: auto; }
     .modal-info .product-cat { font-size: 0.8rem; margin-bottom: 10px; }
     .modal-info h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
     .modal-info .product-material { font-size: 1rem; margin-bottom: 20px; color: var(--muted); }
@@ -377,11 +415,21 @@
     .discount-block strong { color: var(--gold-dark); }
 
     /* Кнопки действий в карточке */
-    .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+    .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; margin-bottom: 30px; }
     .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; width: 100%; border: 1px solid var(--ink); }
     .btn-order:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
     .btn-add-cart { background: #fff; color: var(--ink); border: 1px solid var(--ink); text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; width: 100%; cursor: pointer; }
     .btn-add-cart:hover { background: var(--ink); color: #fff; }
+
+    /* С этим покупают */
+    .related-products { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 20px; }
+    .related-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 15px; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .related-item { display: flex; gap: 10px; align-items: center; cursor: pointer; transition: 0.3s; }
+    .related-item:hover { opacity: 0.7; }
+    .related-img { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; }
+    .related-name { font-size: 0.85rem; font-weight: 500; line-height: 1.2; margin-bottom: 2px; }
+    .related-price { font-size: 0.8rem; color: var(--gold); }
 
     /* Окно корзины */
     .cart-modal .modal-content { display: block; max-width: 600px; padding: 40px; }
@@ -394,6 +442,11 @@
     .cart-item-remove:hover { transform: scale(1.2); }
     .cart-total { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 500; margin-bottom: 20px; padding-top: 15px; border-top: 2px solid var(--ink); }
     .cart-empty { text-align: center; color: var(--muted); padding: 40px 0; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; }
+
+    /* Юридические окна */
+    .modal-legal .modal-content { display: block; max-width: 700px; padding: 40px; }
+    .modal-legal h3 { font-size: 2rem; margin-bottom: 20px; }
+    .modal-legal p { font-size: 0.9rem; color: var(--muted); margin-bottom: 15px; line-height: 1.8; }
 
     /* --- КНОПКА НАВЕРХ --- */
     .to-top { position: fixed; bottom: 30px; left: 30px; width: 48px; height: 48px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 998; font-size: 1.1rem; color: var(--ink); }
@@ -409,7 +462,7 @@
       .modal-content { grid-template-columns: 1fr; max-width: 500px; }
       .modal-gallery { padding: 15px; }
       .modal-main-img { max-height: 400px; }
-      .modal-info { padding: 30px; }
+      .modal-info { padding: 30px; max-height: none; }
       .contacts-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero { background-attachment: scroll; }
       .secure-payment-block { flex-direction: column; text-align: center; padding: 30px; }
@@ -419,7 +472,7 @@
       .header-inner { justify-content: space-between; }
       .burger { display: block; order: 1; }
       .logo { order: 2; }
-      .header-right { order: 3; justify-content: flex-end; }
+      .header-actions { order: 3; justify-content: flex-end; }
       .mobile-nav { display: none; }
       .mobile-nav.active { display: flex; }
       .hero { padding: 160px 0 100px; }
@@ -428,6 +481,7 @@
       .floating-contact { bottom: 20px; right: 20px; }
       .to-top { bottom: 20px; left: 20px; }
       .contacts-grid { padding-bottom: 60px; }
+      .search-filter-box { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -448,21 +502,20 @@
       <span class="logo-name">Lu <em>Enchantée</em></span>
       <span class="logo-domain">www.luenchantee.ru</span>
     </a>
-    <div class="header-right">
-      <nav>
-        <ul>
-          <li><a href="#reviews">Отзывы</a></li>
-          <li><a href="#contacts">Контакты</a></li>
-        </ul>
-      </nav>
-      <a href="tel:+79048101213" class="header-phone">+7 (904) 810-12-13</a>
+    <div class="header-actions">
+      <a href="tel:+79048101213" class="header-phone" style="margin-right:15px;">+7 (904) 810-12-13</a>
       
-      <!-- КНОПКА КОРЗИНЫ -->
-      <button class="cart-btn" id="cartBtn" aria-label="Корзина">
-        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
+      <!-- Кнопка Избранного -->
+      <button class="icon-btn" id="wishlistBtnHeader" title="Избранное" onclick="scrollToCatalog('favorites')">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span class="icon-count" id="wishlistCount">0</span>
       </button>
 
+      <!-- Кнопка Корзины -->
+      <button class="icon-btn" id="cartBtn" title="Корзина">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="icon-count" id="cartCount">0</span>
+      </button>
     </div>
     <button class="burger" id="burgerBtn" aria-label="Меню">
       <span></span><span></span><span></span>
@@ -472,6 +525,7 @@
     <a href="#catalog">Каталог</a>
     <a href="#delivery">Доставка</a>
     <a href="#blog">Журнал</a>
+    <a href="#faq">Вопросы</a>
     <a href="#reviews">Отзывы</a>
     <a href="#contacts">Контакты</a>
   </nav>
@@ -522,16 +576,60 @@
       <p class="section-sub">Самые любимые украшения наших клиентов. Колье, цепи, нарукавники и браслеты ручной работы.</p>
     </div>
 
-    <!-- ОБНОВЛЕННЫЕ ФИЛЬТРЫ -->
+    <!-- ПОИСК И ФИЛЬТР ПО ЦЕНЕ -->
+    <div class="search-filter-box reveal">
+      <input type="text" class="search-input" id="searchInput" placeholder="Поиск (название, камень)...">
+      <div class="price-inputs">
+        <input type="number" id="minPrice" placeholder="от">
+        <span>—</span>
+        <input type="number" id="maxPrice" placeholder="до">
+        <span>₽</span>
+      </div>
+    </div>
+
+    <!-- ФИЛЬТРЫ -->
     <div class="filters reveal">
       <button class="filter active" data-filter="all">Все украшения</button>
       <button class="filter" data-filter="necklaces">Колье и цепи</button>
       <button class="filter" data-filter="rings">Кольца</button>
       <button class="filter" data-filter="bracelets">Браслеты</button>
       <button class="filter" data-filter="accessories">Аксессуары</button>
+      <button class="filter" data-filter="favorites" style="color: #d9534f;">❤ Избранное</button>
     </div>
 
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Частые вопросы</h2>
+      <p class="section-sub">Ответы на самые популярные вопросы наших покупателей.</p>
+    </div>
+    <div class="faq-grid reveal">
+      <details>
+        <summary>Как отличить натуральный камень от подделки?</summary>
+        <div class="faq-answer">Все наши украшения создаются с использованием природных камней, которые имеют уникальную текстуру, вкрапления и рисунок. Мы не используем пластиковые имитации. Поскольку камни натуральные, каждый экземпляр единственный в своем роде, и рисунок может отличаться от фото на сайте.</div>
+      </details>
+      <details>
+        <summary>Как быстро вы доставляете заказы?</summary>
+        <div class="faq-answer">По Москве доставка занимает 1-2 дня (курьером или в пункт выдачи). По России — от 3 до 7 рабочих дней (Почта России или СДЭК). Стоимость и точные сроки зависят от вашего региона.</div>
+      </details>
+      <details>
+        <summary>Что делать, если размер кольца не подошел?</summary>
+        <div class="faq-answer">Многие наши кольца (например, с аммонитом или рубином) имеют регулируемую шинку, поэтому они подстраиваются под палец. Если кольцо не регулируется и не подошло по размеру, свяжитесь с нами в WhatsApp — мы постараемся решить вопрос обменом или подгонкой.</div>
+      </details>
+      <details>
+        <summary>Как происходит оплата?</summary>
+        <div class="faq-answer">Мы заботимся о вашей безопасности. На сайте нет формы ввода банковских карт. После оформления заказа в WhatsApp мы пришлем реквизиты для оплаты по СБП (Система быстрых платежей) или безопасную ссылку на оплату.</div>
+      </details>
+      <details>
+        <summary>Есть ли у вас физический магазин?</summary>
+        <div class="faq-answer">Да! Наш шоурум находится в Москве, в ТЦ Щелковский по адресу: Щелковское шоссе, 75, 0 этаж. Мы работаем ежедневно с 10:00 до 22:00. Приезжайте, чтобы примерить украшения вживую.</div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -748,6 +846,7 @@
       <a href="#catalog">Каталог</a>
       <a href="#delivery">Доставка</a>
       <a href="#blog">Журнал</a>
+      <a href="#faq">Вопросы</a>
       <a href="#reviews">Отзывы</a>
       <a href="#contacts">Контакты</a>
     </div>
@@ -757,6 +856,12 @@
       <a href="https://vk.ru/club239270184" target="_blank">ВКонтакте</a>
     </div>
     <div class="footer-address">г. Москва, Щелковское шоссе, 75, ТЦ Щелковский, 0 этаж · Ежедневно 10:00–22:00</div>
+    
+    <div class="footer-legal">
+      <a onclick="document.getElementById('privacyModal').classList.add('active')">Политика конфиденциальности</a>
+      <a onclick="document.getElementById('termsModal').classList.add('active')">Публичная оферта</a>
+    </div>
+
     <div class="footer-copy">© <span id="year"></span> Lu Enchantée · Все права защищены</div>
   </div>
 </footer>
@@ -790,7 +895,7 @@
   <div class="modal-content">
     <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('active')">✕</button>
     
-    <!-- ГАЛЕРЕЯ ТОВАРА -->
+    <!-- ГАЛЕРЕЯ ТОВАРА С ЗУМОМ -->
     <div class="modal-gallery">
       <img class="modal-main-img" id="modalMainImg" src="" alt="Украшение">
       <div class="modal-thumbnails" id="modalThumbs"></div>
@@ -811,6 +916,12 @@
       <div class="modal-actions">
         <button class="btn-add-cart" id="addToCartBtn">В корзину</button>
         <a href="#" class="btn-order" id="orderBtn" target="_blank" rel="noopener">Купить в 1 клик</a>
+      </div>
+
+      <!-- С ЭТИМ ПОКУПАЮТ -->
+      <div class="related-products" id="relatedProductsBlock">
+        <div class="related-title">С этим также покупают</div>
+        <div class="related-grid" id="relatedGrid"></div>
       </div>
     </div>
   </div>
@@ -878,6 +989,30 @@
       <h3 id="blogModalTitle"></h3>
       <div id="blogModalText"></div>
     </div>
+  </div>
+</div>
+
+<!-- ЮРИДИЧЕСКИЕ МОДАЛЬНЫЕ ОКНА -->
+<div class="modal modal-legal" id="privacyModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('privacyModal').classList.remove('active')">✕</button>
+    <h3>Политика конфиденциальности</h3>
+    <p>Настоящая Политика конфиденциальности действует в отношении всей информации, которую интернет-магазин «Lu Enchantée» может получить о Пользователе во время использования сайта.</p>
+    <p><strong>1. Сбор персональной информации</strong><br>Мы собираем только те данные, которые вы добровольно предоставляете нам при оформлении заказа или подписке (имя, номер телефона, e-mail). Мы не собираем и не храним данные ваших банковских карт.</p>
+    <p><strong>2. Использование информации</strong><br>Ваши данные используются исключительно для связи с вами, обработки заказа и доставки товара. Мы не передаем ваши данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ (например, службам доставки).</p>
+    <p><strong>3. Защита данных</strong><br>Мы принимаем все необходимые организационные и технические меры для защиты персональной информации Пользователя от неправомерного доступа, уничтожения, изменения или распространения.</p>
+  </div>
+</div>
+
+<div class="modal modal-legal" id="termsModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('termsModal').classList.remove('active')">✕</button>
+    <h3>Публичная оферта</h3>
+    <p>Настоящий документ является официальным предложением (публичной офертой) интернет-магазина «Lu Enchantée» и определяет условия приобретения товаров через наш сайт.</p>
+    <p><strong>1. Предмет договора</strong><br>Продавец обязуется передать Покупателю товар (украшения), а Покупатель обязуется оплатить и принять его на условиях настоящего договора.</p>
+    <p><strong>2. Оформление заказа и оплата</strong><br>Заказ оформляется через корзину сайта или мессенджеры. Оплата производится по безопасным каналам (СБП, ссылка на оплату). После оплаты Покупатель получает подтверждение.</p>
+    <p><strong>3. Доставка</strong><br>Доставка осуществляется курьерскими службами (СДЭК, Почта России) или собственным курьером по Москве. Сроки и стоимость согласовываются при подтверждении заказа.</p>
+    <p><strong>4. Возврат и обмен</strong><br>Возврат товара надлежащего качества возможен в течение 7 дней с момента получения при сохранении упаковки и бирок. Изделия, изготовленные по индивидуальному заказу, возврату не подлежат.</p>
   </div>
 </div>
 
@@ -1007,6 +1142,12 @@
   let currentFilter = 'all';
   let currentProduct = null;
   let cart = [];
+  let favorites = JSON.parse(localStorage.getItem('lu_favorites') || '[]');
+  
+  // Переменные для поиска и фильтра цен
+  let searchQuery = '';
+  let minPrice = 0;
+  let maxPrice = Infinity;
 
   // --- ЛОГИКА КОРЗИНЫ ---
   function updateCartUI() {
@@ -1087,10 +1228,104 @@
   });
 
 
+  // --- ЛОГИКА ИЗБРАННОГО (WISHLIST) ---
+  function updateWishlistUI() {
+    document.getElementById('wishlistCount').textContent = favorites.length;
+    // Обновляем сердечки на карточках
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+      const id = btn.dataset.id;
+      if(favorites.includes(id)) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  function toggleWishlist(e, id) {
+    e.stopPropagation(); // Чтобы не открывалась карточка товара
+    if (favorites.includes(id)) {
+      favorites = favorites.filter(f => f !== id);
+    } else {
+      favorites.push(id);
+    }
+    localStorage.setItem('lu_favorites', JSON.stringify(favorites));
+    updateWishlistUI();
+    // Если мы сейчас в фильтре "Избранное", перерисовываем сетку
+    if(currentFilter === 'favorites') {
+      filterAndRenderProducts();
+    }
+  }
+
+  function scrollToCatalog(filterName) {
+    currentFilter = filterName;
+    document.querySelectorAll('.filter').forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === filterName);
+    });
+    filterAndRenderProducts();
+    document.getElementById('catalog').scrollIntoView({behavior: 'smooth'});
+  }
+
+  // --- ОБРАБОТКА ФИЛЬТРОВ И ПОИСКА ---
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase();
+    filterAndRenderProducts();
+  });
+  document.getElementById('minPrice').addEventListener('input', (e) => {
+    minPrice = e.target.value ? parseInt(e.target.value) : 0;
+    filterAndRenderProducts();
+  });
+  document.getElementById('maxPrice').addEventListener('input', (e) => {
+    maxPrice = e.target.value ? parseInt(e.target.value) : Infinity;
+    filterAndRenderProducts();
+  });
+
+  document.querySelector('.filters').addEventListener('click', e => {
+    if(!e.target.classList.contains('filter')) return;
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter = e.target.dataset.filter;
+    filterAndRenderProducts();
+  });
+
+  function filterAndRenderProducts() {
+    let list = products;
+
+    // Фильтр по категории
+    if (currentFilter !== 'all' && currentFilter !== 'favorites') {
+      list = list.filter(p => p.category === currentFilter);
+    }
+    // Фильтр "Избранное"
+    if (currentFilter === 'favorites') {
+      list = list.filter(p => favorites.includes(p.id));
+    }
+
+    // Поиск по тексту
+    if (searchQuery) {
+      list = list.filter(p => 
+        p.name.toLowerCase().includes(searchQuery) || 
+        p.material.toLowerCase().includes(searchQuery)
+      );
+    }
+
+    // Фильтр по цене
+    list = list.filter(p => {
+      const price = parseInt(p.price.replace(/\s|₽/g, ''));
+      return price >= minPrice && price <= maxPrice;
+    });
+
+    renderProductsToGrid(list);
+  }
+
+
   // --- ОТРИСОВКА КАТАЛОГА ---
-  function renderProducts() {
+  function renderProductsToGrid(list) {
     const grid = document.getElementById('grid');
-    const list = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+    
+    if(list.length === 0) {
+      grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--muted); font-style: italic;">По вашему запросу ничего не найдено.</div>';
+      return;
+    }
 
     grid.innerHTML = list.map((p, index) => {
       const hasMultiple = p.images.length > 1;
@@ -1099,10 +1334,15 @@
         <button class="card-nav next" onclick="event.stopPropagation(); nextImg(${index})">›</button>
       ` : '';
 
+      const isFav = favorites.includes(p.id);
+
       return `
       <article class="product reveal active" itemscope itemtype="https://schema.org/Product" onclick="openModal('${p.id}')">
         <div class="product-media" id="media-${index}">
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+          <button class="wishlist-btn ${isFav ? 'active' : ''}" data-id="${p.id}" onclick="toggleWishlist(event, '${p.id}')" title="В избранное">
+            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
           <img src="${p.images[0]}" id="img-${index}" alt="Купить ${p.name} в ТЦ Щелковский — элитная бижутерия Lu Enchantée" loading="lazy" itemprop="image" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop'">
           ${navArrows}
           <div class="product-action">Заказать</div>
@@ -1148,6 +1388,7 @@
     return names[cat] || '';
   }
 
+  // --- МОДАЛЬНОЕ ОКНО ТОВАРА + "С ЭТИМ ПОКУПАЮТ" ---
   function openModal(id) {
     const p = products.find(item => item.id === id);
     if(!p) return;
@@ -1184,7 +1425,35 @@
     const encodedText = encodeURIComponent(text);
     document.getElementById('orderBtn').href = `https://wa.me/${myPhoneNumber}?text=${encodedText}`;
 
+    // Блок "С этим покупают"
+    const relatedBlock = document.getElementById('relatedProductsBlock');
+    const relatedGrid = document.getElementById('relatedGrid');
+    
+    // Ищем 2 товара из той же категории, исключая текущий
+    const related = products.filter(item => item.category === p.category && item.id !== p.id).slice(0, 2);
+    
+    if (related.length > 0) {
+      relatedBlock.style.display = 'block';
+      relatedGrid.innerHTML = related.map(r => `
+        <div class="related-item" onclick="switchProductInModal('${r.id}')">
+          <img src="${r.images[0]}" class="related-img" alt="${r.name}">
+          <div>
+            <div class="related-name">${r.name}</div>
+            <div class="related-price">${r.price}</div>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      relatedBlock.style.display = 'none';
+    }
+
     document.getElementById('productModal').classList.add('active');
+  }
+
+  // Функция для переключения товара прямо в модальном окне (из блока "С этим покупают")
+  function switchProductInModal(id) {
+    document.getElementById('productModal').classList.remove('active');
+    setTimeout(() => openModal(id), 300); // Небольшая пауза для анимации
   }
 
   function changeMainImage(thumb, imgSrc) {
@@ -1202,6 +1471,7 @@
     document.getElementById('blogModal').classList.add('active');
   }
 
+  // --- ОТЗЫВЫ ---
   function loadReviews() {
     let custom = [];
     try { custom = JSON.parse(localStorage.getItem('lu_reviews') || '[]'); } catch(e) {}
@@ -1271,14 +1541,7 @@
     }, 2500);
   });
 
-  document.querySelector('.filters').addEventListener('click', e => {
-    if(!e.target.classList.contains('filter')) return;
-    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    currentFilter = e.target.dataset.filter;
-    renderProducts();
-  });
-
+  // --- ИНИЦИАЛИЗАЦИЯ И ГЛОБАЛЬНЫЕ ОБРАБОТЧИКИ ---
   const fabBtn = document.getElementById('fabBtn');
   const contactMenu = document.getElementById('contactMenu');
 
@@ -1333,9 +1596,12 @@
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   document.getElementById('year').textContent = new Date().getFullYear();
-  renderProducts();
+  
+  // Запуск
+  filterAndRenderProducts();
   renderReviews();
   updateCartUI();
+  updateWishlistUI();
 </script>
 </body>
 </html>
