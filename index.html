@@ -16,7 +16,7 @@
   <!-- ЗНАЧОК НА ВКЛАДКЕ (FAVICON) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
 
-  <!-- МИКРОРАЗМЕТКА ДЛЯ ПОИСКОВИКОВ (LocalBusiness + FAQ) -->
+  <!-- МИКРОРАЗМЕТКА ДЛЯ ПОИСКОВИКОВ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,40 +45,6 @@
       "opens": "10:00",
       "closes": "20:00"
     }
-  }
-  </script>
-  
-  <!-- МИКРОРАЗМЕТКА FAQ (Часто задаваемые вопросы) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Где находится ваш магазин бижутерии?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Наш шоурум находится в Москве, в ТЦ Щелковский по адресу: Щелковское шоссе, 75, 0 этаж. Мы работаем ежедневно с 10:00 до 20:00."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Где купить хорошую бижутерию в Москве или Щелково?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "В магазине Lu Enchantée в ТЦ Щелковский. Мы предлагаем элитную бижутерию ручной работы из натуральных камней, жемчуга и позолоченного серебра. Также возможна доставка по Москве и всей России."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Как посмотреть бижутерию перед покупкой?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Вы можете приехать в наш шоурум в ТЦ Щелковский, чтобы примерить украшения вживую, или посмотреть полный каталог с фотографиями на нашем сайте."
-        }
-      }
-    ]
   }
   </script>
 
@@ -138,6 +104,24 @@
     nav a:hover::after { transform: scaleX(1); }
 
     .header-phone { font-size: 0.85rem; letter-spacing: 0.06em; white-space: nowrap; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+    
+    /* Корзина в шапке */
+    .cart-btn {
+      position: relative;
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Jost', sans-serif; font-size: 0.85rem;
+      margin-left: 20px;
+    }
+    .cart-btn svg { width: 24px; height: 24px; fill: var(--ink); transition: 0.3s; }
+    .cart-btn:hover svg { fill: var(--gold); }
+    .cart-count {
+      background: var(--gold); color: #fff;
+      font-size: 0.65rem; font-weight: 600;
+      width: 18px; height: 18px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
     .burger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
     .burger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
 
@@ -351,20 +335,24 @@
     .discount-block { background: #f7f3eb; border: 1px dashed var(--gold); padding: 15px; border-radius: 6px; margin-bottom: 25px; font-size: 0.85rem; color: var(--ink); text-align: center; }
     .discount-block strong { color: var(--gold-dark); }
 
-    .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; }
-    .btn-order:hover { background: var(--gold-dark); }
-    .modal-close { position: absolute; top: 15px; right: 15px; background: #fff; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
+    /* Кнопки действий в карточке */
+    .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+    .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; width: 100%; border: 1px solid var(--ink); }
+    .btn-order:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+    .btn-add-cart { background: #fff; color: var(--ink); border: 1px solid var(--ink); text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; width: 100%; cursor: pointer; }
+    .btn-add-cart:hover { background: var(--ink); color: #fff; }
 
-    .modal-review .modal-content { display: block; max-width: 560px; padding: 44px; }
-    .modal-review h3 { font-size: 2rem; margin-bottom: 8px; text-align: center; }
-    .modal-review .section-sub { text-align: center; margin-bottom: 28px; }
-
-    .modal-blog .modal-content { grid-template-columns: 1fr; max-width: 700px; }
-    .modal-blog .modal-info { padding: 50px; }
-    .modal-blog h3 { font-size: 2.3rem; margin-bottom: 20px; }
-    .modal-blog .blog-date { margin-bottom: 20px; display: block; }
-    .modal-blog p { margin-bottom: 15px; color: var(--ink); font-size: 1rem; line-height: 1.8; }
-    .modal-blog strong { font-weight: 500; color: var(--gold-dark); }
+    /* Окно корзины */
+    .cart-modal .modal-content { display: block; max-width: 600px; padding: 40px; }
+    .cart-list { list-style: none; margin-bottom: 20px; max-height: 300px; overflow-y: auto; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .cart-item-info { display: flex; flex-direction: column; }
+    .cart-item-name { font-weight: 500; font-size: 1rem; }
+    .cart-item-price { color: var(--muted); font-size: 0.9rem; }
+    .cart-item-remove { background: none; border: none; color: #d9534f; cursor: pointer; font-size: 1.2rem; padding: 5px; transition: 0.3s; }
+    .cart-item-remove:hover { transform: scale(1.2); }
+    .cart-total { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 500; margin-bottom: 20px; padding-top: 15px; border-top: 2px solid var(--ink); }
+    .cart-empty { text-align: center; color: var(--muted); padding: 40px 0; font-style: italic; }
 
     /* --- КНОПКА НАВЕРХ --- */
     .to-top { position: fixed; bottom: 30px; left: 30px; width: 48px; height: 48px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 998; font-size: 1.1rem; color: var(--ink); }
@@ -425,6 +413,13 @@
         </ul>
       </nav>
       <a href="tel:+79048101213" class="header-phone">+7 (904) 810-12-13</a>
+      
+      <!-- КНОПКА КОРЗИНЫ -->
+      <button class="cart-btn" id="cartBtn" aria-label="Корзина">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
     </div>
     <button class="burger" id="burgerBtn" aria-label="Меню">
       <span></span><span></span><span></span>
@@ -732,8 +727,27 @@
       <div class="discount-block" id="discountBlock" style="display:none;"></div>
 
       <p class="modal-desc" id="modalDesc"></p>
-      <a href="#" class="btn-order" id="orderBtn" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+      
+      <!-- КНОПКИ ДЕЙСТВИЙ -->
+      <div class="modal-actions">
+        <button class="btn-add-cart" id="addToCartBtn">В корзину</button>
+        <a href="#" class="btn-order" id="orderBtn" target="_blank" rel="noopener">Купить в 1 клик</a>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО КОРЗИНЫ -->
+<div class="modal cart-modal" id="cartModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('cartModal').classList.remove('active')">✕</button>
+    <h3 style="font-size: 2rem; margin-bottom: 20px;">Ваша корзина</h3>
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-total" id="cartTotal" style="display: none;">
+      <span>Итого:</span>
+      <span id="totalPrice">0 ₽</span>
+    </div>
+    <button class="btn btn-dark" id="checkoutBtn" style="width: 100%; display: none;">Оформить заказ в WhatsApp</button>
   </div>
 </div>
 
@@ -792,7 +806,7 @@
   const myPhoneNumber = "79048101213";
   const myEmail = "info@luenchantee.ru";
 
-  /* ДАННЫЕ КАТАЛОГА (Браслеты возвращены, колье убрано) */
+  /* ДАННЫЕ КАТАЛОГА */
   const products = [
     // --- БРАСЛЕТЫ-ТРАНСФОРМЕРЫ ---
     { 
@@ -933,7 +947,91 @@
   };
 
   let currentFilter = 'all';
+  let currentProduct = null; // Текущий открытый товар
+  let cart = []; // Массив для корзины
 
+  // --- ЛОГИКА КОРЗИНЫ ---
+  function updateCartUI() {
+    const count = cart.length;
+    document.getElementById('cartCount').textContent = count;
+    
+    const list = document.getElementById('cartList');
+    const totalEl = document.getElementById('cartTotal');
+    const totalPriceEl = document.getElementById('totalPrice');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    if (count === 0) {
+      list.innerHTML = '<div class="cart-empty">Ваша корзина пока пуста</div>';
+      totalEl.style.display = 'none';
+      checkoutBtn.style.display = 'none';
+      return;
+    }
+
+    list.innerHTML = cart.map((item, index) => `
+      <li class="cart-item">
+        <div class="cart-item-info">
+          <span class="cart-item-name">${item.name}</span>
+          <span class="cart-item-price">${item.price}</span>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${index})">✕</button>
+      </li>
+    `).join('');
+
+    const total = cart.reduce((sum, item) => sum + parseInt(item.price.replace(/\s|₽/g, '')), 0);
+    
+    totalEl.style.display = 'flex';
+    totalPriceEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
+    checkoutBtn.style.display = 'block';
+  }
+
+  function addToCart() {
+    if (!currentProduct) return;
+    // Проверяем, есть ли уже товар (упрощенно, просто добавляем)
+    cart.push(currentProduct);
+    updateCartUI();
+    
+    // Показываем уведомление
+    const btn = document.getElementById('addToCartBtn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Добавлено ✓';
+    btn.style.background = '#c9a86a';
+    btn.style.color = '#fff';
+    btn.style.borderColor = '#c9a86a';
+    
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '#fff';
+      btn.style.color = 'var(--ink)';
+      btn.style.borderColor = 'var(--ink)';
+    }, 1500);
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  document.getElementById('addToCartBtn').addEventListener('click', addToCart);
+
+  document.getElementById('cartBtn').addEventListener('click', () => {
+    updateCartUI();
+    document.getElementById('cartModal').classList.add('active');
+  });
+
+  document.getElementById('checkoutBtn').addEventListener('click', () => {
+    let text = "Здравствуйте! Хочу оформить заказ:\n";
+    cart.forEach((item, i) => {
+      text += `${i + 1}. ${item.name} — ${item.price}\n`;
+    });
+    const total = cart.reduce((sum, item) => sum + parseInt(item.price.replace(/\s|₽/g, '')), 0);
+    text += `\nИтого: ${total.toLocaleString('ru-RU')} ₽`;
+    
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/${myPhoneNumber}?text=${encodedText}`, '_blank');
+  });
+
+
+  // --- ОТРИСОВКА КАТАЛОГА ---
   function renderProducts() {
     const grid = document.getElementById('grid');
     const list = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
@@ -967,6 +1065,8 @@
   function openModal(id) {
     const p = products.find(item => item.id === id);
     if(!p) return;
+
+    currentProduct = p; // Запоминаем товар для корзины
 
     document.getElementById('modalMainImg').src = p.images[0];
     
@@ -1144,6 +1244,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   renderProducts();
   renderReviews();
+  updateCartUI(); // Инициализация корзины
 </script>
 </body>
 </html>
