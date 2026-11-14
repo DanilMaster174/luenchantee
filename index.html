@@ -74,6 +74,8 @@
       --gold: #c9a86a;
       --gold-dark: #b08d57;
       --line: rgba(26,24,23,0.08);
+      --promo-bg: #1a1817;
+      --promo-text: #f7f3eb;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -97,12 +99,28 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
+    /* --- ПРАЗДНИЧНЫЙ БАННЕР --- */
+    .promo-banner {
+      background: var(--promo-bg);
+      color: var(--promo-text);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative;
+      z-index: 101;
+    }
+    .promo-banner strong { color: var(--gold); }
+
     /* --- HEADER --- */
     header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 100;
       background: rgba(252, 251, 250, 0.92);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
+      transition: top 0.3s;
     }
     .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
     .logo { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -146,7 +164,7 @@
     /* --- HERO --- */
     .hero {
       position: relative; min-height: 85vh; display: flex; align-items: center;
-      padding: 200px 0 100px; text-align: center; overflow: hidden;
+      padding: 240px 0 100px; text-align: center; overflow: hidden;
       background: url('https://images.unsplash.com/photo-1515562141207-74388fbfddf0?q=80&w=1920&auto=format&fit=crop') center/cover fixed;
     }
     .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(252,251,250,0.86) 0%, rgba(252,251,250,0.72) 45%, rgba(252,251,250,0.94) 100%); }
@@ -244,6 +262,15 @@
     .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; font-weight: 300; }
     .product-price { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; }
 
+    /* --- ВЫ НЕДАВНО СМОТРЕЛИ --- */
+    .recently-viewed-section { padding: 60px 0; background: var(--surface); border-top: 1px solid var(--line); }
+    .recently-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .recently-item { cursor: pointer; transition: 0.3s; text-align: center; }
+    .recently-item:hover { opacity: 0.8; }
+    .recently-img { aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
+    .recently-name { font-size: 0.9rem; font-weight: 500; }
+    .recently-price { font-size: 0.8rem; color: var(--gold); }
+
     /* --- FAQ --- */
     .faq-section { padding: 100px 0; background: var(--surface); border-top: 1px solid var(--line); }
     .faq-grid { max-width: 800px; margin: 0 auto; }
@@ -254,6 +281,9 @@
     summary::after { content: "+"; font-size: 1.5rem; color: var(--gold); transition: 0.3s; }
     details[open] summary::after { content: "−"; }
     .faq-answer { padding-top: 15px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+    .faq-answer ul { padding-left: 20px; margin-top: 10px; }
+    .faq-answer li { margin-bottom: 8px; }
+    .faq-answer strong { color: var(--ink); }
 
     /* --- ДОСТАВКА И ОПЛАТА --- */
     .delivery-section { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--line); }
@@ -394,10 +424,23 @@
     .modal-content { background: var(--surface); width: 100%; max-width: 1000px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 6px; overflow: hidden; position: relative; transform: translateY(20px); transition: 0.4s; margin: auto; }
     .modal.active .modal-content { transform: translateY(0); }
     
-    /* Галерея с зумом */
-    .modal-gallery { display: flex; flex-direction: column; background: #f7f3eb; align-items: center; justify-content: center; padding: 20px; overflow: hidden; }
+    /* Галерея с зумом и стрелками */
+    .modal-gallery { display: flex; flex-direction: column; background: #f7f3eb; align-items: center; justify-content: center; padding: 20px; overflow: hidden; position: relative; }
     .modal-main-img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 4px; transition: transform 0.5s ease; cursor: crosshair; }
     .modal-main-img:hover { transform: scale(1.5); }
+    
+    /* Стрелки в модалке */
+    .modal-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--ink); z-index: 5; transition: 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+    .modal-nav:hover { background: var(--gold); color: #fff; }
+    .modal-nav.prev { left: 10px; }
+    .modal-nav.next { right: 10px; }
+
     .modal-thumbnails { display: flex; gap: 10px; padding: 15px 10px 0; overflow-x: auto; width: 100%; justify-content: center; z-index: 2; }
     .modal-thumbnails img { width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 4px; opacity: 0.6; transition: 0.3s; border: 2px solid transparent; }
     .modal-thumbnails img:hover { opacity: 1; }
@@ -455,7 +498,7 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 1024px) {
-      .grid, .blog-grid, .reviews-grid, .delivery-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid, .blog-grid, .reviews-grid, .delivery-grid, .recently-grid { grid-template-columns: repeat(2, 1fr); }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-img { aspect-ratio: 16/9; box-shadow: 14px 14px 0 rgba(201,168,106,0.18); }
@@ -475,17 +518,24 @@
       .header-actions { order: 3; justify-content: flex-end; }
       .mobile-nav { display: none; }
       .mobile-nav.active { display: flex; }
-      .hero { padding: 160px 0 100px; }
-      .grid, .blog-grid, .reviews-grid, .delivery-grid, .features-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero { padding: 180px 0 100px; }
+      .grid, .blog-grid, .reviews-grid, .delivery-grid, .features-grid, .recently-grid { grid-template-columns: 1fr; gap: 30px; }
       .form-grid { grid-template-columns: 1fr; }
       .floating-contact { bottom: 20px; right: 20px; }
       .to-top { bottom: 20px; left: 20px; }
       .contacts-grid { padding-bottom: 60px; }
       .search-filter-box { flex-direction: column; align-items: center; }
+      header { top: 36px; }
+      .promo-banner { font-size: 0.65rem; padding: 8px; }
     }
   </style>
 </head>
 <body>
+
+<!-- ПРАЗДНИЧНЫЙ БАННЕР -->
+<div class="promo-banner">
+  🎁 Праздничная акция: Скидка 10% на первый заказ по промокоду <strong>LU10</strong> в WhatsApp!
+</div>
 
 <header id="header">
   <div class="container header-inner">
@@ -601,6 +651,16 @@
   </div>
 </section>
 
+<!-- ВЫ НЕДАВНО СМОТРЕЛИ -->
+<section class="recently-viewed-section" id="recently-viewed" style="display: none;">
+  <div class="container">
+    <div class="section-header reveal">
+      <h3 class="section-title" style="font-size: 2rem;">Вы недавно смотрели</h3>
+    </div>
+    <div class="recently-grid" id="recentlyGrid"></div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="container">
@@ -611,7 +671,17 @@
     <div class="faq-grid reveal">
       <details>
         <summary>Как отличить натуральный камень от подделки?</summary>
-        <div class="faq-answer">Все наши украшения создаются с использованием природных камней, которые имеют уникальную текстуру, вкрапления и рисунок. Мы не используем пластиковые имитации. Поскольку камни натуральные, каждый экземпляр единственный в своем роде, и рисунок может отличаться от фото на сайте.</div>
+        <div class="faq-answer">
+          Отличить натуральный камень от подделки (стекла или пластика) можно по нескольким признакам:
+          <ul>
+            <li><strong>Температура:</strong> Натуральные камни прохладные на ощупь и долго нагреваются в руке. Стекло или пластик быстро становятся теплыми.</li>
+            <li><strong>Идеальность:</strong> В природе не бывает идеальных камней. Натуральные минералы почти всегда имеют мелкие вкрапления, трещинки, неоднородность цвета. Если камень абсолютно прозрачный и без изъянов, а цена низкая — это стекло.</li>
+            <li><strong>Пузырьки:</strong> В стекле или дешевом пластике часто можно заметить идеально круглые пузырьки воздуха (через лупу). В природных камнях пузырьков нет, там могут быть только кристаллические включения.</li>
+            <li><strong>Вес:</strong> Натуральные камни обычно тяжелее пластика и часто тяжелее стекла.</li>
+            <li><strong>Жемчуг:</strong> Потрите две жемчужины друг о друга. Натуральный жемчуг слегка скрипит (ощущение шероховатости), а пластиковый просто скользит.</li>
+          </ul>
+          Все наши украшения создаются с использованием природных камней, которые имеют уникальную текстуру. Мы не используем пластиковые имитации. Поскольку камни натуральные, каждый экземпляр единственный в своем роде.
+        </div>
       </details>
       <details>
         <summary>Как быстро вы доставляете заказы?</summary>
@@ -895,9 +965,11 @@
   <div class="modal-content">
     <button class="modal-close" onclick="document.getElementById('productModal').classList.remove('active')">✕</button>
     
-    <!-- ГАЛЕРЕЯ ТОВАРА С ЗУМОМ -->
+    <!-- ГАЛЕРЕЯ ТОВАРА С ЗУМОМ И СТРЕЛКАМИ -->
     <div class="modal-gallery">
+      <button class="modal-nav prev" id="modalPrevBtn">‹</button>
       <img class="modal-main-img" id="modalMainImg" src="" alt="Украшение">
+      <button class="modal-nav next" id="modalNextBtn">›</button>
       <div class="modal-thumbnails" id="modalThumbs"></div>
     </div>
 
@@ -1020,9 +1092,25 @@
   const myPhoneNumber = "79048101213";
   const myEmail = "viza-vi@mail.ru";
 
-  /* ДАННЫЕ КАТАЛОГА (ИСПРАВЛЕНЫ ФОТО) */
+  /* ДАННЫЕ КАТАЛОГА (Добавлены Z и AS) */
   const products = [
-    // --- НОВИНКИ ---
+    // --- НОВИНКИ (Z и AS) ---
+    { 
+      id:'z1', category:'necklaces', price:'6 290 ₽', badge:'Новинка', 
+      images: ['images/z1.jpg', 'images/z2.jpg'], 
+      name:'Колье-сотуар "Тёмный графит"', 
+      material:'Многослойное · тёмное серебро · Корея',
+      description:'Длинное многослойное колье-сотуар в цвете тёмный графит длиной 50 см. Производитель Корея. Эффектное многорядное колье-каскад станет выразительным акцентом как в повседневном, так и в вечернем образе. Тонкие нити с мелкой огранкой мягко переливаются при движении, визуально вытягивая силуэт. 20 тонких нитей разной длины образуют плавный, струящийся каскад. Благородный оттенок тёмного серебра с деликатным металлическим блеском.'
+    },
+    { 
+      id:'as1', category:'necklaces', price:'19 900 ₽', badge:'Премиум', 
+      images: ['images/as1.jpg', 'images/as2.jpg', 'images/as3.jpg', 'images/as4.jpg', 'images/as6.jpg'], 
+      name:'Колье из барочного жемчуга "Цветок"', 
+      material:'Черный жемчуг барокко · кристаллы · золотистый замок',
+      description:'Эффектное удлиненное колье из крупного темного жемчуга с глубоким перламутровым отливом. Длина колье 90 см. Каждая жемчужина обладает уникальной, живой барочной формой и переливается благородными оттенками графита, бронзы, баклажана и темно-зеленого («павлиний» блеск). Главный акцент украшения — крупный фигурный замок в золотистом оттенке, выполненный в форме цветка и инкрустированный разноцветными кристаллами и белым паве. Как носить: в один длинный ряд, в два оборота или с акцентом на замок (сбоку или спереди).'
+    },
+
+    // --- НОВИНКИ (из предыдущих) ---
     { 
       id:'q1', category:'necklaces', price:'13 400 ₽', badge:'Натуральный камень', 
       images: ['images/q1.jpg', 'images/q2.jpg', 'images/q3.jpg', 'images/q4.jpg', 'images/q5.jpg', 'images/q6.jpg', 'images/q7.jpg'], 
@@ -1051,8 +1139,6 @@
       material:'Жемчуг Майорка · подвеска "Морская звезда"',
       description:'Многослойное колье-трансформер из жемчуга Майорка цвета "айвори" (слоновая кость) со съемной подвеской «Морская звезда». Благодаря замочку на магнитах легко драпируется в 2, 3 или 4 ряда. Стоимость комплекта: 9 890 ₽.'
     },
-
-    // --- КОЛЬЕ-ЖГУТ С КРИСТАЛЛАМИ (ИСПРАВЛЕНО: K1, K2, K3, K4) ---
     { 
       id:'k1', category:'necklaces', price:'6 490 ₽', badge:'',
       images: ['images/K1.jpg', 'images/K2.jpg', 'images/K3.jpg', 'images/K4.jpg'],
@@ -1060,8 +1146,6 @@
       material:'Серебристый жгут · кристаллы · магнитный замок',
       description:'Эффектное колье серебристого оттенка с акцентной вставкой из сияющих кристаллов и удобным магнитным замком. Гибкий фактурный жгут из множества гладких металлических бусин-шариков. Длина 70 см.'
     },
-
-    // --- БРАСЛЕТЫ-ТРАНСФОРМЕРЫ ---
     { 
       id:'b1', category:'bracelets', price:'5 990 ₽', badge:'Хит', 
       images: ['images/brasslet1.jpg', 'images/brasslet2.jpg'], 
@@ -1106,8 +1190,6 @@
       material:'Натуральные камни · мемори-проволока',
       description:'Многослойный браслет из натуральных камней (кварц, нефрит, хрусталь, опалит и др.). Мемори-проволока.'
     },
-
-    // --- АЖУРНЫЙ НАРУКАВНИК (ИСПРАВЛЕНО: D2, D5) ---
     { 
       id:'d1', category:'accessories', price:'5 000 ₽', badge:'Ручная работа', 
       images: ['images/D2.jpg', 'images/D5.jpg'], 
@@ -1115,8 +1197,6 @@
       material:'Ручное плетение · серебро',
       description:'Плетение из серебристых металлических нитей. Плавный переход от облегающей части к волнистой оборке. Надевается поверх блузы или платья.'
     },
-
-    // --- БУСЫ МАЙОРКА (ИСПРАВЛЕНО: Главная M2) ---
     { 
       id:'m1', category:'necklaces', price:'8 990 ₽', badge:'Новинка', 
       images: ['images/M2.jpg', 'images/M1.jpg', 'images/M3.jpg'], 
@@ -1124,8 +1204,6 @@
       material:'Мелкая майорка · магнитный замок',
       description:'Элегантные бусы из мелкой майорки. Надежный магнитный замок. Идеальный акцент для повседневного и вечернего образа.'
     },
-    
-    // --- НАРУКАВНИКИ (D) из старых ---
     { 
       id:'d2', category:'accessories', price:'5 000 ₽', badge:'', 
       images: ['images/D1.jpg', 'images/D3.jpg', 'images/D4.jpg'], 
@@ -1151,6 +1229,7 @@
   let currentProduct = null;
   let cart = [];
   let favorites = JSON.parse(localStorage.getItem('lu_favorites') || '[]');
+  let recentlyViewed = JSON.parse(localStorage.getItem('lu_recently_viewed') || '[]');
   
   // Переменные для поиска и фильтра цен
   let searchQuery = '';
@@ -1231,6 +1310,9 @@
     const total = cart.reduce((sum, item) => sum + parseInt(item.price.replace(/\s|₽/g, '')), 0);
     text += `\nИтого: ${total.toLocaleString('ru-RU')} ₽`;
     
+    // Добавляем праздничный промокод в сообщение
+    text += `\n\nПрименен промокод: LU10 (скидка 10%)`;
+    
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/${myPhoneNumber}?text=${encodedText}`, '_blank');
   });
@@ -1239,7 +1321,6 @@
   // --- ЛОГИКА ИЗБРАННОГО (WISHLIST) ---
   function updateWishlistUI() {
     document.getElementById('wishlistCount').textContent = favorites.length;
-    // Обновляем сердечки на карточках
     document.querySelectorAll('.wishlist-btn').forEach(btn => {
       const id = btn.dataset.id;
       if(favorites.includes(id)) {
@@ -1251,7 +1332,7 @@
   }
 
   function toggleWishlist(e, id) {
-    e.stopPropagation(); // Чтобы не открывалась карточка товара
+    e.stopPropagation();
     if (favorites.includes(id)) {
       favorites = favorites.filter(f => f !== id);
     } else {
@@ -1259,7 +1340,6 @@
     }
     localStorage.setItem('lu_favorites', JSON.stringify(favorites));
     updateWishlistUI();
-    // Если мы сейчас в фильтре "Избранное", перерисовываем сетку
     if(currentFilter === 'favorites') {
       filterAndRenderProducts();
     }
@@ -1272,6 +1352,39 @@
     });
     filterAndRenderProducts();
     document.getElementById('catalog').scrollIntoView({behavior: 'smooth'});
+  }
+
+  // --- ВЫ НЕДАВНО СМОТРЕЛИ ---
+  function updateRecentlyViewed(id) {
+    if(!recentlyViewed.includes(id)) {
+      recentlyViewed.unshift(id);
+      if(recentlyViewed.length > 4) recentlyViewed.pop(); // Храним только 4 последних
+      localStorage.setItem('lu_recently_viewed', JSON.stringify(recentlyViewed));
+    }
+    renderRecentlyViewed();
+  }
+
+  function renderRecentlyViewed() {
+    const section = document.getElementById('recently-viewed');
+    const grid = document.getElementById('recentlyGrid');
+    
+    if(recentlyViewed.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+    
+    section.style.display = 'block';
+    grid.innerHTML = recentlyViewed.map(id => {
+      const p = products.find(item => item.id === id);
+      if(!p) return '';
+      return `
+        <div class="recently-item" onclick="openModal('${p.id}')">
+          <img src="${p.images[0]}" class="recently-img" alt="${p.name}">
+          <div class="recently-name">${p.name}</div>
+          <div class="recently-price">${p.price}</div>
+        </div>
+      `;
+    }).join('');
   }
 
   // --- ОБРАБОТКА ФИЛЬТРОВ И ПОИСКА ---
@@ -1299,16 +1412,12 @@
   function filterAndRenderProducts() {
     let list = products;
 
-    // Фильтр по категории
     if (currentFilter !== 'all' && currentFilter !== 'favorites') {
       list = list.filter(p => p.category === currentFilter);
     }
-    // Фильтр "Избранное"
     if (currentFilter === 'favorites') {
       list = list.filter(p => favorites.includes(p.id));
     }
-
-    // Поиск по тексту
     if (searchQuery) {
       list = list.filter(p => 
         p.name.toLowerCase().includes(searchQuery) || 
@@ -1316,7 +1425,6 @@
       );
     }
 
-    // Фильтр по цене
     list = list.filter(p => {
       const price = parseInt(p.price.replace(/\s|₽/g, ''));
       return price >= minPrice && price <= maxPrice;
@@ -1324,7 +1432,6 @@
 
     renderProductsToGrid(list);
   }
-
 
   // --- ОТРИСОВКА КАТАЛОГА ---
   function renderProductsToGrid(list) {
@@ -1396,12 +1503,36 @@
     return names[cat] || '';
   }
 
-  // --- МОДАЛЬНОЕ ОКНО ТОВАРА + "С ЭТИМ ПОКУПАЮТ" ---
+  // --- МОДАЛЬНОЕ ОКНО ТОВАРА + СТРЕЛКИ ГАЛЕРЕИ ---
+  let modalImageIndex = 0;
+  let modalImagesArray = [];
+
+  function updateModalImage() {
+    document.getElementById('modalMainImg').src = modalImagesArray[modalImageIndex];
+    document.querySelectorAll('.modal-thumbnails img').forEach((t, i) => {
+      t.classList.toggle('active', i === modalImageIndex);
+    });
+  }
+
+  document.getElementById('modalPrevBtn').addEventListener('click', () => {
+    modalImageIndex = (modalImageIndex - 1 + modalImagesArray.length) % modalImagesArray.length;
+    updateModalImage();
+  });
+
+  document.getElementById('modalNextBtn').addEventListener('click', () => {
+    modalImageIndex = (modalImageIndex + 1) % modalImagesArray.length;
+    updateModalImage();
+  });
+
   function openModal(id) {
     const p = products.find(item => item.id === id);
     if(!p) return;
 
     currentProduct = p;
+    updateRecentlyViewed(id); // Запоминаем просмотренный товар
+
+    modalImagesArray = p.images;
+    modalImageIndex = 0;
 
     document.getElementById('modalMainImg').src = p.images[0];
     
@@ -1409,10 +1540,14 @@
     if(p.images.length > 1) {
       thumbsContainer.style.display = 'flex';
       thumbsContainer.innerHTML = p.images.map((img, index) => `
-        <img src="${img}" onclick="changeMainImage(this, '${img}')" class="${index === 0 ? 'active' : ''}" alt="Ракурс ${index + 1}">
+        <img src="${img}" onclick="changeMainImage(${index})" class="${index === 0 ? 'active' : ''}" alt="Ракурс ${index + 1}">
       `).join('');
+      document.getElementById('modalPrevBtn').style.display = 'flex';
+      document.getElementById('modalNextBtn').style.display = 'flex';
     } else {
       thumbsContainer.style.display = 'none';
+      document.getElementById('modalPrevBtn').style.display = 'none';
+      document.getElementById('modalNextBtn').style.display = 'none';
     }
 
     document.getElementById('modalCat').textContent = getCatName(p.category);
@@ -1429,7 +1564,7 @@
       discountBlock.style.display = 'none';
     }
 
-    const text = `Здравствуйте! Хочу заказать украшение: ${p.name} (${p.price}).`;
+    const text = `Здравствуйте! Хочу заказать украшение: ${p.name} (${p.price}). Промокод LU10.`;
     const encodedText = encodeURIComponent(text);
     document.getElementById('orderBtn').href = `https://wa.me/${myPhoneNumber}?text=${encodedText}`;
 
@@ -1458,16 +1593,14 @@
     document.getElementById('productModal').classList.add('active');
   }
 
-  // Функция для переключения товара прямо в модальном окне (из блока "С этим покупают")
-  function switchProductInModal(id) {
-    document.getElementById('productModal').classList.remove('active');
-    setTimeout(() => openModal(id), 300); // Небольшая пауза для анимации
+  function changeMainImage(index) {
+    modalImageIndex = index;
+    updateModalImage();
   }
 
-  function changeMainImage(thumb, imgSrc) {
-    document.getElementById('modalMainImg').src = imgSrc;
-    document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('active'));
-    thumb.classList.add('active');
+  function switchProductInModal(id) {
+    document.getElementById('productModal').classList.remove('active');
+    setTimeout(() => openModal(id), 300);
   }
 
   function openBlog(id) {
@@ -1587,8 +1720,15 @@
   const header = document.getElementById('header');
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 10);
+    header.classList.toggle('scrolled', window.scrollY > 50);
     toTop.classList.toggle('visible', window.scrollY > 600);
+    
+    // Сдвиг шапки, когда баннер скрывается
+    if(window.scrollY > 40) {
+      header.style.top = '0';
+    } else {
+      header.style.top = '40px';
+    }
   });
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
@@ -1610,6 +1750,7 @@
   renderReviews();
   updateCartUI();
   updateWishlistUI();
+  renderRecentlyViewed(); // Запуск блока "Вы недавно смотрели"
 </script>
 </body>
 </html>
