@@ -9,8 +9,15 @@
   <!-- SEO: Канонический URL (меняется через JS) -->
   <link rel="canonical" href="https://luenchantee.ru/" id="canonicalLink" />
   
-  <!-- SEO: Микроразметка Schema.org (заполняется через JS) -->
+  <!-- SEO: Микроразметка Schema.org -->
   <script type="application/ld+json" id="productSchema"></script>
+
+  <!-- УЛУЧШЕНИЕ: Open Graph (для красивого отображения в WhatsApp, TG, VK) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lu Enchantée — Дизайнерские украшения" id="ogTitle">
+  <meta property="og:description" content="Эксклюзивные колье, цепи, нарукавники и браслеты известных дизайнеров." id="ogDesc">
+  <meta property="og:image" content="https://luenchantee.ru/images/z1.webp" id="ogImage">
+  <meta property="og:url" content="https://luenchantee.ru/" id="ogUrl">
 
   <meta name="description" content="Ищете, где купить хорошую бижутерию в Москве? Шоурум Lu Enchantée в ТРЦ Щелковский (0 этаж). Эксклюзивные колье, цепи, нарукавники и браслеты известных дизайнеров.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
@@ -119,8 +126,10 @@
     .product-cat { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
     .product-name { font-size: 1.5rem; margin-bottom: 6px; line-height: 1.3; }
     .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 6px; font-weight: 300; }
-    /* Стиль для краткого описания в карточке */
-    .product-desc-short { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+    
+    /* УЛУЧШЕНИЕ: Красивое отображение краткого описания в карточке */
+    .product-desc-short { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; padding: 0 10px; }
+    
     .product-price { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; }
 
     .load-more-container { text-align: center; margin-top: 50px; }
@@ -255,8 +264,6 @@
     
     .modal { position: fixed; inset: 0; background: rgba(26,24,23,0.65); backdrop-filter: blur(4px); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; padding: 20px; overflow-y: auto; }
     .modal.active { opacity: 1; pointer-events: auto; }
-    
-    /* Стили для кнопки закрытия модалки */
     .modal-close { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.9); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); color: var(--ink); }
     .modal-close:hover { background: var(--gold); color: #fff; }
 
@@ -278,7 +285,10 @@
     .modal-info h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
     .modal-info .product-material { font-size: 1rem; margin-bottom: 20px; color: var(--muted); }
     .modal-info .product-price { font-size: 1.8rem; margin-bottom: 15px; font-weight: 500; }
+    
+    /* УЛУЧШЕНИЕ: Полное описание в модалке */
     .modal-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7; white-space: pre-line; }
+    
     .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; margin-bottom: 20px; }
     .btn-order { background: var(--ink); color: #fff; text-align: center; padding: 16px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; display: block; font-weight: 500; width: 100%; border: 1px solid var(--ink); }
     .btn-order:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
@@ -363,10 +373,7 @@
 </head>
 <body>
 
-<!-- ПОЛОСА ПРОКРУТКИ -->
 <div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- КОНТЕЙНЕР ДЛЯ УВЕДОМЛЕНИЙ (TOASTS) -->
 <div class="toast-container" id="toastContainer"></div>
 
 <div class="promo-banner">
@@ -406,16 +413,16 @@
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav">
-    <a href="#catalog">Каталог</a>
-    <a href="#delivery">Доставка</a>
-    <a href="#blog">Журнал</a>
-    <a href="#faq">Вопросы</a>
-    <a href="#reviews">Отзывы</a>
-    <a href="#contacts">Контакты</a>
+    <!-- УЛУЧШЕНИЕ: Добавлен onclick для закрытия меню -->
+    <a href="#catalog" onclick="document.getElementById('mobileNav').classList.remove('active')">Каталог</a>
+    <a href="#delivery" onclick="document.getElementById('mobileNav').classList.remove('active')">Доставка</a>
+    <a href="#blog" onclick="document.getElementById('mobileNav').classList.remove('active')">Журнал</a>
+    <a href="#faq" onclick="document.getElementById('mobileNav').classList.remove('active')">Вопросы</a>
+    <a href="#reviews" onclick="document.getElementById('mobileNav').classList.remove('active')">Отзывы</a>
+    <a href="#contacts" onclick="document.getElementById('mobileNav').classList.remove('active')">Контакты</a>
   </nav>
 </header>
 
-<!-- УБРАН АДРЕС СВЕРХУ, ИЗМЕНЕН ТЕКСТ -->
 <section class="hero" id="top">
   <div class="container">
     <h1 class="reveal active">Lu <em>Enchantée</em></h1>
@@ -427,7 +434,6 @@
   </div>
 </section>
 
-<!-- ИЗМЕНЕН БЛОК ПРЕИМУЩЕСТВ -->
 <section class="features-section">
   <div class="container features-grid reveal">
     <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><h3>Известные дизайнеры</h3><p>Эксклюзивные колье, цепи, нарукавники и браслеты.</p></div>
@@ -530,7 +536,6 @@
   <div class="container">
     <div class="section-header reveal"><h2 class="section-title">Журнал</h2></div>
     <div class="blog-grid reveal">
-      <!-- Заменено название статьи -->
       <article class="blog-card" onclick="openBlog('care')"><div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=600&auto=format&fit=crop');"></div><div class="blog-content"><div class="blog-date">Уход</div><h3 class="blog-title">Уход за украшениями</h3><div class="blog-more">Читать</div></div></article>
       <article class="blog-card" onclick="openBlog('pearl')"><div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1599643478514-4a4204c5e828?q=80&w=600&auto=format&fit=crop');"></div><div class="blog-content"><div class="blog-date">Уход</div><h3 class="blog-title">Уход за жемчугом</h3><div class="blog-more">Читать</div></div></article>
       <article class="blog-card" onclick="openBlog('stones')"><div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b254be?q=80&w=600&auto=format&fit=crop');"></div><div class="blog-content"><div class="blog-date">Уход</div><h3 class="blog-title">Чистка камней</h3><div class="blog-more">Читать</div></div></article>
@@ -707,7 +712,10 @@
   const myPhoneNumber = "79048101213";
   let currentFilter = 'all';
   let currentProduct = null;
-  let cart = [];
+  
+  // УЛУЧШЕНИЕ: Корзина теперь сохраняется в памяти браузера
+  let cart = JSON.parse(localStorage.getItem('lu_cart') || '[]');
+  
   let favorites = JSON.parse(localStorage.getItem('lu_favorites') || '[]');
   let recentlyViewed = JSON.parse(localStorage.getItem('lu_recently_viewed') || '[]');
   
@@ -737,6 +745,9 @@
   }
 
   function updateCartUI() {
+    // Сохраняем корзину при каждом обновлении
+    localStorage.setItem('lu_cart', JSON.stringify(cart));
+    
     document.getElementById('cartCount').textContent = cart.length;
     const list = document.getElementById('cartList');
     const totalEl = document.getElementById('cartTotal');
@@ -890,7 +901,6 @@
         <div class="product-media" id="media-${index}">
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
           <button class="wishlist-btn ${isFav ? 'active' : ''}" data-id="${p.id}" onclick="toggleWishlist(event, '${p.id}')"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-          <!-- ДОБАВЛЕНЫ title И alt С ОПИСАНИЕМ -->
           <img src="${p.images[0]}" id="img-${index}" alt="${p.name} - ${p.description}" title="${p.description}" loading="lazy">
           ${navArrows}
           <div class="product-action">Заказать</div>
@@ -899,7 +909,6 @@
           <div class="product-cat">${getCatName(p.category)}</div>
           <h3 class="product-name">${p.name}</h3>
           <p class="product-material">${p.material}</p>
-          <!-- ДОБАВЛЕНО КРАТКОЕ ОПИСАНИЕ ПОД ФОТО -->
           <p class="product-desc-short">${p.description}</p>
           <div class="product-price">${p.price}</div>
         </div>
@@ -929,6 +938,13 @@
     if (product) {
       canonicalLink.href = `${baseUrl}/?product=${product.id}`;
       const numericPrice = parseInt(product.price.replace(/\s|₽/g, ''));
+      
+      // УЛУЧШЕНИЕ: Обновляем Open Graph теги для соцсетей
+      document.getElementById('ogTitle').content = `${product.name} | Lu Enchantée`;
+      document.getElementById('ogDesc').content = product.description;
+      document.getElementById('ogImage').content = `${baseUrl}/${product.images[0]}`;
+      document.getElementById('ogUrl').content = `${baseUrl}/?product=${product.id}`;
+
       const schemaData = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -947,13 +963,25 @@
       schemaScript.textContent = JSON.stringify(schemaData);
     } else {
       canonicalLink.href = `${baseUrl}/`;
+      document.getElementById('ogTitle').content = 'Lu Enchantée — Дизайнерские украшения';
+      document.getElementById('ogDesc').content = 'Эксклюзивные колье, цепи, нарукавники и браслеты известных дизайнеров.';
+      document.getElementById('ogImage').content = `${baseUrl}/images/z1.webp`;
+      document.getElementById('ogUrl').content = `${baseUrl}/`;
       schemaScript.textContent = "";
     }
   }
 
   let modalImageIndex = 0; let modalImagesArray = [];
   function updateModalImage() {
-    document.getElementById('modalMainImg').src = modalImagesArray[modalImageIndex];
+    const mainImg = document.getElementById('modalMainImg');
+    mainImg.src = modalImagesArray[modalImageIndex];
+    
+    // УЛУЧШЕНИЕ: Обновляем alt/title при листании
+    if (currentProduct) {
+        mainImg.alt = `${currentProduct.name} - фото ${modalImageIndex + 1}`;
+        mainImg.title = currentProduct.description;
+    }
+    
     document.querySelectorAll('.modal-thumbnails img').forEach((t, i) => t.classList.toggle('active', i === modalImageIndex));
   }
   document.getElementById('modalPrevBtn').addEventListener('click', () => { modalImageIndex = (modalImageIndex - 1 + modalImagesArray.length) % modalImagesArray.length; updateModalImage(); });
@@ -966,15 +994,12 @@
     updateRecentlyViewed(id);
     
     modalImagesArray = p.images; modalImageIndex = 0;
-    document.getElementById('modalMainImg').src = p.images[0];
-    // Добавляем описание в title и alt для главного фото модалки
-    document.getElementById('modalMainImg').alt = `${p.name} - ${p.description}`;
-    document.getElementById('modalMainImg').title = p.description;
+    updateModalImage();
     
     const thumbs = document.getElementById('modalThumbs');
     if(p.images.length > 1) {
       thumbs.style.display = 'flex';
-      thumbs.innerHTML = p.images.map((img, idx) => `<img src="${img}" onclick="changeMainImage(${idx})" class="${idx === 0 ? 'active' : ''}" alt="${p.name} ${idx+1}">`).join('');
+      thumbs.innerHTML = p.images.map((img, idx) => `<img src="${img}" onclick="changeMainImage(${idx})" class="${idx === 0 ? 'active' : ''}" alt="${p.name} - превью ${idx+1}">`).join('');
       document.getElementById('modalPrevBtn').style.display = 'flex';
       document.getElementById('modalNextBtn').style.display = 'flex';
     } else {
@@ -1098,7 +1123,7 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
   filterAndRenderProducts();
-  updateCartUI();
+  updateCartUI(); // Загружает корзину при старте
   updateWishlistUI();
   renderReviews();
   renderRecentlyViewed();
