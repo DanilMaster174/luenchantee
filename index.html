@@ -4,22 +4,46 @@
   <meta name="yandex-verification" content="5853390e952a38b2" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Бижутерия в ТРЦ Щелковский — купить дизайнерские украшения в Москве | Lu Enchantée</title>
   
-  <!-- SEO: Канонический URL (меняется через JS) -->
+  <!-- SEO: Заголовок вкладки нацелен на поиск подарков -->
+  <title>Подарок на Новый год, девушке, маме — Купить бижутерию | Lu Enchantée</title>
+  
+  <!-- SEO: Канонический URL -->
   <link rel="canonical" href="https://luenchantee.ru/" id="canonicalLink" />
   
-  <!-- SEO: Микроразметка Schema.org -->
+  <!-- SEO: Микроразметка Schema.org для товара -->
   <script type="application/ld+json" id="productSchema"></script>
 
-  <!-- УЛУЧШЕНИЕ: Open Graph (для красивого отображения в WhatsApp, TG, VK) -->
+  <!-- SEO: Микроразметка магазина для локального поиска -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Lu Enchantée",
+    "image": "https://luenchantee.ru/images/z1.webp",
+    "description": "Магазин дизайнерской бижутерии. Идеальный подарок на Новый год, 8 Марта и день рождения для девушки, мамы, бабушки, подруги.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Щелковское шоссе, 75, ТРЦ Щелковский, 0 этаж",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
+    "telephone": "+79048101213",
+    "url": "https://luenchantee.ru"
+  }
+  </script>
+
+  <!-- SEO: Open Graph для соцсетей -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lu Enchantée — Дизайнерские украшения" id="ogTitle">
-  <meta property="og:description" content="Эксклюзивные колье, цепи, нарукавники и браслеты известных дизайнеров." id="ogDesc">
+  <meta property="og:title" content="Подарок на Новый год, девушке, маме — Дизайнерская бижутерия | Lu Enchantée" id="ogTitle">
+  <meta property="og:description" content="Ищете подарок? Эксклюзивные украшения из натуральных камней с подарочной упаковкой." id="ogDesc">
   <meta property="og:image" content="https://luenchantee.ru/images/z1.webp" id="ogImage">
   <meta property="og:url" content="https://luenchantee.ru/" id="ogUrl">
 
-  <meta name="description" content="Ищете, где купить хорошую бижутерию в Москве? Шоурум Lu Enchantée в ТРЦ Щелковский (0 этаж). Эксклюзивные колье, цепи, нарукавники и браслеты известных дизайнеров.">
+  <!-- SEO: Текст для поисковой выдачи (не виден на сайте, но виден в поиске) -->
+  <meta name="description" content="Ищете, где купить хорошую бижутерию в Москве? Шоурум Lu Enchantée в ТРЦ Щелковский. Эксклюзивные украшения. Идеальный подарок на Новый год, 8 Марта, день рождения для девушки, мамы, бабушки или подруги.">
+  <meta name="keywords" content="подарок на новый год, подарок девушке, подарок маме, подарки на новый год девушкам, подарок бабушке, подарок подруге, купить бижутерию, дизайнерские украшения, бижутерия москва">
+  
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23c9a86a%22>L</text></svg>">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +51,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
+    /* Весь CSS остается БЕЗ ИЗМЕНЕНИЙ, чтобы дизайн был прежним */
     :root { --bg: #fcfbfa; --surface: #ffffff; --ink: #1a1817; --muted: #7e766c; --gold: #c9a86a; --gold-dark: #b08d57; --line: rgba(26,24,23,0.08); --promo-bg: #1a1817; --promo-text: #f7f3eb; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -126,10 +151,7 @@
     .product-cat { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
     .product-name { font-size: 1.5rem; margin-bottom: 6px; line-height: 1.3; }
     .product-material { font-size: 0.9rem; color: var(--muted); margin-bottom: 6px; font-weight: 300; }
-    
-    /* УЛУЧШЕНИЕ: Красивое отображение краткого описания в карточке */
     .product-desc-short { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; padding: 0 10px; }
-    
     .product-price { font-size: 1.1rem; letter-spacing: 0.05em; font-weight: 500; }
 
     .load-more-container { text-align: center; margin-top: 50px; }
@@ -285,8 +307,6 @@
     .modal-info h3 { font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
     .modal-info .product-material { font-size: 1rem; margin-bottom: 20px; color: var(--muted); }
     .modal-info .product-price { font-size: 1.8rem; margin-bottom: 15px; font-weight: 500; }
-    
-    /* УЛУЧШЕНИЕ: Полное описание в модалке */
     .modal-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.7; white-space: pre-line; }
     
     .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; margin-bottom: 20px; }
@@ -413,7 +433,6 @@
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav">
-    <!-- УЛУЧШЕНИЕ: Добавлен onclick для закрытия меню -->
     <a href="#catalog" onclick="document.getElementById('mobileNav').classList.remove('active')">Каталог</a>
     <a href="#delivery" onclick="document.getElementById('mobileNav').classList.remove('active')">Доставка</a>
     <a href="#blog" onclick="document.getElementById('mobileNav').classList.remove('active')">Журнал</a>
@@ -423,6 +442,7 @@
   </nav>
 </header>
 
+<!-- ВИДИМЫЙ ТЕКСТ ПОЛНОСТЬЮ ВОССТАНОВЛЕН КАК БЫЛО -->
 <section class="hero" id="top">
   <div class="container">
     <h1 class="reveal active">Lu <em>Enchantée</em></h1>
@@ -713,7 +733,6 @@
   let currentFilter = 'all';
   let currentProduct = null;
   
-  // УЛУЧШЕНИЕ: Корзина теперь сохраняется в памяти браузера
   let cart = JSON.parse(localStorage.getItem('lu_cart') || '[]');
   
   let favorites = JSON.parse(localStorage.getItem('lu_favorites') || '[]');
@@ -745,7 +764,6 @@
   }
 
   function updateCartUI() {
-    // Сохраняем корзину при каждом обновлении
     localStorage.setItem('lu_cart', JSON.stringify(cart));
     
     document.getElementById('cartCount').textContent = cart.length;
@@ -853,7 +871,7 @@
       if(!p) return '';
       return `
         <div class="recently-item" onclick="openModal('${p.id}')">
-          <img src="${p.images[0]}" class="recently-img" alt="${p.name} - ${p.description}" title="${p.description}">
+          <img src="${p.images[0]}" class="recently-img" alt="Подарок девушке, маме на Новый год - ${p.name}" title="${p.description}">
           <div class="recently-name">${p.name}</div>
           <div class="recently-price">${p.price}</div>
         </div>`;
@@ -901,7 +919,10 @@
         <div class="product-media" id="media-${index}">
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
           <button class="wishlist-btn ${isFav ? 'active' : ''}" data-id="${p.id}" onclick="toggleWishlist(event, '${p.id}')"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-          <img src="${p.images[0]}" id="img-${index}" alt="${p.name} - ${p.description}" title="${p.description}" loading="lazy">
+          
+          <!-- SEO: В Alt добавлены слова "Подарок..." для поиска по картинкам -->
+          <img src="${p.images[0]}" id="img-${index}" alt="Подарок на Новый год, девушке, маме - ${p.name}" title="${p.description}" loading="lazy">
+          
           ${navArrows}
           <div class="product-action">Заказать</div>
         </div>
@@ -939,8 +960,7 @@
       canonicalLink.href = `${baseUrl}/?product=${product.id}`;
       const numericPrice = parseInt(product.price.replace(/\s|₽/g, ''));
       
-      // УЛУЧШЕНИЕ: Обновляем Open Graph теги для соцсетей
-      document.getElementById('ogTitle').content = `${product.name} | Lu Enchantée`;
+      document.getElementById('ogTitle').content = `${product.name} — Подарок | Lu Enchantée`;
       document.getElementById('ogDesc').content = product.description;
       document.getElementById('ogImage').content = `${baseUrl}/${product.images[0]}`;
       document.getElementById('ogUrl').content = `${baseUrl}/?product=${product.id}`;
@@ -963,8 +983,8 @@
       schemaScript.textContent = JSON.stringify(schemaData);
     } else {
       canonicalLink.href = `${baseUrl}/`;
-      document.getElementById('ogTitle').content = 'Lu Enchantée — Дизайнерские украшения';
-      document.getElementById('ogDesc').content = 'Эксклюзивные колье, цепи, нарукавники и браслеты известных дизайнеров.';
+      document.getElementById('ogTitle').content = 'Подарок на Новый год, девушке, маме — Дизайнерская бижутерия | Lu Enchantée';
+      document.getElementById('ogDesc').content = 'Ищете подарок? Эксклюзивные украшения из натуральных камней с подарочной упаковкой.';
       document.getElementById('ogImage').content = `${baseUrl}/images/z1.webp`;
       document.getElementById('ogUrl').content = `${baseUrl}/`;
       schemaScript.textContent = "";
@@ -976,9 +996,9 @@
     const mainImg = document.getElementById('modalMainImg');
     mainImg.src = modalImagesArray[modalImageIndex];
     
-    // УЛУЧШЕНИЕ: Обновляем alt/title при листании
     if (currentProduct) {
-        mainImg.alt = `${currentProduct.name} - фото ${modalImageIndex + 1}`;
+        // SEO: в alt тоже добавляем ключи
+        mainImg.alt = `Подарок - ${currentProduct.name} (фото ${modalImageIndex + 1})`;
         mainImg.title = currentProduct.description;
     }
     
@@ -1123,7 +1143,7 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
   filterAndRenderProducts();
-  updateCartUI(); // Загружает корзину при старте
+  updateCartUI();
   updateWishlistUI();
   renderReviews();
   renderRecentlyViewed();
