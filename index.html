@@ -127,17 +127,22 @@
   }
   </script>
 
-  <!-- Placeholder для Яндекс.Метрики: замените XXXXXXXX на свой номер счётчика и раскомментируйте -->
-  <!--
+  <!-- Яндекс.Метрика -->
   <script>
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
     for (var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-    ym(XXXXXXXX, "init", {clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+    ym(114023069, "init", {
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true,
+      ecommerce:"dataLayer"
+    });
   </script>
-  -->
+  <noscript><div><img src="https://mc.yandex.ru/watch/114023069" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
   <!-- Open Graph (для соцсетей) -->
   <meta property="og:type" content="website">
@@ -955,6 +960,7 @@
     updateCartUI();
     showToast('Товар добавлен в корзину!');
     bumpCart();
+    if (typeof ym === 'function') ym(114023069, 'reachGoal', 'add_to_cart');
   }
 
   function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
@@ -967,6 +973,7 @@
     cart.forEach((item, i) => { text += `${i + 1}. ${item.name} — ${item.price}\n`; });
     const total = cart.reduce((sum, item) => sum + parseInt(item.price.replace(/\s|₽/g, '')), 0);
     text += `\nИтого: ${total.toLocaleString('ru-RU')} ₽\n\nПромокод: LU10`;
+    if (typeof ym === 'function') ym(114023069, 'reachGoal', 'checkout_whatsapp');
     window.open(`https://wa.me/${myPhoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   });
 
@@ -983,6 +990,7 @@
     } else {
       favorites.push(id);
       showToast('Добавлено в избранное!');
+      if (typeof ym === 'function') ym(114023069, 'reachGoal', 'add_wishlist');
     }
     localStorage.setItem('lu_favorites', JSON.stringify(favorites));
     updateWishlistUI();
@@ -1204,6 +1212,7 @@
     document.getElementById('productModal').classList.add('active');
     updateSEOTags(p);
     if (updateUrl) { history.pushState(null, null, `?product=${p.id}`); }
+    if (typeof ym === 'function') ym(114023069, 'reachGoal', 'open_product');
   }
 
   function switchProductInModal(id) {
