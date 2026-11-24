@@ -1,333 +1,249 @@
-<?xml version="1.0" encoding="UTF-8"?>
+   <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- ГЛАВНАЯ СТРАНИЦА -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ГЛАВНАЯ -->
   <url>
     <loc>https://luenchantee.ru/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- ТОВАР 1: Колье-сотуар "Тёмный графит" -->
+  <!-- ТОВАР: Колье-сотуар "Тёмный графит" -->
   <url>
     <loc>https://luenchantee.ru/?product=z1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/z1.webp</image:loc>
-      <image:title>Колье-сотуар Тёмный графит</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/z2.webp</image:loc>
-      <image:title>Колье-сотуар Тёмный графит</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/z1.webp</image:loc><image:title>Колье-сотуар Тёмный графит</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/z2.webp</image:loc><image:title>Колье-сотуар Тёмный графит</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 2: Колье из барочного жемчуга "Цветок" -->
+  <!-- ТОВАР: Колье из барочного жемчуга "Цветок" -->
   <url>
     <loc>https://luenchantee.ru/?product=as1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/as1.webp</image:loc>
-      <image:title>Колье из барочного жемчуга Цветок</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/as2.webp</image:loc>
-      <image:title>Колье из барочного жемчуга Цветок</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/as3.webp</image:loc>
-      <image:title>Колье из барочного жемчуга Цветок</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/as4.webp</image:loc>
-      <image:title>Колье из барочного жемчуга Цветок</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/as6.webp</image:loc>
-      <image:title>Колье из барочного жемчуга Цветок</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/as1.webp</image:loc><image:title>Колье-трансформер из барочного жемчуга Цветок</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/as2.webp</image:loc><image:title>Колье-трансформер из барочного жемчуга Цветок</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/as3.webp</image:loc><image:title>Колье-трансформер из барочного жемчуга Цветок</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/as4.webp</image:loc><image:title>Колье-трансформер из барочного жемчуга Цветок</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/as6.webp</image:loc><image:title>Колье-трансформер из барочного жемчуга Цветок</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 3: Комплект с аммонитом -->
+  <!-- ТОВАР: Комплект с аммонитом -->
   <url>
     <loc>https://luenchantee.ru/?product=q1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/q1.jpg</image:loc>
-      <image:title>Комплект с аммонитом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/q2.jpg</image:loc>
-      <image:title>Комплект с аммонитом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/q3.jpg</image:loc>
-      <image:title>Комплект с аммонитом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/q4.jpg</image:loc>
-      <image:title>Комплект с аммонитом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/q5.jpg</image:loc>
-      <image:title>Комплект с аммонитом</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q1.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q2.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q3.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q4.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q5.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q6.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/q7.jpg</image:loc><image:title>Комплект с аммонитом</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 4: Кольцо с необработанным корундом -->
+  <!-- ТОВАР: Кольцо с необработанным корундом -->
   <url>
     <loc>https://luenchantee.ru/?product=w1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/w1.jpg</image:loc>
-      <image:title>Кольцо с необработанным корундом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/w2.jpg</image:loc>
-      <image:title>Кольцо с необработанным корундом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/w3.jpg</image:loc>
-      <image:title>Кольцо с необработанным корундом</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/w4.jpg</image:loc>
-      <image:title>Кольцо с необработанным корундом</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/w1.jpg</image:loc><image:title>Кольцо с необработанным корундом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/w2.jpg</image:loc><image:title>Кольцо с необработанным корундом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/w3.jpg</image:loc><image:title>Кольцо с необработанным корундом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/w4.jpg</image:loc><image:title>Кольцо с необработанным корундом</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 5: Кольцо "Улыбающийся малахит" -->
+  <!-- ТОВАР: Кольцо "Улыбающийся малахит" -->
   <url>
     <loc>https://luenchantee.ru/?product=e1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/e1.jpg</image:loc>
-      <image:title>Кольцо Улыбающийся малахит</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/e2.jpg</image:loc>
-      <image:title>Кольцо Улыбающийся малахит</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/e3.jpg</image:loc>
-      <image:title>Кольцо Улыбающийся малахит</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/e4.jpg</image:loc>
-      <image:title>Кольцо Улыбающийся малахит</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/e5.jpg</image:loc>
-      <image:title>Кольцо Улыбающийся малахит</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/e1.jpg</image:loc><image:title>Кольцо Улыбающийся малахит</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/e2.jpg</image:loc><image:title>Кольцо Улыбающийся малахит</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/e3.jpg</image:loc><image:title>Кольцо Улыбающийся малахит</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/e4.jpg</image:loc><image:title>Кольцо Улыбающийся малахит</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/e5.jpg</image:loc><image:title>Кольцо Улыбающийся малахит</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 6: Колье-трансформер с жемчугом Майорка -->
+  <!-- ТОВАР: Колье-трансформер с жемчугом Майорка -->
   <url>
     <loc>https://luenchantee.ru/?product=r1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/r1.jpg</image:loc>
-      <image:title>Колье-трансформер с жемчугом Майорка</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/r1.jpg</image:loc><image:title>Колье-трансформер с жемчугом Майорка</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 7: Колье-жгут с кристаллами -->
+  <!-- ТОВАР: Колье-жгут с кристаллами -->
   <url>
     <loc>https://luenchantee.ru/?product=k1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/K1.jpg</image:loc>
-      <image:title>Колье-жгут с кристаллами</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/K2.jpg</image:loc>
-      <image:title>Колье-жгут с кристаллами</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/K3.jpg</image:loc>
-      <image:title>Колье-жгут с кристаллами</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/K4.jpg</image:loc>
-      <image:title>Колье-жгут с кристаллами</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/K1.jpg</image:loc><image:title>Колье-жгут с кристаллами</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/K2.jpg</image:loc><image:title>Колье-жгут с кристаллами</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/K3.jpg</image:loc><image:title>Колье-жгут с кристаллами</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/K4.jpg</image:loc><image:title>Колье-жгут с кристаллами</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 8: Браслет-трансформер (2 варианта) -->
+  <!-- ТОВАР: Браслет-трансформер (2 варианта) -->
   <url>
     <loc>https://luenchantee.ru/?product=b1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/brasslet1.jpg</image:loc>
-      <image:title>Браслет-трансформер Изумрудный сад</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/brasslet2.jpg</image:loc>
-      <image:title>Браслет-трансформер Морской бриз</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/brasslet1.jpg</image:loc><image:title>Браслет-трансформер Изумрудный сад</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/brasslet2.jpg</image:loc><image:title>Браслет-трансформер Морской бриз</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 9: Цепь "Кубинское плетение" -->
+  <!-- ТОВАР: Цепь "Кубинское плетение" -->
   <url>
     <loc>https://luenchantee.ru/?product=kz1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Kz1.jpg</image:loc>
-      <image:title>Цепь Кубинское плетение</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Kz2.jpg</image:loc>
-      <image:title>Цепь Кубинское плетение</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Kz1.jpg</image:loc><image:title>Цепь Кубинское плетение</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Kz2.jpg</image:loc><image:title>Цепь Кубинское плетение</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 10: Жемчужное колье "Old Money" -->
+  <!-- ТОВАР: Жемчужное колье "Old Money" -->
   <url>
     <loc>https://luenchantee.ru/?product=ok1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/OK1.jpg</image:loc>
-      <image:title>Жемчужное колье Old Money</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/OK2.jpg</image:loc>
-      <image:title>Жемчужное колье Old Money</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/OK3.jpg</image:loc>
-      <image:title>Жемчужное колье Old Money</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/OK4.jpg</image:loc>
-      <image:title>Жемчужное колье Old Money</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/OK1.jpg</image:loc><image:title>Жемчужное колье Old Money</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/OK2.jpg</image:loc><image:title>Жемчужное колье Old Money</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/OK3.jpg</image:loc><image:title>Жемчужное колье Old Money</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/OK4.jpg</image:loc><image:title>Жемчужное колье Old Money</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 11: Кулон "Белый кварц" -->
+  <!-- ТОВАР: Кулон "Белый кварц" -->
   <url>
     <loc>https://luenchantee.ru/?product=ky1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Ky1.jpg</image:loc>
-      <image:title>Кулон Белый кварц</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Ky2.jpg</image:loc>
-      <image:title>Кулон Белый кварц</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Ky3.jpg</image:loc>
-      <image:title>Кулон Белый кварц</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Ky4.jpg</image:loc>
-      <image:title>Кулон Белый кварц</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/Ky5.jpg</image:loc>
-      <image:title>Кулон Белый кварц</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Ky1.jpg</image:loc><image:title>Кулон Белый кварц</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Ky2.jpg</image:loc><image:title>Кулон Белый кварц</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Ky3.jpg</image:loc><image:title>Кулон Белый кварц</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Ky4.jpg</image:loc><image:title>Кулон Белый кварц</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/Ky5.jpg</image:loc><image:title>Кулон Белый кварц</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 12: Браслет-пружина "Природная гармония" -->
+  <!-- ТОВАР: Браслет-пружина "Природная гармония" -->
   <url>
     <loc>https://luenchantee.ru/?product=b3</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/B1.jpg</image:loc>
-      <image:title>Браслет-пружина Природная гармония</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/B2.jpg</image:loc>
-      <image:title>Браслет-пружина Природная гармония</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/B3.jpg</image:loc>
-      <image:title>Браслет-пружина Природная гармония</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/B4.jpg</image:loc>
-      <image:title>Браслет-пружина Природная гармония</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/B1.jpg</image:loc><image:title>Браслет-пружина Природная гармония</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/B2.jpg</image:loc><image:title>Браслет-пружина Природная гармония</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/B3.jpg</image:loc><image:title>Браслет-пружина Природная гармония</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/B4.jpg</image:loc><image:title>Браслет-пружина Природная гармония</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 13: Ажурный нарукавник "Серебряный шик" -->
+  <!-- ТОВАР: Ажурный нарукавник "Серебряный шик" -->
   <url>
     <loc>https://luenchantee.ru/?product=d1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/D2.jpg</image:loc>
-      <image:title>Ажурный нарукавник Серебряный шик</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/D5.jpg</image:loc>
-      <image:title>Ажурный нарукавник Серебряный шик</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/D2.jpg</image:loc><image:title>Ажурный нарукавник Серебряный шик</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/D5.jpg</image:loc><image:title>Ажурный нарукавник Серебряный шик</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 14: Бусы "Майорка" -->
+  <!-- ТОВАР: Бусы "Майорка" -->
   <url>
     <loc>https://luenchantee.ru/?product=m1</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/M2.jpg</image:loc>
-      <image:title>Бусы Майорка</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/M1.jpg</image:loc>
-      <image:title>Бусы Майорка</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/M3.jpg</image:loc>
-      <image:title>Бусы Майорка</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/M2.jpg</image:loc><image:title>Бусы Майорка</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/M1.jpg</image:loc><image:title>Бусы Майорка</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/M3.jpg</image:loc><image:title>Бусы Майорка</image:title></image:image>
   </url>
 
-  <!-- ТОВАР 15: Ажурный нарукавник "Винтаж" -->
+  <!-- ТОВАР: Ажурный нарукавник "Винтаж" -->
   <url>
     <loc>https://luenchantee.ru/?product=d2</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/D1.jpg</image:loc>
-      <image:title>Ажурный нарукавник Винтаж</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://luenchantee.ru/images/D3.jpg</image:loc>
-      <image:title>Ажурный нарукавник Винтаж</image:title>
-    </image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/D1.jpg</image:loc><image:title>Ажурный нарукавник Винтаж</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/D3.jpg</image:loc><image:title>Ажурный нарукавник Винтаж</image:title></image:image>
+  </url>
+
+  <!-- ТОВАР: Брошь на магните «Жемчужный цветок» -->
+  <url>
+    <loc>https://luenchantee.ru/?product=a17</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://luenchantee.ru/images/A17.webp</image:loc><image:title>Брошь на магните Жемчужный цветок</image:title></image:image>
+  </url>
+
+  <!-- ТОВАР: Жемчужное колье-сотуар с подвеской барокко -->
+  <url>
+    <loc>https://luenchantee.ru/?product=b17</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://luenchantee.ru/images/B17.webp</image:loc><image:title>Жемчужное колье-сотуар с отстегивающейся подвеской барокко</image:title></image:image>
+  </url>
+
+  <!-- ТОВАР: Колье с матовым кулоном на цепочке-снейк -->
+  <url>
+    <loc>https://luenchantee.ru/?product=c17</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://luenchantee.ru/images/C17.webp</image:loc><image:title>Колье с фактурным матовым кулоном на цепочке-снейк</image:title></image:image>
+  </url>
+
+  <!-- ТОВАР: Коктейльное кольцо с крупной жемчужиной -->
+  <url>
+    <loc>https://luenchantee.ru/?product=e17</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://luenchantee.ru/images/E17.webp</image:loc><image:title>Коктейльное кольцо с крупной жемчужиной</image:title></image:image>
+  </url>
+
+  <!-- НОВЫЙ ТОВАР: Колье «Сердце с розой» -->
+  <url>
+    <loc>https://luenchantee.ru/?product=sr1</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://luenchantee.ru/images/aq1.webp</image:loc><image:title>Колье с подвеской Сердце с розой</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/aq2.webp</image:loc><image:title>Колье с подвеской Сердце с розой</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/aq3.webp</image:loc><image:title>Колье с подвеской Сердце с розой</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/aq4.webp</image:loc><image:title>Колье с подвеской Сердце с розой</image:title></image:image>
+  </url>
+
+  <!-- НОВЫЙ ТОВАР: Колье с натуральным аметистом -->
+  <url>
+    <loc>https://luenchantee.ru/?product=am1</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://luenchantee.ru/images/qw1.webp</image:loc><image:title>Колье с натуральным аметистом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/qw2.webp</image:loc><image:title>Колье с натуральным аметистом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/qw3.webp</image:loc><image:title>Колье с натуральным аметистом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/qw4.webp</image:loc><image:title>Колье с натуральным аметистом</image:title></image:image>
+    <image:image><image:loc>https://luenchantee.ru/images/qw5.webp</image:loc><image:title>Колье с натуральным аметистом</image:title></image:image>
   </url>
 
 </urlset>
